@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ('../partials/head') -%>
+    <script type="text/javascript" src="/src/js/loginUtilities.js"></script>
+    <link rel="stylesheet" type="text/css" href="/src/css/generalStyle.css">
+  </head>
+  <body>
+
+  <header>
+    <%if(user=='Usuari'){%>
+        <%- include ('../partials/header') -%>
+    <%} else {%>
+        <%- include ('../partials/loggedUserHeader') -%>
+    <%}%>
+  </header>
+
+  <main>
+    <%if(ok){%>
+      <div class="container text-center">
+        <div class="alert alert-success" role="alert">
+          <h4 class="alert-heading"><%= strings['verify_email']['registre_completat'][lang] %></h4>
+          <p><%= strings['verify_email']['missatge_verificacio'][lang] %></p>
+          <hr>
+          <p class="mb-0 text-right">-TecnoAgora</p>
+        </div>
+      </div>
+    <%} else {%>
+      <div class="container text-center">
+        <div class="alert alert-danger" role="alert">
+          <h4 class="alert-heading"><%= strings['errors']['error_general_simple'][lang] %></h4>
+          <p><%= strings['errors']['error_verificacio_mail'][lang] %></p>
+          <hr>
+          <p class="mb-0 text-right">-TecnoAgora</p>
+        </div>
+      </div>
+    <%}%>
+  </main>
+  <%- include ('../partials/footer') -%>
+  </body>
+</html>

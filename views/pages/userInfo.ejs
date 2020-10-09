@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/head') -%>
+    <link rel="stylesheet" type="text/css" href="/src/css/generalStyle.css">
+    <script type="text/javascript" src="/src/js/otherUserProfielutilities.js"></script>
+</head>
+<body>
+
+<header>
+  <%if(user=='Usuari'){%>
+      <%- include ('../partials/header') -%>
+  <%} else {%>
+      <%- include ('../partials/loggedUserHeader') -%>
+  <%}%>
+</header>
+
+<main>
+  <div class="container mb-5">
+    <div class="card shadow mb-3">
+      <div class="row no-gutters mx-1">
+        <div class="col-md-4">
+          <svg class="my-1" id="profilePicSVGCard"></svg>
+          <!--<img class="card-img my-1" src="/src/imgs/test_profile.jpg" alt="Card image cap">-->
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h3 id="usernameInfo" class="card-title mb-0"><%= profileInfo.username %></h3>
+            <p class="card-text mt-0"><small class="text-muted"><%= strings['perfil']['membre_desde'][lang] %>: <span id="memberDate">03/09/1996</span></small></p>
+            <p class="card-text"><%= profileInfo.desc %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="row">
+        <div class="col-4">
+          <div class="card shadow">
+            <div class="card-header"><%= strings['general']['awards&points'][lang] %></div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col"><%= strings['general']['punts_m'][lang] %>: <span id="points">13123</span></div>
+                <div class="col"><%= strings['general']['gastat'][lang] %>: <%= profileInfo.spentPoints %></div>
+              </div>
+              <hr>
+              <h6><%= strings['general']['awards_r'][lang] %></h6>
+              <hr>
+              <h6><%= strings['general']['awards_g'][lang] %></h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="card shadow">
+            <div class="card-header"><%= strings['perfil']['projectes_compartits'][lang] %></div>
+              <%if(addedProjects.length != 0){%>
+              <ul class="list-group list-group-flush" id="list-projectes">
+                <% for(var i=0; i<addedProjects.length; i++) {%>
+                  <li class="list-group-item">
+                    <div class="d-flex">
+                      <h6 class="mb-1"><a href="/projects/<%= addedProjects[i].id%>"><%= addedProjects[i].title%></a></h6>
+                    </div>
+                    <p class="mb-1"><%= addedProjects[i].descSmall%></p>
+                  </li>
+                <% } %>
+              </ul>
+              <% } else {%>
+                <div class="card-body text-center">
+                  <small><%= strings['perfil']['no_projectes_afegit_2'][lang] %></small>
+                </div>
+              <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<%- include ('../partials/footer') -%>
+</body>
+</html>

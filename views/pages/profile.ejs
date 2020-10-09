@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ('../partials/head') -%>
+  <script type="text/javascript" src="/src/js/profileUtilities.js"></script>
+  <link rel="stylesheet" type="text/css" href="/src/css/generalStyle.css">
+</head>
+<body>
+
+<header>
+  <%- include ('../partials/loggedUserHeader') -%>
+</header>
+
+<main>
+  <div class="container-fluid mb-5">
+    <div class="row">
+      <div class="col-3">
+        <div class="card card-style">
+          <svg class="card-img-top" id="profilePicSVGCard"></svg>
+          <!--<img class="card-img-top" src="/src/imgs/test_profile.jpg" alt="Card image cap">-->
+          <div class="card-body">
+            <h5 class="card-title text-center"><%= profile.username%></h5>
+            <p class="text-center"><%= strings['perfil']['membre_desde'][lang] %>: <span id="memberDate">03/03/1996</span></p>
+          </div>
+          <div class="card-footer text-right"><span id="points">3996</span> <%= strings['general']['punts'][lang] %></div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="tab-content" id="v-pills-tabContent">
+          <div class="tab-pane fade active show" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <h5><%= strings['menu']['perfil'][lang] %></h5>
+            <h6><%= strings['perfil']['activitat_recent'][lang] %></h6>
+            <div class="card" id="activity-card">
+              <%if(savedProj.length != 0){%>
+              <ul class="list-group" id="list-activity">
+              </ul>
+              <% } else {%>
+                <div id="emptyActivity" class="card-body text-center">
+                  <%= strings['perfil']['no_activitat'][lang] %>
+                </div>
+              <% } %>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+            <h5><%= strings['menu']['projectes_guardats'][lang] %></h5>
+            <div class="card mb-4">
+              <%if(savedProj.length != 0){%>
+              <div class="list-group" id="list-projectes">
+                <% for(var i=0; i<savedProj.length; i++) {%>
+                <a href="/projects/<%= savedProj[i]._id %>" class="list-group-item list-group-item-action">
+                  <div class="row">
+                    <div class="col-sm-10">
+                      <div class="d-flex">
+                        <h6 class="mb-1"><%= savedProj[i].title %></h6>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <small class="text-muted"><%= savedProj[i].date.getDate() %>/<%= savedProj[i].date.getMonth()+1%>/<%= savedProj[i].date.getFullYear() %></small>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <p class="mb-1"><small><%= savedProj[i].descSmall %></small></p>
+                    </div>
+                  </div>
+                </a>
+                <% } %>
+              </div>
+              <% } else {%>
+                <div id="emptySavedProj" class="card-body text-center">
+                  <%= strings['perfil']['no_projectes_guardast'][lang] %>
+                </div>
+              <% } %>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+            <h5><%= strings['perfil']['projectes_afegits'][lang] %></h5>
+            <div class="card  mb-4">
+              <%if(addedProj.length != 0){%>
+              <div class="list-group" id="list-projectes">
+                <% for(var i=0; i<addedProj.length; i++) {%>
+                <a href="/projects/<%= addedProj[i]._id %>" class="list-group-item list-group-item-action">
+                  <div class="row">
+                    <div class="col-sm-10">
+                      <div class="d-flex">
+                        <h6 class="mb-1"><%= addedProj[i].title %></h6>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <small class="text-muted"><%= addedProj[i].date.getDate() %>/<%= addedProj[i].date.getMonth()+1%>/<%= addedProj[i].date.getFullYear() %></small>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <p class="mb-1"><small><%= addedProj[i].descSmall %></small></p>
+                    </div>
+                  </div>
+                </a>
+                <% } %>
+              </div>
+              <% } else {%>
+                <div id="emptyAddedProj" class="card-body text-center">
+                  <%= strings['perfil']['no_projectes_afegit'][lang] %>
+                </div>
+              <% } %>
+            </div>
+          </div>
+          <div class="tab-pane fade show" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="public-tab" data-toggle="tab" href="#public" role="tab" aria-controls="public" aria-selected="true"><%= strings['perfil']['public'][lang] %></a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="email-tab" data-toggle="tab" href="#email" role="tab" aria-controls="email" aria-selected="false"><%= strings['menu']['correu'][lang] %></a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="password-tab" data-toggle="tab" href="#password" role="tab" aria-controls="password" aria-selected="false"><%= strings['menu']['contrasenya'][lang] %></a>
+              </li>
+            </ul>
+            <div class="tab-content mt-2" id="myTabContent">
+              <div class="tab-pane fade show active" id="public" role="tabpanel" aria-labelledby="public-tab">
+                <h5><%= strings['perfil']['dades_personals'][lang] %></h5>
+                <div id="alertInfo"></div>
+                <form method="POST" action="/updateProfile" id="updateProfile">
+
+                  <div class="row mb-2">
+                    <div class="col">
+                      <label for="profilePicSVG" class="svg-label"><%= strings['perfil']['foto_perfil'][lang] %></label>
+                      <svg id="profilePicSVG"></svg>
+                      </div>
+                    <div class="col">
+                      <div class="row">
+                        <label for="inputName" class="input-label"><%= strings['general']['nom'][lang] %></label>
+                        <input type="text" id="inputName" class="form-control" name="name" value="<%= profile.name%>">
+                      </div>
+                      <div class="row">
+                        <label for="inputSurname" class="input-label"><%= strings['general']['cognom'][lang] %></label>
+                        <input type="text" id="inputSurname" class="form-control" name="surname" value="<%= profile.surname%>">
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--<label for="profilePicSVG" class="svg-label"><%= strings['general']['nom'][lang] %></label>
+                  <svg id="profilePicSVG"></svg>
+                  <div class="row">
+                    <div class="col mb-2">
+                      <label for="inputName" class="input-label"><%= strings['general']['nom'][lang] %></label>
+                      <input type="text" id="inputName" class="form-control" name="name" value="<%= profile.name%>">
+                    </div>
+                    <div class="col mb-2">
+                      <label for="inputSurname" class="input-label"><%= strings['general']['cognom'][lang] %></label>
+                      <input type="text" id="inputSurname" class="form-control" name="surname" value="<%= profile.surname%>">
+                    </div>
+                  </div>-->
+                  <div class="mb-2">
+                    <label for="inputDesc" class="input-label"><%= strings['general']['biografia'][lang] %></label>
+                    <textarea id="inputDesc" rows="2" class="form-control" name="desc"><%= profile.desc%></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <button href="/updateProfile" class="btn btn-success float-right"><%= strings['perfil']['actualitzar_dades'][lang] %></button>
+                  </div>
+                </form>
+              </div>
+              <div class="tab-pane fade" id="email" role="tabpanel" aria-labelledby="email-tab">
+                <h5><%= strings['perfil']['modificar_mail'][lang] %></h5>
+                <div id="alertEmailInfo"></div>
+                <form method="POST" id="updateEmail" action="/updateEmail">
+                  <label for="currentEmail" class="input-label"><%= strings['perfil']['email_actual'][lang] %></label>
+                  <input type="text" class="form-control mb-2" id="currentEmail" value="<%= profile.email%>" disabled>
+                  <label for="newEmail" class="input-label"><%= strings['perfil']['email_nova'][lang] %></label>
+                  <input type="email" class="form-control mb-2" id="newEmail" name="newPass" maxlength="100" required>
+                  <label for="passwordEmail" class="input-label"><%= strings['menu']['contrasenya'][lang] %></label>
+                  <input type="password" class="form-control mb-2" id="passwordEmail" name="newPass" maxlength="128" required>
+                  <button type="submit" class="btn btn-secondary float-right"><%= strings['perfil']['actualitza_email'][lang] %></button>
+                </form>
+              </div>
+              <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+                <h5><%= strings['perfil']['modificar_pass'][lang] %></h5>
+                <div id="alertPassInfo"></div>
+                <form method="POST" id="updatePassword" action="/updatePassword">
+                  <div class="mb-2">
+                    <label for="inputDescBig" class="input-label"><%= strings['perfil']['actual_pass'][lang] %></label>
+                    <input type="password" class="form-control" id="actualPass" name="actualPass" maxlength="128" required>
+                  </div>
+                  <div class="mb-2">
+                    <label for="inputDescBig" class="input-label"><%= strings['perfil']['new_pass'][lang] %></label>
+                    <input type="password" class="form-control" id="newPass" name="newPass" maxlength="128" required>
+                  </div>
+                  <div class="mb-2">
+                    <label for="inputDescBig" class="input-label"><%= strings['perfil']['confirm_new_pass'][lang] %></label>
+                    <input type="password" class="form-control" id="newPassCheck" name="newPassCheck" maxlength="128" required>
+                  </div>
+                  <button type="submit" class="btn btn-secondary float-right"><%= strings['perfil']['actualitza_pass'][lang] %></button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><%= strings['menu']['perfil'][lang] %></a>
+          <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><%= strings['menu']['projectes_guardats'][lang] %></a>
+          <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><%= strings['perfil']['projectes_afegits'][lang] %></a>
+          <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"><%= strings['perfil']['dades_personals'][lang] %></a>
+        </div>
+        <div class="mt-5">
+          <div class="card">
+            <div class="card-header"><%= strings['perfil']['discover'][lang] %></div>
+              <div class="list-group list-group-flush" id="list-discover">
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<%- include ('../partials/footer') -%>
+</body>
+</html>

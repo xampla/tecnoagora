@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ('../partials/head') -%>
+  <script type="text/javascript" src="/src/js/loginUtilities.js"></script>
+  <link rel="stylesheet" type="text/css" href="/src/css/generalStyle.css">
+</head>
+<body>
+
+<header>
+  <%if(user=='Usuari'){%>
+      <%- include ('../partials/header') -%>
+  <%} else {%>
+      <%- include ('../partials/loggedUserHeader') -%>
+  <%}%>
+</header>
+
+<main>
+  <div class="jumbotron">
+    <div class="row justify-content-md-center">
+        <svg width="60" id="svgFaqs" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124.00446 87.51195"><defs></defs><path class="cls-1" d="M168.24886,115.38015,147.511,129.99878l27.75,40.25907c.63388-.158,1.26428-.33561,1.89336-.51926l-2.26445-53.32331Z" transform="translate(-117.28948 -91.91114)"/><path class="cls-2" d="M230.63456,125.10371l10.4596,1.63026a28.56294,28.56294,0,0,0-7.86007-16.11085L228.635,120.77606A20.14,20.14,0,0,1,230.63456,125.10371Z" transform="translate(-117.28948 -91.91114)"/><path class="cls-3" d="M241.09416,126.734l-10.4596-1.63026c2.07067,6.48473.42661,13.39587-4.84875,18.88729-1.61318,1.68731-3.22636,4.05156-1.72423,7.56884-3.09363-1.29425-6.23594-.98421-9.26209-.24143l-5.02309,11.08878a49.60011,49.60011,0,0,0,8.44057-2.2578,4.67628,4.67628,0,0,1,3.03075.21157c2.95661,1.29056,5.83387,2.76089,8.89632,4.32121l8.27225,4.152-2.40126-8.46788c-.9203-3.18944-1.77188-6.13542-2.45945-9.11852a2.79181,2.79181,0,0,1,.29092-1.78241C239.67311,142.31084,242.03255,134.33165,241.09416,126.734Z" transform="translate(-117.28948 -91.91114)"/><polygon class="cls-4" points="50.959 23.469 57.6 24.504 57.365 18.954 50.959 23.469"/><polygon class="cls-4" points="30.221 38.088 50.959 23.469 16.436 18.088 30.221 38.088"/><path class="cls-2" d="M168.24886,115.38015l6.40527-4.51519-.75628-17.81064a49.00546,49.00546,0,0,0-17.60091-.62979c-10.94214,1.59263-19.78774,5.58774-26.47586,11.91009l3.90452,5.66475Z" transform="translate(-117.28948 -91.91114)"/><path class="cls-1" d="M147.511,129.99878,133.7256,109.99937l-7.94933-1.239a45.18891,45.18891,0,0,0-5.95331,10.16009A42.28712,42.28712,0,0,0,118.05118,124.4c-.21688.78819-.42845,1.57617-.6664,2.35371l-.0953,9.59984.15338.7933c.53429,1.35407,1.01029,2.73983,1.4916,4.12559.482,1.387.9837,2.79137,1.52964,4.18286l3.04424,1.46338Z" transform="translate(-117.28948 -91.91114)"/><path class="cls-4" d="M120.4641,145.45529c.36648.93441.76242,1.85768,1.19629,2.766l1.84795-1.30263Z" transform="translate(-117.28948 -91.91114)"/><path class="cls-2" d="M121.66039,148.2213a27.3339,27.3339,0,0,0,1.59528,2.93657c1.85645,2.89843,2.18438,4.97176,1.21653,7.65341a27.55812,27.55812,0,0,0-.88328,3.221l-4.152,17.39078,9.25064-4.24718c4.83433-2.232,9.42529-4.34769,14.05858-6.34177a4.18146,4.18146,0,0,1,2.634-.08467,54.13873,54.13873,0,0,0,27.686,1.99132l-49.55777-23.82213Z" transform="translate(-117.28948 -91.91114)"/><path class="cls-1" d="M192.81152,98.06555c-.8884.13334-1.78323.28-2.69044.45207a3.86857,3.86857,0,0,1-2.16332-.156,52.1156,52.1156,0,0,0-14.05991-5.30726l.75628,17.81064Z" transform="translate(-117.28948 -91.91114)"/><path class="cls-4" d="M129.82108,104.33462a40.29463,40.29463,0,0,0-4.04481,4.42572l7.94933,1.239Z" transform="translate(-117.28948 -91.91114)"/><path class="cls-3" d="M174.88983,116.41528l32.09,5.00161a45.137,45.137,0,0,0-8.05231-14.19069,37.06911,37.06911,0,0,1,10.07052.7616c7.96549,1.69253,13.89988,5.16226,18.14706,10.6048a22.468,22.468,0,0,1,1.48986,2.18346l4.59914-10.15294a36.07739,36.07739,0,0,0-3.06889-2.93677c-10.319-8.67739-22.54271-11.84312-37.35368-9.6208L174.65413,110.865Z" transform="translate(-117.28948 -91.91114)"/><path class="cls-3" d="M147.511,129.99878l-24.00261,16.91989,49.55777,23.82213c.73409-.14766,1.46685-.30145,2.19481-.483Z" transform="translate(-117.28948 -91.91114)"/><path class="cls-4" d="M206.97982,121.41689l-32.09-5.00161.92531,21.78919,29.29668,9.04418Q211.15526,134.1051,206.97982,121.41689Z" transform="translate(-117.28948 -91.91114)"/><path class="cls-2" d="M210.93393,152.43248l-.7617.23806a32.90723,32.90723,0,0,1-8.69539,1.14771,51.8557,51.8557,0,0,0,3.635-6.5696l-29.29668-9.04418,1.33914,31.53412a53.69444,53.69444,0,0,0,14.12515-6.52675,4.19766,4.19766,0,0,1,2.38541-.5078,53.64941,53.64941,0,0,0,16.11156-.29685l5.02309-11.08878C213.48479,151.641,212.18983,152.03686,210.93393,152.43248Z" transform="translate(-117.28948 -91.91114)"/>
+        </svg>
+        <h1>TecnoAgora - FAQS</h1>
+    </div>
+    <div class="container">
+      <br>
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="faq_heading_1">
+            <h2 class="mb-0">
+              <button class="btn btn-block text-left font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faq1" aria-expanded="false" aria-controls="faq1">
+                1.- Qué es TecnoAgora?
+              </button>
+            </h2>
+          </div>
+          <div id="faq1" class="collapse" aria-labelledby="faq_heading_1" data-parent="#accordionExample">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="faq_heading_2">
+            <h2 class="mb-0">
+              <button class="btn btn-block text-left font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faq2" aria-expanded="false" aria-controls="collapseTwo">
+                2.- Quin objectiu té?
+              </button>
+            </h2>
+          </div>
+          <div id="faq2" class="collapse" aria-labelledby="faq_heading_2" data-parent="#accordionExample">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="faq_heading_3">
+            <h2 class="mb-0">
+              <button class="btn btn-block text-left font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faq3" aria-expanded="false" aria-controls="collapseThree">
+                3.- Qui hi ha radera?
+              </button>
+            </h2>
+          </div>
+          <div id="faq3" class="collapse" aria-labelledby="faq_heading_3" data-parent="#accordionExample">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="faq_heading_4">
+            <h2 class="mb-0">
+              <button class="btn btn-block text-left font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faq4" aria-expanded="false" aria-controls="collapseTwo">
+                4.- Quin objectiu té?
+              </button>
+            </h2>
+          </div>
+          <div id="faq4" class="collapse" aria-labelledby="faq_heading_4" data-parent="#accordionExample">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="faq_heading_5">
+            <h2 class="mb-0">
+              <button class="btn btn-block text-left font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faq5" aria-expanded="false" aria-controls="collapseThree">
+                5.- Qui hi ha radera?
+              </button>
+            </h2>
+          </div>
+          <div id="faq5" class="collapse" aria-labelledby="faq_heading_5" data-parent="#accordionExample">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="faq_heading_6">
+            <h2 class="mb-0">
+              <button class="btn btn-block text-left font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faq6" aria-expanded="false" aria-controls="collapseTwo">
+                6.- Com puc aportar?
+              </button>
+            </h2>
+          </div>
+          <div id="faq6" class="collapse" aria-labelledby="faq_heading_6" data-parent="#accordionExample">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="faq_heading_7">
+            <h2 class="mb-0">
+              <button class="btn btn-block text-left font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faq7" aria-expanded="false" aria-controls="collapseThree">
+                7.- Un cop m'he registrat, em puc canviar el nom d'usuari?
+              </button>
+            </h2>
+          </div>
+          <div id="faq7" class="collapse" aria-labelledby="faq_heading_7" data-parent="#accordionExample">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="faq_heading_8">
+            <h2 class="mb-0">
+              <button class="btn btn-block text-left font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faq8" aria-expanded="false" aria-controls="collapseTwo">
+                8.- Com comparteixo un projecte?
+              </button>
+            </h2>
+          </div>
+          <div id="faq8" class="collapse" aria-labelledby="faq_heading_8" data-parent="#accordionExample">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="faq_heading_9">
+            <h2 class="mb-0">
+              <button class="btn btn-block text-left font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faq9" aria-expanded="false" aria-controls="collapseThree">
+                9.- Què vol dir Open Source?
+              </button>
+            </h2>
+          </div>
+          <div id="faq9" class="collapse" aria-labelledby="faq_heading_9" data-parent="#accordionExample">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="faq_heading_10">
+            <h2 class="mb-0">
+              <button class="btn btn-block text-left font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faq10" aria-expanded="false" aria-controls="collapseTwo">
+                10.- Com sé si el projecte que vull compartir encaixa en la filosofia del portal?
+              </button>
+            </h2>
+          </div>
+          <div id="faq10" class="collapse" aria-labelledby="faq_heading_10" data-parent="#accordionExample">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="faq_heading_11">
+            <h2 class="mb-0">
+              <button class="btn btn-block text-left font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faq11" aria-expanded="false" aria-controls="collapseThree">
+                11.- Es poden compartir projectes oberts i de carácter social encara que no siguin del tot tecnológics?
+              </button>
+            </h2>
+          </div>
+          <div id="faq11" class="collapse" aria-labelledby="faq_heading_11" data-parent="#accordionExample">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="faq_heading_12">
+            <h2 class="mb-0">
+              <button class="btn btn-block text-left font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faq12" aria-expanded="false" aria-controls="collapseTwo">
+                12.- Per a què serveixen els punts?
+              </button>
+            </h2>
+          </div>
+          <div id="faq12" class="collapse" aria-labelledby="faq_heading_12" data-parent="#accordionExample">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="faq_heading_13">
+            <h2 class="mb-0">
+              <button class="btn btn-block text-left font-weight-bold collapsed" type="button" data-toggle="collapse" data-target="#faq13" aria-expanded="false" aria-controls="collapseThree">
+                13.- Tinc més dubtes, com em poso en contacte?
+              </button>
+            </h2>
+          </div>
+          <div id="faq13" class="collapse" aria-labelledby="faq_heading_13" data-parent="#accordionExample">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div>
+</main>
+<%- include ('../partials/footer') -%>
+</body>
+</html>

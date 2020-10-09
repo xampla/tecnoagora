@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ('../partials/head') -%>
+  <link rel="stylesheet" type="text/css" href="/src/css/generalStyle.css">
+  <script type="text/javascript" src="/src/js/loginUtilities.js"></script>
+</head>
+<body>
+
+<header>
+  <%if(user=='Usuari'){%>
+      <%- include ('../partials/header') -%>
+  <%} else {%>
+      <%- include ('../partials/loggedUserHeader') -%>
+  <%}%>
+</header>
+
+<main>
+  <div class="container mb-5">
+    <h2>Política de privacidad</h2>
+    <h3>Qué información recopila TecnoAgora</h3>
+    <p>La "Información personal del usuario" es cualquier información sobre uno de nuestros usuarios que podría, sola o junto con otra información, identificarlos personalmente o estar razonablemente vinculada o conectada con ellos. Información como el nombre de usuario y la contraseña, una dirección de correo electrónico, un nombre real, una dirección de protocolo de Internet (IP) y una fotografía son ejemplos de "Información personal del usuario".</p>
+    <p>La Información Personal del Usuario no incluye información agregada, no identificable personalmente, que no identifique a un Usuario o que no pueda ser razonablemente vinculada o conectada con él. Podemos utilizar dicha información agregada, que no es de identificación personal, para fines de investigación y para operar, analizar, mejorar y optimizar nuestro sitio web y nuestro servicio.</p>
+
+    <h4>Información que el usuario da a TecnoAgora</h4>
+    En el proceso de registro se pide un nombre, un correo electrónico válido, una contraseña y otras características opcionales el nombre de usuario de un red social, una biografia o un link a una página web.
+
+    <h3>Qué información no recopila TecnoAgora</h3>
+    <p>No recogemos intencionadamente "Información Personal Sensible", como los datos personales que revelan el origen racial o étnico, las opiniones políticas, las creencias religiosas o filosóficas, o la afiliación sindical, y el procesamiento de datos genéticos, los datos biométricos con el fin de identificar de forma exclusiva a una persona física, los datos relativos a la salud o los datos relativos a la vida sexual u orientación sexual de una persona física. Si decide almacenar cualquier información personal sensible en nuestros servidores, es responsable de cumplir con cualquier control reglamentario relativo a esos datos.</p>
+    <p>No recopilamos intencionadamente Información personal del usuario que se almacene en sus depósitos o en otras entradas de contenido de forma libre. Cualquier información personal dentro de los proyectos de un usuario es responsabilidad del propietario del mismo.</p>
+
+    <h3>Cómo TecnoAgora usa tus datos</h3>
+    Podemos usar tus datos para uno de estos propósitos:
+    <ul>
+      <li>Utilizamos su información de registro para crear su cuenta y para proporcionarle el Servicio.</li>
+      <li>Utilizamos tu Información Personal de Usuario, específicamente tu nombre de usuario, para identificarte en GitHub.</li>
+      <li>Utilizamos su Información de Perfil para rellenar su perfil de Cuenta y para compartir ese perfil con otros usuarios si usted nos lo pide.</li>
+      <li>Utilizamos tu dirección de correo electrónico para comunicarnos contigo únicamente.</li>
+      <li>Utilizamos la Información personal del usuario para responder a las solicitudes de asistencia.</li>
+      <li>Podemos utilizar su Información personal de usuario si es necesario por motivos de seguridad o para investigar posibles fraudes o intentos de perjudicar a TecnoAgora o a nuestros usuarios.</li>
+    </ul>
+    <h3>Otra información importante</h3>
+    <p>Todos los proyectos y comentarios compartidos por los usuarios son públicos y los autores de dichas acciones son responsables de la información que comparten.</p>
+
+    <h3>Contacto</h3>
+    <p>Los usuarios <strong>podrán ejercer sus derechos</strong> mediante contacto con la dirección de correo electrónico <a href="mailto:tecnoagoraorg@gmail.com">tecnoagoraorg@gmail.com</a>, poniéndose en contacto con el equipo de administración de la página.</p>
+  </div>
+</main>
+<%- include ('../partials/footer') -%>
+</body>
+</html>

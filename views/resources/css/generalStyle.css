@@ -1,0 +1,90 @@
+.search-but-style {
+  background-color: #e9ecef;
+  border-color: #ced4da;
+}
+
+.card-style {
+  width: 18rem;
+}
+
+.container-join-style {
+  width: 50rem;
+  margin: 0% auto;
+}
+
+#footer-style {
+    background-color: #d6d6d6 !important;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.login-style {
+  width: 360px;
+  margin: 7% auto;
+}
+
+#resetForm {
+  width: 30rem;
+  margin: 3% auto;
+}
+
+#recoverForm {
+  width: 30rem;
+  margin: 3% auto;
+}
+
+#profilePicSVG {
+  height: auto;
+  width: 100%;
+  padding-top: 0;
+  display: block;
+}
+
+#joinForm {
+  border: solid 1px #a4a4a4;
+  border-radius: 1%;
+  padding: 3rem
+}
+
+.hiperlinkUsername {
+  color: inherit;
+}
+
+#mainbck {
+  display: block;
+  z-index: 100;
+  margin: auto;
+}
+
+#particles-js {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: #e9ecef;
+  position: absolute;
+}
+
+.particles-js-canvas-el {
+  position: absolute;
+}
+
+
+#homeContainer {
+  height: 100%;
+  min-height: 100vh;
+}
+
+
+.cls-1{fill:#4a91f2;}
+.cls-2{fill:#2136ce;}
+.cls-3{fill:#4bc9ef;}
+.cls-4{fill:#4b76ef;}
+.cls-5{fill:#75b1f9;}
+.cls-6{fill:url(#linear-gradient);}
+.cls-7{fill:url(#linear-gradient-2);}
+.cls-8{fill:url(#linear-gradient-3);}
+.cls-9{fill:url(#linear-gradient-4);}
+.cls-10{fill:url(#linear-gradient-5);}
+.cls-11{fill:#3569a8;}

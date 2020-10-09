@@ -1,0 +1,219 @@
+{
+  "menu":{
+    "inici":["Inici","Inicio","Home"],
+    "explora":["Explora","Explora","Explore"],
+    "perfil":["Perfil","Perfil","Profile"],
+    "afegir":["Afegir Projecte","Añadir Proyecto","Add Project"],
+    "cerca":["Cerca","Busca","Search"],
+    "projectes_guardats":["Projectes guardats","Proyectos guardados","Saved projects"],
+    "mes_info":["Més informació","Más información","More information"],
+    "correu":["Correu","Correo","Email"],
+    "contrasenya":["Contrasenya","Contraseña","Password"],
+    "recordam":["Recorda'm","Recuerdame","Remember me"],
+    "ets_nou_uneixte":["Ets nou? Uneix-te","Eres nuevo? Únete","New? Join up"],
+    "oblidat_pass":["Has oblidat la contrasenya?","¿Olvidaste tu contraseña?","Did you forget the password?"],
+    "tanca_sessio":["Tancar sessió","Cerrar sesión","Log out"]
+  },
+  "contacte":{
+    "formulari":["Formulari de contacte","Formulario de contacto","Contact form"],
+    "consulta":["En què et podem ajudar?","¿Con qué te podemos ayudar?","How can we help?"],
+    "consulta_enviada_correctament":["Consulta enviada correctament","Consulta enviada correctamente","Form sent correctly"],
+    "breus_resposta":["En breus rebrás una resposta al correu electrónic que has introduït.","En breves recibiras una respuesta al correo electrónico que has especificado.","Shortly you will receive an answer in the email you have specified."]
+  },
+  "afegir":{
+    "compartir_projecte":["Compartir projecte","Compartir proyecto","Share project"],
+    "nom_projecte":["Nom projecte","Nombre proyecto","Porject's name"],
+    "enllaç_git":["Enllaç al repositori Git","Enlace al repositorio Git","Link to Git's repository"],
+    "descripcio_curta":["Descripció curta","Descripción corta","Brief description"],
+    "descripcio_llarga":["Descripció gran","Descripción grande","Long drescription"],
+    "enllaç_web":["Enllaç a la pàgina web (Opcional)","Enlace a la página web (Opcional)","Webpage's link (Optional)"],
+    "tags":["Introdueix etiquetes separades per coma (mínim 5 - màxim 12)","Introduce etiquetas separadas por coma (mínimo 5 - máximo 12)","Enter comma-separated tags (min 5 - max 12)"],
+    "afegir_proj":["Afegir!","Añadir!","Add!"],
+    "previsualitza":["Pre-visuatitza!","Previsualiza!","Preview!"],
+    "previsualitzacio":["Previsualització","Previsualización","Preview"],
+    "envia":["Envia","Envía","Send"],
+    "actualitza":["Actualitza","Actualiza","Update"],
+    "projecte_afegit":["Projecte afegit correctament, gràcies!","Proyecto añadido correctamente, gracias!","Project added successfully, thank you!"],
+    "explicacio_descSmall":[
+      "Aquesta descripció serà visible en els panells de recomenacions de projectes.",
+      "Esta descripción será visible en los paneles de recomendaciones de proyectos.",
+      "This description will be used in the project recommendation panels"],
+    "explicacio_descBig":["Aquí hi hauries de especificar el nom, els objectius, l'estat actual i tot alló que creguis necessari sobre el projecte. Recorda que pots utilitzar la notació Markdown!",
+      "Aquí deberías especificar el nombre, objetivos, estado actual y todo aquello que creas necesario sobre el proyecto. ¡Recueda que puedes utilitzar la notación Markdown!",
+      "Here you should specify the name, objectives, current status and anything else you think is necessary about the project. Remember that you can use the Markdown notation!"],
+    "explicacio_tags":[
+      "Aquestes etiquetes serviran per que altres usuaris puguin trobar aquest projecte a través del cercador.",
+      "Estas etiquetes servirán para que otros usuarios puedan encontrar este proyecto a través del buscador.",
+      "These tags will help other users to find this project through the search engine."]
+  },
+  "general":{
+    "nom":["Nom","Nombre","Name"],
+    "cognom":["Cognom/s","Apellido/s","Surname"],
+    "correu":["Correu electrònic","Correo electrónico","Email address"],
+    "nom_usuari":["Nom d'usuari","Nombre de usuario","Username"],
+    "biografia":["Biografia","Biografía","Biography"],
+    "convidat":["Convidat","Invitado","Guest"],
+    "projectes":["Projectes","Proyectos","Projects"],
+    "next":["Següent","Siguiente","Next"],
+    "anterior":["Anterior","Anterior","Previous"],
+    "uneixte":["Uneix-te","Unirse","Join"],
+    "entra":["Entrar","Entrar","Log in"],
+    "punts":["punts","puntos","points"],
+    "punts_m":["Punts","Puntos","Points"],
+    "gastat":["Gastat","Gastado","Spent"],
+    "awards_r":["Premis rebuts","Premios recibidos","Awards received"],
+    "awards_g":["Premis donats","Premios dados","Awards given"],
+    "awards&points":["Punts i premis","Puntos y premios","Points and awards"],
+    "porfa_inicia_session":["","","Please log in"],
+    "close":["Tanca","Cerrar","Close"],
+    "eliminar":["Eliminar","Eliminar","Delete"],
+    "cancel":["Cancel·la","Cancela","Cancel"],
+    "unirse":["Unir-se","Unirse!","Join!"],
+    "unirse_tecno":["Unir-se a TecnoAgora","Unirse a TecnoAgora","Join TecnoAgora"],
+    "dades_actualitzades":["Dades actualitzades correctament!","Datos actualizados correctamente!","Data successfully updated!"],
+    "lang":["CAT","ES","EN"],
+    "login_correcte":["Benvingut de nou!","Bienvenido de nuevo!","Welcome again!"],
+    "join_correcte":[
+      "Gràcies per haver-te registrat a TecnoAgora. En breus rebras un correu amb un enllaç per activar el teu compte. Si us plau, revisa el correu brossa. Aquest enllaç caduca en 1 dia.",
+      "Gracias por haberte registrado en TecnoAgora. En breves recibiras un correo con un enlace para activar tu cuenta. Por favor, revisa el correo basura. Este enlace caduca dentro de 1 día.",
+      "Thank you for registering at TecnoAgora. You will soon receive an email with a link to activate your account. Please, check your junk mail. This link will expire within 1 day."],
+    "pass_min_length":["(Mínim 8 caracters)","(Mínimo 8 caracteres)","(Minimum 8 characters)"]
+  },
+  "explora":{
+    "no_iniciat_sessio":["No has iniciat sessió!","¡No has iniciado sesión","You are not logged in!"],
+    "encara_no_membre":["Encara no ets membre?","Aún no eres miembro?"],
+    "projectes_tendencia":["Projectes tendència","Proyectos tendencia","Trending projects"],
+    "saber_mes":["Saber-ne més","Saber más","Learn more"]
+  },
+  "footer":{
+    "footer_descripcio":[
+      "Portal web per compartir i trobar projectes Open Source de caràcter social, que tinguin com a objectiu millorar el món en el que vivim.",
+      "Portal web para compartir y encontrar proyectos Open Source de carácter social, que tengan como objetivo mejorar el mundo en el que vivimos",
+      "Web portal to share and find Open Source projects of a social nature, which aim to improve the world in which we live"
+    ],
+    "enllaç_rapid":["Enllaços ràpids","Enlaces rápidos","Shortcuts"],
+    "informacio":["Informació","Información","Information"],
+    "faqs":["Preguntes freqüents","Preguntas frecuentes","FAQS"],
+    "contacte":["Contacte","Contacto","Contact"]
+  },
+  "perfil":{
+    "activitat_recent":["Activitat recent","Actividad reciente","Recent activity"],
+    "no_activitat":["Encara no s'ha registrat cap activitat al teu usuari.","Aún no se ha registrado ninguna actividad a tu usuario","Currently, there is no activity asociated to your user"],
+    "discover":["Descobreix projectes","Descubre proyectos","Discover projects"],
+    "membre_desde":["Membre desde","Miembro des de","Member since"],
+    "projectes_afegits":["Projectes afegits","Proyectos añadidos","Added projects"],
+    "dades_personals":["Dades personals","Datos personales","Personal data"],
+    "no_projectes_guardast":["Encara no has guardat cap projecte.","Aún no has guardado ningun proyecto","You has not saved any project yet."],
+    "no_projectes_afegit":["Encara has compartit cap projecte.","Aún no has compartido ningún proyecto.","You have not shared any project yet."],
+    "no_projectes_afegit_2":["Aquest usuari encara no ha compartit cap projecte.","Este usuario aún no ha compartido ningún proyecto.","This user have not shared any project yet."],
+    "actualitzar_dades":["Actualitzar dades","Actualizar datos","Update info"],
+    "modificar_mail":["Modificar correu","Modificar correo","Change email"],
+    "modificar_pass":["Modificar contrasenya","Modificar contraseña","Change password"],
+    "actual_pass":["Contrasenya actual","Contraseña actual","Current pass"],
+    "new_pass":["Contrasenya nova","Contraseña nueva","New password"],
+    "confirm_new_pass":["Confirma la contrasenya","Confirma la contraseña","Confirm the new password"],
+    "actualitza_pass":["Actualitzar contasenya","Actualizar contraseña","Update passowrd"],
+    "public":["Públic","Público","Public"],
+    "descripcio":["Descripció","Descripción","Description"],
+    "enllaç":["Enllaç xarxes socials","Enlace redes sociales","Social media link"],
+    "projectes_compartits":["Projectes compartits","Proyectos compartidos","Shared projects"],
+    "email_modificat":["En breus rebràs un correu a la nova adreça especificada per validar i efectuar el canvi.","En breves recibirás un correo a la nueva dirección especificada para validar y efectuar el cambio.","You will shortly receive an email to the new address specified to validate and make the change."],
+    "email_actual":["Adreça de correu actual","Dirección de correo actual","Current email address"],
+    "email_nova":["Nova adreça","Dirección nueva","New email address"],
+    "actualitza_email":["Actualizar correu","Actualizar correo","Update email"],
+    "foto_perfil":["Foto de perfil","Foto de perfil","Profile picture"]
+  },
+  "verify_email":{
+    "registre_completat":["Registre completat!","¡Registro completado!","Registration completed!"],
+    "missatge_verificacio":[
+      "Gràcies per registrar-te a TecnoAgora. Ja pots començar a compartir i descobrir nous projectes que realment tindran impacte a la societat",
+      "Gracias por registrarte a TecnoAgora. Ya puedes empezar a compartir y descubrir nuevos proyectos que realmente tendran impacto en la sociedad",
+      "Thank you for you registration in TecnoAgora. Now you can start sharing and exploring new projects that will have impact in society"
+    ]
+  },
+  "update_email":{
+    "canvi_realitzat":["Canvi realizat","Cambio realizado","Update done"],
+    "missatge_canvi":[
+      "Canvi d'adreça de correu realizat! D'ara en endavant utilitza aquest correu per identificar-te a la plataforma.",
+      "Cambio de la dirreción de correo realizada! De ahora en adelante utiliza este correo para identificarte en la plataforma.",
+      "Email address update done! From now on use this email to identify yourself on the platform."]
+  },
+  "reset_pass":{
+    "reset_pass":["Restablir la contrasenya","Restablecer la contraseña","Reset password"],
+    "estableix_pass":["Estableix la contrasenya","Establece la contraseñaa","Set password"],
+    "repeteix_pass":["Repeteix la contrasenya","Repite la contraseña","Repeat the password"],
+    "reset_pass_msg":[
+      "T'hem enviat un correu que conté l'enllaç per reiniciar la teva contrasenya. Per seguretat, aquest enllaç caduca d'aquí 1 hora! Comprova el correu brossa.",
+      "Te hemos enviado un correo que contiene el enlace para reiniciar tu contraseña. Por seguridad, este enlace caduca dentro de 1 hora! Comprueba el correu basura.",
+      "We have sent you an email containing a link to reset your password. For security reasons, this link expires in 1 hour. Check your spam folder."
+    ],
+    "reset_correct":["La teva contrasenya ha sigut restablerta correctament.","Tu contraseña ha sido restablecida correctamente","You have successfully reset you password"],
+    "modifica_correct":["La teva contrasenya ha sigut modificada correctament.","Tu contraseña ha sido modificada correctamente.","You have successfully changed your password."],
+    "indica_correu":["Indica el correu amb el qual et vas registrar:","Indica el correo con el que te registraste:","Specify the email you used during your registration:"]
+  },
+  "infoProj":{
+    "compartit_per":["Compartit per","Compartido por","Shared by"],
+    "comentaris":["Comentaris","Comentarios","Comments"],
+    "afegeix_comentari":["Afegeix un comentari","Añade un comentario","Add a comment"],
+    "sense_comentaris":["Aquest projecte encara no té cap comentari afegit.","Este proyecto aún no tiene ningún comentario.","This project has no comments yet."],
+    "eliminar_proj":["Eliminar projecte compartit","Eliminar proyecto compartido","Delete shared project"],
+    "eliminar_proj_msg":[
+      "Estàs apunt d'eliminar un projecte que has compartit. Si ho fas, aquest projecte ja no es podrà consultar i ningú el trobará cercant per la plataforma. Estàs segur/a?",
+      "Estás apunto de eliminar un proyecto que has compartido. Si lo haces, este proyecto ya no se podrá consultar y nadie lo encontrará buscando por la plataforma. Estás seguro/a?",
+      "You're about to eliminate a project you've shared. If you do, this project will no longer be available for consultation and no one will find it by searching it through the platform. Are you sure?"]
+  },
+  "cerca":{
+    "trobats":["Projectes trobats","Proyectos encontrados","Projects found"],
+    "ordenat":["Ordenat per","Ordenado por","Sorted by"],
+    "millor_res":["Millor resultat","Mejor resultado","Best result"],
+    "millor_val":["Més valorat","Más valorado","Most rated"],
+    "menys_val":["Menys valorat","Menos valorado","Least rated"],
+    "recent_act":["Actualitzat recentment","Actualizado recientemente","Recently updated"],
+    "menys_act":["Menys actualitzat","Menos actualizado","Least updated"],
+    "cerca_no_trobat":["No s'ha trobat cap projecte que coincideixi amb els termes cercats.","No se ha encontrado ningún proyecto que coincida con los términos buscados.","No project have been found that matches the searched terms."]
+  },
+  "activitat":{
+    "proj_afegit":["Has compratit el següent projecte a la plataforma:","Has compartido el siguiente proyecto en la plataforma:","You have shared the following project:"],
+    "proj_valorat":["El teu projecte ha sigut valorat:","Tu proyecto ha sido valorado:","You project has been rated:"],
+    "proj_guardat":["Algú ha guardat el teu projecte i ara el segueix:","Alguien ha guardado tu proyecto y ahora lo sigue:","Someone has saved your project and now is following it:"],
+    "proj_comentat":["El teu projecte té un nou comentari:","Tu proyecto tiene un nuevo comentario:","You project has a new comment:"],
+    "proj_eliminat":["Has eliminat un projecte que havies compartit:","Has eliminado un proyecto que habías compartido:",""],
+    "no_disponible":["Dades no disponibles","Datos no disponibles","Data not available"]
+  },
+  "emailService":{
+    "welcomeVerifyEmailSubject":["[TECNOAGORA] Verificació adreça electrònica","[TECNOAGORA] Verificación dirección email","[TECNOAGORA] Email address verification"],
+    "welcomeAlreadyRegisteredSubject":["[TECNOAGORA] Correu ja registrat","[TECNOAGORA] Correo ya registrado","[TECNOAGORA] Account already created"],
+    "changeEmailSubject":["[TECNOAGORA] Verificació adreça electrònica","[TECNOAGORA] Verificación dirección email","[TECNOAGORA] Email address verification"],
+    "recoverPasswordSubject":["[TECNOAGORA] Recuperació de contrasenya","[TECNOAGORA] Recuperación de contraseña","[TECNOAGORA] Password reset"],
+    "welcomeVerifyEmailBody":["","",""],
+    "welcomeAlreadyRegisteredBody":["","",""],
+    "changeEmailBody":["","",""],
+    "recoverPasswordBody":["","",""]
+  },
+  "errors":{
+    "error_general":["Alguna cosa no ha funcionat bé, torna-ho a intentar més tard","Alguna cosa no ha funcionado bien, vuélvelo a probar más tarde","Something has gone wrong, try again later"],
+    "error_dades":["Alguna de les dades no ha sigut informada correctament.","Alguno de los datos no ha sido informado correctamente.","Some values have not been set correctly."],
+    "error_login":["El correu o la contrasenya especificada són incorrectes","El correo o la contraseña especificada son incorrectas","The specified email or pass are incorrect"],
+    "error_general_simple":["Hi ha hagut algun error!","¡Ha habido algún error!","There has been an error!"],
+    "error_verificacio_mail":["Segurament hagis trigat més del compte en validar el teu correu electrónic.","Seguramente hayas tardado más de la cuenta en validar tu correo electrónico.","Maybe the email validation token has expired."],
+    "error_mail":["El correu electrònic especificat no té un format vàlid.","El correo electrónico especificado no tiene un formato válido.","The specified email does not have a valid format."],
+    "error_pass":["La contrasenya especificada no té un format vàlid.","La contraseña especificada no tiene un formato válido.","The specified password does not have a valid format."],
+    "error_same_pass":["Les contrasenyes especificades no coincideixen.", "Las contraseñas especificadas no coinciden.","The specified passwords do not match."],
+    "error_correct_pass":["La contrasenya actual no és correcte.","La contraseña actual no es correcta.","The current password is incorrect."],
+    "error_credencials_incorrectes":["Credencials incorrectes.","Credenciales incorrectas.","Incorrect credentials"],
+    "error_format_afegir_projecte":[
+      "Alguna de les dades del projecte no està ben informada. Revisa que tots els camps estiguin omplerts correctament.",
+      "Alguno de los datos del proyecto no está bien informada. Revisa que todos los campos estén rellenados correctamente",
+      "Some data of the project have not been correctly informed. Recheck that all the fields are filled in correctly"],
+    "error_tags_insuficients":["No hi han etiquetes suficients.","No hay etiquetas suficientes.","There is not enough tags."],
+    "error_tags_excedits":["Número d'etiquetes excedides.","Número de etiquetas excedidas.","Number of tags exceeded."],
+    "error_username_registrat":["Aquest nom d'usuari ja ha estat registrat.","Este nombre de usuario ya ha estado registrado.","This username has already been registered."],
+    "error_canvi_mail":["Segurament hagis trigat més del compte en verificar la nova adreça electrónica.","Seguramente hayas tardado más de la cuenta en verificar la nueva dirección electrónica.","Maybe the email validation token has expired."],
+    "error_email_actualitzat_iguals":["Si us plau, especifica una adreça diferent al actual.","Por favor, especifica una dirección de correo diferente a la actual.","Please, specify a different email address from the current one."],
+    "error_pass_incorrecta":["La contrasenya no és correcta","La contraseña no es correcta","Incorrect password"],
+    "error_email_usat":[
+      "L'addreça electrónica indicada ja està en ús. Si no recorda la contrasenya, feu clic al botó 'Has oblidat la contrasenya', que hi ha al formulari d'accés a la plataforma, per recuperar-la!",
+      "La dirección electrónica especificada ya está en uso. Si no recuerda la contraseña, haz clic en el botón '¿Olvidaste tu contraseña?', que hay en el formulario de acceso a la plataforma, para recuperarla!",
+      "The specified e-mail address is already in use. If you don't remember your password, click on the 'Did you forget the password?' button, located in the log in form, to retrieve it!"]
+  }
+}

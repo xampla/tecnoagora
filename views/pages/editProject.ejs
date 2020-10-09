@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <%- include ('../partials/head') -%>
+      <script type="text/javascript" src="/src/js/addProject.js"></script>
+      <link rel="stylesheet" type="text/css" href="/src/css/generalStyle.css">
+  </head>
+  <body>
+
+    <header>
+        <%- include ('../partials/loggedUserHeader') -%>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="card mb-3">
+          <div class="card-header">
+            <%= strings['afegir']['compartir_projecte'][lang] %>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <form action="/updateProject/<%= data._id%>" method="POST">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col">
+                        <label for="inputTittle" class="col col-form-label"><%= strings['afegir']['nom_projecte'][lang] %></label>
+                        <div class="col">
+                          <input type="Text" class="form-control" id="inputTittle" name="title" value="<%= data.title%>" required>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <label for="inputLink" class="col col-form-label"><%= strings['afegir']['enllaç_git'][lang] %></label>
+                        <div class="col">
+                          <input type="url" class="form-control" id="inputLink" name="link" value="<%= data.link%>" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="mb-2">
+                      <label for="inputDescSmall" class="col col-form-label d-inline"><%= strings['afegir']['descripcio_curta'][lang] %></label>
+                      <div class="d-inline myPop" data-container="body" data-toggle="popover" data-placement="right" data-content="Aquesta descripció serà visible en els panells de recomenacions de projectes.">
+                        <svg class="bi bi-info-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                          <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                          <circle cx="8" cy="4.5" r="1"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <textarea type="text" rows="3" class="form-control" id="inputDescSmall" name="descSmall" required>
+                        <%= data.descSmall%>
+                      </textarea>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="mb-2">
+                      <label for="inputDescBig" class="col col-form-label d-inline"><%= strings['afegir']['descripcio_llarga'][lang] %></label>
+                      <div class="d-inline myPop" data-container="body" data-toggle="popover" data-placement="right" data-content="Aquí hi hauries de especificar el nom, els objectius, l'estat actual i tot alló que creguis necessari sobre el projecte. Recorda que pots utilitzar la notació Markdown!">
+                        <svg class="bi bi-info-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                          <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                          <circle cx="8" cy="4.5" r="1"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <textarea id="inputDescBig" rows="10" class="form-control" name="descBig" required>
+                        <%= data.descBig%>
+                      </textarea>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputLink" class="col col-form-label"><%= strings['afegir']['enllaç_web'][lang] %></label>
+                    <div class="col">
+                      <input type="url" class="form-control" id="inputLink" name="linkWeb" value="<%= data.linkWeb%>">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="mb-2">
+                      <label for="inputLink" class="col col-form-label d-inline"><%= strings['afegir']['tags'][lang] %></label>
+                      <div class="d-inline myPop" data-container="body" data-toggle="popover" data-placement="right" data-content="Aquestes etiquetes serviran perque altres usuaris puguin trobar el projecte a través del cercador.">
+                        <svg class="bi bi-info-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                          <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                          <circle cx="8" cy="4.5" r="1"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" id="inputLink" name="tags" value="<%= data.tags%>" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-auto mr-auto">
+                        <button type="submit" class="btn btn-success"><%= strings['afegir']['actualitza'][lang] %></button>
+                      </div>
+                      <div class="col-auto">
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#previModal">
+                          <%= strings['afegir']['previsualitza'][lang] %>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="previModal" tabindex="-1" role="dialog" aria-labelledby="previModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="previModalLabel"><%= strings['afegir']['previsualitzacio'][lang] %></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="card">
+                <div class="card-header" id="preTitle"></div>
+                <div class="card-body" id="preBody"></div>
+                <div class="card-footer" id="preFooter"></div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include ('../partials/footer') -%>
+  </body>
+</html>

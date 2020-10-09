@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ('../partials/head') -%>
+  <link rel="stylesheet" type="text/css" href="/src/css/generalStyle.css">
+  <script type="text/javascript" src="/src/js/loginUtilities.js"></script>
+</head>
+<body>
+
+<header>
+  <%if(user=='Usuari'){%>
+      <%- include ('../partials/header') -%>
+  <%} else {%>
+      <%- include ('../partials/loggedUserHeader') -%>
+  <%}%>
+</header>
+
+<main>
+  <div class="container mb-5">
+    <h2>Términos y condiciones de uso de TecnoAgora</h2>
+    <h3>Responsabilidad del usuario</h3>
+    <p>Los usuarios son responsables de toda la actividad que se produzca des de su cuenta. Además son responsables de mantener esta de forma segura. Cualquier comentario o proyecto irrespetuoso podrá ser borrado por TecnoAgora.</p>
+
+    <h3>Contacto</h3>
+    <p>Los usuarios <strong>podrán ejercer sus derechos</strong> mediante contacto con la dirección de correo electrónico <a href="mailto:tecnoagoraorg@gmail.com">tecnoagoraorg@gmail.com</a>, poniéndose en contacto con el equipo de administración de la página.</p>
+
+  </div>
+</main>
+<%- include ('../partials/footer') -%>
+</body>
+</html>

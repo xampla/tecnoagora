@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ('../partials/head') -%>
+  <link rel="stylesheet" type="text/css" href="/src/css/generalStyle.css">
+  <script type="text/javascript" src="/src/js/loginUtilities.js"></script>
+</head>
+<body>
+
+<header>
+  <%if(user=='Usuari'){%>
+      <%- include ('../partials/header') -%>
+  <%} else {%>
+      <%- include ('../partials/loggedUserHeader') -%>
+  <%}%>
+</header>
+
+<main>
+  <div class="jumbotron text-center mb-5">
+    <div class="my-5">
+      <br>
+      <h1>Ooooooooooooooops....!</h1>
+      <p><%= strings['errors']['error_general'][lang] %></p>
+      <br>
+    </div>
+  </div>
+</main>
+<%- include ('../partials/footer') -%>
+</body>
+</html>
