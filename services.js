@@ -34,19 +34,19 @@ exports.sendMail = function(email, type, data, callback) {
 
   if(type=="welcomeVerifyEmail") {
     subject = "[TECNOAGORA] Email address verification";
-    emailBody = "<p> Hi,</p> <p> Last step to fully register to TecnoAgora: </p> <p>http://localhost:3000/verifyEmail/" + data + "</p>";
+    emailBody = "<p> Hi,</p> <p> Last step to fully register to TecnoAgora: </p> <p>http://tecnoagora.com/verifyEmail/" + data + "</p>";
   } else if(type=="welcomeAlreadyRegistered") {
     subject = "[TECNOAGORA] Account already created";
     emailBody = "<p> Hi,</p> <p> Someone has tried to sign up with you email. If it was you, we wanted to let you know you already have an account and you can reset your password in case you forgot it. If it wasn't you, you do not have to do anything.</p>";
   } else if(type=="changeEmail") {
     subject = "[TECNOAGORA] Email address verification";
-    emailBody = "<p> Hi,</p> <p> Last step to fully register to TecnoAgora: </p> <p>http://localhost:3000/verifyUpdateEmail/" + data;
+    emailBody = "<p> Hi,</p> <p> Last step to fully register to TecnoAgora: </p> <p>http://tecnoagora.com/verifyUpdateEmail/" + data;
   } else if(type=="recoverPassword") {
     subject = "[TECNOAGORA] Password reset";
-    emailBody = "<p> Hi,</p> <p> Here you have the link to reset your password:</p> <p>http://localhost:3000/recoverPassword/" + data + "</p>";
+    emailBody = "<p> Hi,</p> <p> Here you have the link to reset your password:</p> <p>http://tecnoagora.com/recoverPassword/" + data + "</p>";
   } else if(type=="contactForm") {
     subject = "[CONSULTA] Nova Consulta Web";
-    emailBody = "<p> Name:"+data['name']+" "+data['surname']+"</p> <p> Email: " +data['email']+" </p> <p> Colsult:" +data['desc']+ "</p>";
+    emailBody = "<p> Name:"+data['name']+" "+data['surname']+"</p> <p> Email: " +data['email']+" </p> <p> Consult:" +data['desc']+ "</p>";
   }
   else {
     callback(false);

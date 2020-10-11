@@ -38,7 +38,7 @@ app.use(helmet.contentSecurityPolicy({
     styleSrc: ["'self'", 'stackpath.bootstrapcdn.com'],
     scriptSrc: ["'self'", 'ajax.googleapis.com','stackpath.bootstrapcdn.com','cdn.jsdelivr.net'],
   }
-}))
+}));
 
 app.set('view engine', 'ejs');
 

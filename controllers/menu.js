@@ -85,9 +85,9 @@ exports.changeLang = function(req, res) {
     return res.status('200').redirect(req.get('referer'));
   }
 
-  if(lang == 'cat') res.cookie('lang', 'cat', { maxAge:999999999, secure:true, httpOnly:true, Domain:'localhost', Path:'/', SameSite:'Lax' });
-  else if(lang == 'es') res.cookie('lang', 'es', { maxAge:999999999, secure:true, httpOnly:true, Domain:'localhost', Path:'/', SameSite:'Lax' });
-  else if(lang == 'en') res.cookie('lang', 'en', { maxAge:999999999, secure:true, httpOnly:true, Domain:'localhost', Path:'/', SameSite:'Lax' });
+  if(lang == 'cat') res.cookie('lang', 'cat', { maxAge:999999999, secure:true, httpOnly:true, Domain:'tecnoagora.com', Path:'/', SameSite:'Lax' });
+  else if(lang == 'es') res.cookie('lang', 'es', { maxAge:999999999, secure:true, httpOnly:true, Domain:'tecnoagora.com', Path:'/', SameSite:'Lax' });
+  else if(lang == 'en') res.cookie('lang', 'en', { maxAge:999999999, secure:true, httpOnly:true, Domain:'tecnoagora.com', Path:'/', SameSite:'Lax' });
   res.status('200').redirect(req.get('referer'));
 }
 
