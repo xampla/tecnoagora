@@ -37,6 +37,7 @@ app.use(helmet.contentSecurityPolicy({
     defaultSrc: ["'self'"],
     styleSrc: ["'self'", 'stackpath.bootstrapcdn.com'],
     scriptSrc: ["'self'", 'ajax.googleapis.com','stackpath.bootstrapcdn.com','cdn.jsdelivr.net'],
+    imgSrc: ["*"],
   }
 }));
 

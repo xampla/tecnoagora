@@ -8,10 +8,10 @@ var service = require('../services');
 var fs = require('fs');
 var strings = JSON.parse(fs.readFileSync(__dirname + '/../views/resources/lang/strings.json', 'utf8'));
 var md = require('markdown-it')({
-  html: true,
+  html: false,
   linkify: true,
   typographer: true
-});
+}).use(require('markdown-it-imsize'), { autofill: true });;
 md.renderer.rules.table_open = function(tokens, idx) {
       return '<table class="table table-striped">';
 };
@@ -424,9 +424,10 @@ exports.previewContent = function(req, res) {
 
   var errorSanitize = validationResult(req);
   if(!errorSanitize.isEmpty()) {
-    console.log(errorSanitize);
     return res.status(200).json({ok: false});
   }
+
+  console.log(content);
 
   var pre = md.render(content);
   res.status(200).json({ok: true, preview:pre, user:user, msg: strings["infoProj"]["compartit_per"][req.lang]});
@@ -438,7 +439,6 @@ exports.getEditProject = function(req, res) {
 
   var errorSanitize = validationResult(req);
   if(!errorSanitize.isEmpty()) {
-    console.log(errorSanitize);
     return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
   }
 

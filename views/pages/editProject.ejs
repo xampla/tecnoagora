@@ -27,13 +27,13 @@
                       <div class="col">
                         <label for="inputTittle" class="col col-form-label"><%= strings['afegir']['nom_projecte'][lang] %></label>
                         <div class="col">
-                          <input type="Text" class="form-control" id="inputTittle" name="title" value="<%= data.title%>" required>
+                          <input type="Text" class="form-control" id="inputTittle" name="title" value="<%- data.title%>" required>
                         </div>
                       </div>
                       <div class="col">
                         <label for="inputLink" class="col col-form-label"><%= strings['afegir']['enllaç_git'][lang] %></label>
                         <div class="col">
-                          <input type="url" class="form-control" id="inputLink" name="link" value="<%= data.link%>" required>
+                          <input type="url" class="form-control" id="inputLink" name="link" value="<%- data.link%>" required>
                         </div>
                       </div>
                     </div>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="col">
                       <textarea type="text" rows="3" class="form-control" id="inputDescSmall" name="descSmall" required>
-                        <%= data.descSmall%>
+                        <%- data.descSmall%>
                       </textarea>
                     </div>
                   </div>
@@ -68,14 +68,14 @@
                     </div>
                     <div class="col">
                       <textarea id="inputDescBig" rows="10" class="form-control" name="descBig" required>
-                        <%= data.descBig%>
+                        <%- data.descBig%>
                       </textarea>
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputLink" class="col col-form-label"><%= strings['afegir']['enllaç_web'][lang] %></label>
                     <div class="col">
-                      <input type="url" class="form-control" id="inputLink" name="linkWeb" value="<%= data.linkWeb%>">
+                      <input type="url" class="form-control" id="inputLink" name="linkWeb" value="<%- data.linkWeb%>">
                     </div>
                   </div>
                   <div class="form-group">
