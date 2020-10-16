@@ -23,7 +23,7 @@ exports.ensureAuthenticated = function(req, res, next) {
       req.user = payload.sub;
     }
     else {
-      return res.cookie('Token', req.cookies.Token, { maxAge:0 }).render(vPath + "pages/login", {user: "Usuari", active: "",strings:strings,lang:req.lang});
+      return res.cookie('Token', req.cookies.Token, { maxAge:0, secure:true, httpOnly:true, domain:'tecnoagora.com', path:'/', sameSite: 'lax' }).render(vPath + "pages/login", {user: "Usuari", active: "",strings:strings,lang:req.lang});
     }
     next();
   });
@@ -39,7 +39,7 @@ exports.ensureNotAuthenticated = function(req, res, next) {
         return res.redirect('/');
       }
       else {
-        res.cookie('Token', req.cookies.Token, { maxAge:0 });
+        res.cookie('Token', req.cookies.Token, { maxAge:0, secure:true, httpOnly:true, domain:'tecnoagora.com', path:'/', sameSite: 'lax' });
         next();
       }
     });
@@ -56,11 +56,11 @@ exports.secCheck = function(req, res, next) {
     User.exists({username:user}, function(err, result) {
       if(result) {
         if(payload.exp <= moment().unix()) {
-          return res.cookie('Token', req.cookies.Token, { maxAge:0 }).render(vPath + "pages/home", {user: "Usuari", active: "home",strings:strings,lang:req.lang});
+          return res.cookie('Token', req.cookies.Token, { maxAge:0, secure:true, httpOnly:true, domain:'tecnoagora.com', path:'/', sameSite: 'lax' }).render(vPath + "pages/home", {user: "Usuari", active: "home",strings:strings,lang:req.lang});
         }
       }
       else {
-        return res.cookie('Token', req.cookies.Token, { maxAge:0 }).render(vPath + "pages/home", {user: "Usuari", active: "home",strings:strings,lang:req.lang});
+        return res.cookie('Token', req.cookies.Token, { maxAge:0, secure:true, httpOnly:true, domain:'tecnoagora.com', path:'/', sameSite: 'lax' }).render(vPath + "pages/home", {user: "Usuari", active: "home",strings:strings,lang:req.lang});
       }
       next();
     });
