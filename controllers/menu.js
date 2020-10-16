@@ -31,7 +31,7 @@ exports.join = function(req, res) {
 };
 
 exports.logout = function(req, res) {
-  res.cookie('Token', req.cookies.Token, { maxAge:0 });
+  res.cookie('Token', req.cookies.Token, { maxAge:-1 });
   res.redirect('/');
 };
 
