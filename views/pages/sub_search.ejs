@@ -7,7 +7,7 @@
     <%}%>
   </div>
   <p id="term" hidden><%= term %></p>
-  <div class="col-auto">
+  <div class="col-auto mb-2">
     <button class="btn btn-secondary dropdown-toggle py-0" type="button" id="sortButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <%= strings['cerca']['ordenat'][lang] %>: <%= strings['cerca'][sortBy][lang] %>
     </button>
@@ -32,10 +32,10 @@
       <div class="card mb-4 shadow-sm">
         <div class="card-header">
           <div class="row">
-            <div class="col-9">
-              <h5><a href="/projects/<%= data[i].id%>"><%= data[i].title%></a></h5>
+            <div class="col-8 col-sm-9 col-md-10 col-lg-9">
+              <h5><a href="/projects/<%= data[i].id%>"><%- data[i].title%></a></h5>
             </div>
-            <div class="col-3">
+            <div class="col-4 col-sm-3 col-md-2 col-lg-3">
                 <div class="col-auto">
                   <%if(rated.includes(data[i]._id)){%>
                   <form method="POST" class="rateForm" id="rateForm_<%= data[i]._id%>" action="/unrateProj/<%= data[i]._id%>">

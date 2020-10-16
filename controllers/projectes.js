@@ -356,6 +356,7 @@ exports.sortSearchedProjects = function(req, res) {
   var searchType = req.query.searchType;
   var searchedTerm = req.query.searchedTerm;
   var pages = {actual:'', prev:'',next:'',total:''};
+  var user = service.getUserFromToken(req.cookies.Token);
 
   var errorSanitize = validationResult(req);
   if(!errorSanitize.isEmpty()) {
@@ -376,7 +377,13 @@ exports.sortSearchedProjects = function(req, res) {
           for (i = 0; i < projects.length; i++) {
             projects[i].descBig = md.render(projects[i].descBig);
           }
-          res.status(200).render(vPath + "pages/sub_search", {data: projects, page: pages,sortBy:"millor_val",term:searchedTerm,strings:strings,lang:req.lang});
+          if(user!="Usuari") {
+            User.findOne({username: user}, function(err_user, usr) {
+              if(err_user) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
+              res.status(200).render(vPath + "pages/sub_search", {data: projects, rated: usr.ratedProj,page: pages,sortBy:"millor_val",term:searchedTerm,strings:strings,lang:req.lang});
+            });
+          }
+          else res.status(200).render(vPath + "pages/sub_search", {data: projects, rated:"", page: pages,sortBy:"millor_val",term:searchedTerm,strings:strings,lang:req.lang});
         });
         break;
       case "leastRated":
@@ -385,7 +392,13 @@ exports.sortSearchedProjects = function(req, res) {
           for (i = 0; i < projects.length; i++) {
             projects[i].descBig = md.render(projects[i].descBig);
           }
-          res.status(200).render(vPath + "pages/sub_search", {data: projects, page: pages,sortBy:"menys_val",term:searchedTerm,strings:strings,lang:req.lang});
+          if(user!="Usuari") {
+            User.findOne({username: user}, function(err_user, usr) {
+              if(err_user) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
+              res.status(200).render(vPath + "pages/sub_search", {data: projects, rated:usr.ratedProj, page: pages,sortBy:"menys_val",term:searchedTerm,strings:strings,lang:req.lang});
+            });
+          }
+          else res.status(200).render(vPath + "pages/sub_search", {data: projects, rated:"", page: pages,sortBy:"menys_val",term:searchedTerm,strings:strings,lang:req.lang});
         });
         break;
       case "recentlyUpdated":
@@ -394,7 +407,13 @@ exports.sortSearchedProjects = function(req, res) {
           for (i = 0; i < projects.length; i++) {
             projects[i].descBig = md.render(projects[i].descBig);
           }
-          res.status(200).render(vPath + "pages/sub_search", {data: projects, page: pages,sortBy:"recent_act",term:searchedTerm,strings:strings,lang:req.lang});
+          if(user!="Usuari") {
+            User.findOne({username: user}, function(err_user, usr) {
+              if(err_user) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
+              res.status(200).render(vPath + "pages/sub_search", {data: projects, rated:usr.ratedProj, page: pages,sortBy:"recent_act",term:searchedTerm,strings:strings,lang:req.lang});
+            });
+          }
+          else res.status(200).render(vPath + "pages/sub_search", {data: projects, rated:"", page: pages,sortBy:"recent_act",term:searchedTerm,strings:strings,lang:req.lang});
         });
         break;
       case "leastRecentlyUpdated":
@@ -403,7 +422,13 @@ exports.sortSearchedProjects = function(req, res) {
           for (i = 0; i < projects.length; i++) {
             projects[i].descBig = md.render(projects[i].descBig);
           }
-          res.status(200).render(vPath + "pages/sub_search", {data: projects, page: pages,sortBy:"menys_act",term:searchedTerm,strings:strings,lang:req.lang});
+          if(user!="Usuari") {
+            User.findOne({username: user}, function(err_user, usr) {
+              if(err_user) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
+              res.status(200).render(vPath + "pages/sub_search", {data: projects, rated:usr.ratedProj, page: pages,sortBy:"menys_act",term:searchedTerm,strings:strings,lang:req.lang});
+            });
+          }
+          else res.status(200).render(vPath + "pages/sub_search", {data: projects, rated:"", page: pages,sortBy:"menys_act",term:searchedTerm,strings:strings,lang:req.lang});
         });
         break;
       default:
@@ -412,7 +437,13 @@ exports.sortSearchedProjects = function(req, res) {
           for (i = 0; i < projects.length; i++) {
             projects[i].descBig = md.render(projects[i].descBig);
           }
-          res.status(200).render(vPath + "pages/sub_search", {data: projects, page: pages,sortBy:"millor_res",term:searchedTerm,strings:strings,lang:req.lang});
+          if(user!="Usuari") {
+            User.findOne({username: user}, function(err_user, usr) {
+              if(err_user) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
+              res.status(200).render(vPath + "pages/sub_search", {data: projects, rated:usr.ratedProj, page: pages,sortBy:"millor_res",term:searchedTerm,strings:strings,lang:req.lang});
+            });
+          }
+          else res.status(200).render(vPath + "pages/sub_search", {data: projects, rated:"", page: pages,sortBy:"millor_res",term:searchedTerm,strings:strings,lang:req.lang});
         });
     }
   });

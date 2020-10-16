@@ -12,7 +12,8 @@
     "recordam":["Recorda'm","Recuerdame","Remember me"],
     "ets_nou_uneixte":["Ets nou? Uneix-te","Eres nuevo? Únete","New? Join up"],
     "oblidat_pass":["Has oblidat la contrasenya?","¿Olvidaste tu contraseña?","Did you forget the password?"],
-    "tanca_sessio":["Tancar sessió","Cerrar sesión","Log out"]
+    "tanca_sessio":["Tancar sessió","Cerrar sesión","Log out"],
+    "iniciar_sessio":["Iniciar sessió","Iniciar sesión","Log in"]
   },
   "contacte":{
     "formulari":["Formulari de contacte","Formulario de contacto","Contact form"],
@@ -64,7 +65,7 @@
     "awards_r":["Premis rebuts","Premios recibidos","Awards received"],
     "awards_g":["Premis donats","Premios dados","Awards given"],
     "awards&points":["Punts i premis","Puntos y premios","Points and awards"],
-    "porfa_inicia_session":["","","Please log in"],
+    "porfa_inicia_session":["Si us plau, inicia sessió","Por favor, inicia sesión","Please, log in"],
     "close":["Tanca","Cerrar","Close"],
     "eliminar":["Eliminar","Eliminar","Delete"],
     "cancel":["Cancel·la","Cancela","Cancel"],
@@ -80,7 +81,7 @@
     "pass_min_length":["(Mínim 8 caracters)","(Mínimo 8 caracteres)","(Minimum 8 characters)"]
   },
   "explora":{
-    "no_iniciat_sessio":["No has iniciat sessió!","¡No has iniciado sesión","You are not logged in!"],
+    "no_iniciat_sessio":["No has iniciat sessió!","¡No has iniciado sesión!","You are not logged in!"],
     "encara_no_membre":["Encara no ets membre?","Aún no eres miembro?"],
     "projectes_tendencia":["Projectes tendència","Proyectos tendencia","Trending projects"],
     "saber_mes":["Saber-ne més","Saber más","Learn more"]
