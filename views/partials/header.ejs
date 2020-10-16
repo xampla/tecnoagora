@@ -92,10 +92,11 @@
         <%= strings['general']['lang'][lang] %>
       </button>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownLangButton">
-        <a class="dropdown-item <%= lang == '0' ? 'active' : '' %>" href="/changeLang?lang=cat">CAT</a>
-        <a class="dropdown-item <%= lang == '1' ? 'active' : '' %>" href="/changeLang?lang=es">ES</a>
-        <a class="dropdown-item <%= lang == '2' ? 'active' : '' %>" href="/changeLang?lang=en">EN</a>
+        <a id="cat" class="dropdown-item <%= lang == '0' ? 'active' : '' %>" href="/changeLang">CAT</a>
+        <a id="es" class="dropdown-item <%= lang == '1' ? 'active' : '' %>" href="/changeLang">ES</a>
+        <a id="en" class="dropdown-item <%= lang == '2' ? 'active' : '' %>" href="/changeLang">EN</a>
       </div>
     </div>
   </nav>
 </nav>
+<script type="text/javascript" src="/src/js/headerUtilities.js"></script>

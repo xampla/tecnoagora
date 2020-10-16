@@ -89,7 +89,7 @@ $( document ).ready(function() {
             </button> \
           </div>');
         window.setTimeout(function(){
-          location.reload(); 
+          location.reload();
         }, 1500);
       }
       else {
