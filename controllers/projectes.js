@@ -11,12 +11,30 @@ var md = require('markdown-it')({
   html: false,
   linkify: true,
   typographer: true
-}).use(require('markdown-it-imsize'), { autofill: true });;
+});
+
+var defaultRender = md.renderer.rules.image || function(tokens, idx, options, env, self) {
+  return self.renderToken(tokens, idx, options);
+};
+
 md.renderer.rules.table_open = function(tokens, idx) {
-      return '<table class="table table-striped">';
+  return '<table class="table table-striped">';
 };
 md.renderer.rules.blockquote_open = function(tokens, idx) {
-      return '<blockquote class="blockquote">';
+  return '<blockquote class="blockquote">';
+};
+md.renderer.rules.image = function (tokens, idx, options, env, self) {
+  // If you are sure other plugins can't add `target` - drop check below
+  var aIndex = tokens[idx].attrIndex('class');
+
+  if (aIndex < 0) {
+    tokens[idx].attrPush(['class', 'img-fluid w-100']); // add new attribute
+  } else {
+    tokens[idx].attrs[aIndex][1] = 'img-fluid w-100';    // replace value of existing attr
+  }
+
+  // pass token to default renderer.
+  return defaultRender(tokens, idx, options, env, self);
 };
 
 const { validationResult } = require('express-validator');
