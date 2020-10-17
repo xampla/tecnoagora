@@ -11,7 +11,7 @@ var md = require('markdown-it')({
   html: false,
   linkify: true,
   typographer: true
-});
+}).use(require('markdown-it-imsize'));
 
 var defaultRender = md.renderer.rules.image || function(tokens, idx, options, env, self) {
   return self.renderToken(tokens, idx, options);
@@ -28,9 +28,9 @@ md.renderer.rules.image = function (tokens, idx, options, env, self) {
   var aIndex = tokens[idx].attrIndex('class');
 
   if (aIndex < 0) {
-    tokens[idx].attrPush(['class', 'img-fluid w-100']); // add new attribute
+    tokens[idx].attrPush(['class', 'img-fluid']); // add new attribute
   } else {
-    tokens[idx].attrs[aIndex][1] = 'img-fluid w-100';    // replace value of existing attr
+    tokens[idx].attrs[aIndex][1] = 'img-fluid';    // replace value of existing attr
   }
 
   // pass token to default renderer.
