@@ -150,7 +150,7 @@ exports.getUserPoints = function(req, res) {
       console.log(proj);
       if(Object.keys(proj).length!==0) {
         var total = proj[0]['sumProjAdded']+proj[0]['sumProjSaved'];
-        res.status(200).json({ok: true, points:total});
+        res.status(200).json({ok: true, points:total, msg:strings['general']['punts'][req.lang]});
       } else {
         res.status(200).json({ok: true, points:0});
       }

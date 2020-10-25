@@ -104,6 +104,11 @@ $(document).ready(function() {
     });
   });
 
+  var pointsGet = $.get("/getUserPoints");
+  pointsGet.done(function( data ) {
+    $('#awardPuntsActuals').text(data['points'] + " " + data['msg']);
+  });
+
   $('#gitButton').on('click', function(event) {
     var value = $( this ).attr( "value" );
     window.open(value);
