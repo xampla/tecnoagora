@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ('../partials/head') -%>
+  <script type="text/javascript" src="/src/js/shopUtilities.js"></script>
+  <script type="text/javascript" src="/src/js/loginUtilities.js"></script>
+  <link rel="stylesheet" type="text/css" href="/src/css/generalStyle.css">
+</head>
+<body>
+
+<header>
+  <%if(user=='Usuari'){%>
+      <%- include ('../partials/header') -%>
+  <%} else {%>
+      <%- include ('../partials/loggedUserHeader') -%>
+  <%}%>
+</header>
+
+<main>
+  <div class="container my-5">
+    <div class="text-center my-4">
+      <h2><%= strings['botiga']['titol'][lang] %></h2>
+    </div>
+    <div class="row"></div>
+    <div class="row my-5">
+      <div class="col-lg order-lg-first my-3">
+        <div class="card shadow cardShop-style-soon">
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted"><%= strings['botiga']['soon'][lang] %></h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg order-first">
+        <div class="card shadow cardShop-style">
+          <div class="card-body">
+            <h5 class="card-title"><%= strings['botiga']['canvi_foto_titol'][lang] %></h5>
+            <h6 class="card-subtitle mb-2 text-muted text-right">100 <%= strings['general']['punts'][lang] %></h6>
+            <p class="card-text"><%= strings['botiga']['canvi_foto_desc'][lang] %></p>
+            <%if(user=='Usuari'){%>
+              <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#modalLoginBotiga"><%= strings['botiga']['comprar'][lang] %></button>
+            <%} else {%>
+              <button id="buttonChangeProfilePic" class="btn btn-primary btn-lg btn-block"><%= strings['botiga']['comprar'][lang] %></button>
+            <%}%>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg my-3">
+        <div class="card shadow cardShop-style-soon">
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted"><%= strings['botiga']['soon'][lang] %></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row"></div>
+  </div>
+
+  <div class="modal fade" id="modalBotiga" tabindex="-1" aria-labelledby="modalBotiga" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalBotigaLabel"><%= strings['general']['resum_punts'][lang] %></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="alertModalBotiga"></div>
+        <div class="modal-body" id="modalBotigaBody">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= strings['general']['cancel'][lang] %></button>
+          <button id="acceptModalButton" type="button" class="btn btn-primary"><%= strings['general']['acceptar'][lang] %></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalLoginBotiga" tabindex="-1" aria-labelledby="modalLoginBotiga" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="logForm_3" class="px-4 py-3" method="Post" action="/login">
+          <div id="alertLogInfo_3"></div>
+          <div class="form-group">
+            <label for="exampleDropdownFormEmail1"><%= strings['menu']['correu'][lang] %></label>
+            <input id="inputEmailLog_3" type="email" class="form-control" placeholder="email@example.com" name="email" maxlength="100" required>
+          </div>
+          <div class="form-group">
+            <label for="exampleDropdownFormPassword1"><%= strings['menu']['contrasenya'][lang] %></label>
+            <input type="password" class="form-control" id="inputPassLog_3" placeholder="Password" name="pass" maxlength="128" required>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="inputRemLog_3" name="remember">
+                  <label class="form-check-label" for="dropdownCheck">
+                    <%= strings['menu']['recordam'][lang] %>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col text-right">
+              <a href="/unirse"><%= strings['menu']['ets_nou_uneixte'][lang] %></a>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary"><%= strings['general']['entra'][lang] %></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+<%- include ('../partials/footer') -%>
+</body>
+</html>
