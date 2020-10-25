@@ -106,6 +106,11 @@ exports.termsAndConditions = function(req, res) {
   res.render(vPath + "pages/termsAndConditions", {user: user, active: "home",strings:strings,lang:req.lang});
 }
 
+exports.shop = function(req, res) {
+  var user = service.getUserFromToken(req.cookies.Token);
+  res.render(vPath + "pages/shop", {user: user, active: "shop",strings:strings,lang:req.lang});
+}
+
 exports.error = function(req, res) {
   var user = service.getUserFromToken(req.cookies.Token);
   res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});

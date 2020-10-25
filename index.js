@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var methodOverride = require("method-override");
 var projectModel = require('./models/projectSchema');
 var userModel = require('./models/userSchema');
+var awardModel = require('./models/awardSchema');
 var activityModel = require('./models/activitySchema');
 var commentModel = require('./models/commentSchema');
 var contactModel = require('./models/contactSchema');
@@ -16,6 +17,7 @@ var ProjectCtrl = require('./controllers/projectes');
 var Auth = require('./controllers/auth');
 var Menu = require('./controllers/menu');
 var Profile = require('./controllers/profile');
+var Shop = require('./controllers/shop');
 var vPath = __dirname + '/views/'
 var middlAuth = require('./middleware/middleAuth');
 var middlGeneral = require('./middleware/middleGeneral');
@@ -51,6 +53,7 @@ projects.get('/afegirEntrada',middlAuth.ensureAuthenticated, Menu.addEntry);
 projects.get('/unirse',middlAuth.ensureNotAuthenticated, Menu.join);
 projects.get('/logout', Menu.logout);
 projects.get('/faqs', Menu.faqs);
+projects.get('/shop', Menu.shop);
 projects.get('/cookiePolicy', Menu.cookiePolicy);
 projects.get('/privacyPolicy', Menu.privacyPolicy);
 projects.get('/termsAndConditions', Menu.termsAndConditions);
@@ -64,6 +67,13 @@ projects.post('/sendContact',[
 ], Menu.sendContact);
 projects.get('/changeLang',[query('lang').not().isEmpty().trim().isIn(['cat','es','en'])], Menu.changeLang);
 
+projects.get('/changeProfilePic',Shop.changeProfilePicGet);
+projects.post('/changeProfilePic',middlAuth.ensureAuthenticated,Shop.changeProfilePicPost);
+projects.post('/giveAward',[
+  middlAuth.ensureAuthenticated,
+  body('award').isIn(['silver','golden','diamond']),
+  body('proj').not().isEmpty().trim().isMongoId()
+],Shop.giveAward);
 
 projects.get('/explora', ProjectCtrl.findAllProjects);
 projects.get('/projects', ProjectCtrl.findAllProjects);
@@ -115,7 +125,7 @@ projects.post('/unirse', [
   body('username').not().isEmpty().trim().isLength({max: 39}).escape(),
   body('pass').not().isEmpty().trim().isLength({min:8,max: 128}).escape(),
   body('email').not().isEmpty().trim().isEmail().normalizeEmail().isLength({max: 100}),
-  body('socialLink').trim().isLength({max: 100}).escape(),
+  //body('socialLink').trim().isLength({max: 100}).escape(),
   body('description').not().isEmpty().isLength({max: 160}).trim().escape()
 ], Auth.emailSignup);
 projects.post('/login', [

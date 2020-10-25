@@ -9,7 +9,6 @@ $( document ).ready(function() {
 
     var login = $.post(url, {email: email, pass:password, remember:remember});
     login.done(function( data ) {
-      console.log(data);
       var msg = data['msg'];
       if(data['ok']) {
         $('#alertLogInfo').html(

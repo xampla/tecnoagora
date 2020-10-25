@@ -3,6 +3,7 @@ var Projectes  = mongoose.model('Project');
 var User  = mongoose.model('User');
 var Comment  = mongoose.model('Comment');
 var Activity  = mongoose.model('Activity');
+var Award = mongoose.model('Award');
 var vPath = __dirname + '/../views/'
 var service = require('../services');
 var fs = require('fs');
@@ -19,6 +20,9 @@ var defaultRender = md.renderer.rules.image || function(tokens, idx, options, en
 
 md.renderer.rules.table_open = function(tokens, idx) {
   return '<table class="table table-striped">';
+};
+md.renderer.rules.tr_open = function(tokens, idx) {
+  return '<tr class="d-flex d-wrap">';
 };
 md.renderer.rules.blockquote_open = function(tokens, idx) {
   return '<blockquote class="blockquote">';
@@ -158,8 +162,11 @@ exports.getProjectDetails = function(req, res) {
           var rated = (usrRate!=null)
           User.findOne({username: user, savedProj:{$in: id}}, function(err_save, usrSave) {
             if(err_save) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
-            var saved = (usrSave!=null)
-            res.status(200).render(vPath + "pages/infoProjecte", {proj: projecte, user: user, active: "explora", comment: comments, rated: rated, saved: saved, owner: owner,strings:strings,lang:req.lang});
+            Award.find({project:id}, function(err_award, awards) {
+              if(err_award) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
+              var saved = (usrSave!=null)
+              res.status(200).render(vPath + "pages/infoProjecte", {proj: projecte, user: user, active: "explora", comment: comments, rated: rated, saved: saved, owner: owner,strings:strings,lang:req.lang,receivedAwards:awards});
+            });
           });
         });
       });

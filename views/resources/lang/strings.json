@@ -13,7 +13,8 @@
     "ets_nou_uneixte":["Ets nou? Uneix-te","Eres nuevo? Únete","New? Join up"],
     "oblidat_pass":["Has oblidat la contrasenya?","¿Olvidaste tu contraseña?","Did you forget the password?"],
     "tanca_sessio":["Tancar sessió","Cerrar sesión","Log out"],
-    "iniciar_sessio":["Iniciar sessió","Iniciar sesión","Log in"]
+    "iniciar_sessio":["Iniciar sessió","Iniciar sesión","Log in"],
+    "botiga":["Botiga","Tienda","Shop"]
   },
   "contacte":{
     "formulari":["Formulari de contacte","Formulario de contacto","Contact form"],
@@ -67,12 +68,14 @@
     "awards&points":["Punts i premis","Puntos y premios","Points and awards"],
     "porfa_inicia_session":["Si us plau, inicia sessió","Por favor, inicia sesión","Please, log in"],
     "close":["Tanca","Cerrar","Close"],
+    "acceptar":["Acceptar","Aceptar","Accept"],
     "eliminar":["Eliminar","Eliminar","Delete"],
     "cancel":["Cancel·la","Cancela","Cancel"],
     "unirse":["Unir-se","Unirse!","Join!"],
     "unirse_tecno":["Unir-se a TecnoAgora","Unirse a TecnoAgora","Join TecnoAgora"],
     "dades_actualitzades":["Dades actualitzades correctament!","Datos actualizados correctamente!","Data successfully updated!"],
     "lang":["CAT","ES","EN"],
+    "resum_punts":["Descripció de la operació","Descripción de la operación","Operation description"],
     "login_correcte":["Benvingut de nou!","Bienvenido de nuevo!","Welcome again!"],
     "join_correcte":[
       "Gràcies per haver-te registrat a TecnoAgora. En breus rebras un correu amb un enllaç per activar el teu compte. Si us plau, revisa el correu brossa. Aquest enllaç caduca en 1 dia.",
@@ -85,6 +88,16 @@
     "encara_no_membre":["Encara no ets membre?","Aún no eres miembro?"],
     "projectes_tendencia":["Projectes tendència","Proyectos tendencia","Trending projects"],
     "saber_mes":["Saber-ne més","Saber más","Learn more"]
+  },
+  "botiga":{
+    "titol":["Canvia punts i dona suport a TecnoAgora","Cambia puntos y da soporte a TecnoAgora","Exchange points and support TecnoAgora"],
+    "comprar":["Comprar","Comprar","Buy"],
+    "canvi_foto_titol":["Canvi del icone de perfil","Cambio del icono de perfil","Change profile picture"],
+    "canvi_foto_desc":["Canvi aleatori de la foto de perfil, única en tota la plataforma.","Cambio aleatorio de la foto de perfil, única en toda la plataforma","Random change of the profile photo, unique in the whole platform"],
+    "soon":["Properament...","Próximamente...","Coming soon..."],
+    "gastar":["Estás a punt de gastar: ","Estás a punto de gastar: ","Your are going to exchange: "],
+    "punts_insuficients":["No disposa de punts suficients","No dispone de puntos suficientes","You do not have enough points"],
+    "operacio_finalitzada":["Operació finalitzada correctament","Operación finalizada correctamente","Operation successfully completed"]
   },
   "footer":{
     "footer_descripcio":[
@@ -141,7 +154,7 @@
   },
   "reset_pass":{
     "reset_pass":["Restablir la contrasenya","Restablecer la contraseña","Reset password"],
-    "estableix_pass":["Estableix la contrasenya","Establece la contraseñaa","Set password"],
+    "estableix_pass":["Estableix la contrasenya","Establece la contraseña","Set password"],
     "repeteix_pass":["Repeteix la contrasenya","Repite la contraseña","Repeat the password"],
     "reset_pass_msg":[
       "T'hem enviat un correu que conté l'enllaç per reiniciar la teva contrasenya. Per seguretat, aquest enllaç caduca d'aquí 1 hora! Comprova el correu brossa.",

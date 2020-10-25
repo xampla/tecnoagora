@@ -11,6 +11,7 @@ var projectSchema = new Schema({
   numRates:   { type: Number },
   numSaves:   { type: Number },
   comments:   [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
+  awards:     [String],
   tags:       [String],
   date:       { type: Date },
   lastUpdate: { type: Date }

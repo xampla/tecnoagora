@@ -4,6 +4,7 @@ var Projectes  = mongoose.model('Project');
 var Activity  = mongoose.model('Activity');
 var VerifyEmail  = mongoose.model('Verify');
 var ChangeEmail  = mongoose.model('ChangeEmail');
+var Award = mongoose.model('Award');
 var service = require('../services');
 const bcrypt = require('bcrypt');
 var crypto = require('crypto');
@@ -154,6 +155,28 @@ exports.getUserPoints = function(req, res) {
         res.status(200).json({ok: true, points:0});
       }
     });
+  });
+};
+
+exports.getUserPointsExt = function(user,callback) {
+  var points = -1;
+  User.findOne({username: user}, function(err_user, u) {
+    if(!err_user) {
+      Projectes.aggregate([
+        {$match: {_id:{$in: u.addedProj}}},
+        {$group: {_id: null, sumProjAdded: {$sum: "$numRates"},sumProjSaved: {$sum: "$numSaves"}}}
+      ]).exec(function(err_proj, proj) {
+        if(!err_proj) {
+          if(Object.keys(proj).length!==0) {
+            points = proj[0]['sumProjAdded']+proj[0]['sumProjSaved'];
+            callback(points);
+          }
+          else callback(points);
+        }
+        else callback(points);
+      });
+    }
+    else callback(points);
   });
 };
 
@@ -311,6 +334,7 @@ exports.getProfilePicFromUser = function(req,res) {
 
 exports.getUserProfile = function(req,res) {
   var user = service.getUserFromToken(req.cookies.Token);
+  var username = req.params.username;
 
   var errorSanitize = validationResult(req);
   if(!errorSanitize.isEmpty()) {
@@ -318,13 +342,15 @@ exports.getUserProfile = function(req,res) {
     return res.render(vPath + "pages/error", {user: user,active: "",strings:strings,lang:req.lang});
   }
 
-  var username = req.params.username;
   User.findOne({username:username}, function(err_find, usr) {
     if(err_find) return res.render(vPath + "pages/error", {user: user,active: "",strings:strings,lang:req.lang});
     if(usr){
       Projectes.find({creator:username}, function(err_find_proj, pojects) {
         if(err_find_proj) return res.render(vPath + "pages/error", {user: user,active: "",strings:strings,lang:req.lang});
-        res.render(vPath + "pages/userInfo",{user:user,active:"explora",strings:strings,lang:req.lang,profileInfo:usr,addedProjects:pojects});
+        Award.find({creator:username}, function(err_award, awards) {
+          if(err_award) return res.render(vPath + "pages/error", {user: user,active: "",strings:strings,lang:req.lang});
+          res.render(vPath + "pages/userInfo",{user:user,active:"explora",strings:strings,lang:req.lang,profileInfo:usr,addedProjects:pojects,givenAwards:awards});
+        });
       });
     }
     else res.render(vPath + "pages/error", {user: user,active: "",strings:strings,lang:req.lang});

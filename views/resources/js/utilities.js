@@ -114,12 +114,46 @@ $(document).ready(function() {
     window.open(value);
   });
 
-  /*$( "#editButton" ).click(function() {
-    var url = $( this ).attr( "action" );
-    var edit = $.get(url);
-    edit.done(function( data ) {
-      $('#container').empty();
-      $('#container').html(data);
-    });
-  });*/
+  $('#silverAward').on('click', function(event) {
+    $('#goldenAwardDiv').removeClass(["selectedAward","border","border-primary","rounded"]);
+    $('#diamondAwardDiv').removeClass(["selectedAward","border","border-primary","rounded"]);
+    $('#silverAwardDiv').addClass("selectedAward border border-primary rounded");
+  });
+
+  $('#goldenAward').on('click', function(event) {
+    $('#silverAwardDiv').removeClass(["selectedAward","border","border-primary","rounded"]);
+    $('#diamondAwardDiv').removeClass(["selectedAward","border","border-primary","rounded"]);
+    $('#goldenAwardDiv').addClass("selectedAward border border-primary rounded");
+  });
+
+  $('#diamondAward').on('click', function(event) {
+    $('#silverAwardDiv').removeClass(["selectedAward","border","border-primary","rounded"]);
+    $('#goldenAwardDiv').removeClass(["selectedAward","border","border-primary","rounded"]);
+    $('#diamondAwardDiv').addClass("selectedAward border border-primary rounded");
+  });
+
+  $('#acceptGiveAwardButton').on('click', function(event) {
+    var award = "none";
+    var idProj = $('#rateForm').attr( "action" ).split("/")[2];
+    var url = "/giveAward";
+    if($('#silverAwardDiv').hasClass("selectedAward")) award = "silver";
+    else if($('#goldenAwardDiv').hasClass("selectedAward")) award = "golden";
+    else if($('#diamondAwardDiv').hasClass("selectedAward")) award = "diamond";
+    if(award!="none") {
+      var giveAward = $.post(url, {award: award, proj:idProj});
+      giveAward.done(function( data ) {
+        if(data['ok']) window.location.reload();
+        else {
+          $('#alertGiveAward').html(
+            '<div class="alert alert-danger alert-dismissible fade show" role="alert"> \
+              <small>'+data['msg']+'</small> \
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"> \
+                <span aria-hidden="true">&times;</span> \
+              </button> \
+            </div>');
+        }
+      });
+    }
+  });
+
 });

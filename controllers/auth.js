@@ -27,7 +27,7 @@ exports.emailSignup = function(req, res) {
   var surname = req.body.surname;
   var username = req.body.username;
   var email = req.body.email;
-  var socialLink = req.body.socialLink;
+  //var socialLink = req.body.socialLink;
   var description = req.body.description;
   var pass = req.body.pass;
 
@@ -50,7 +50,6 @@ exports.emailSignup = function(req, res) {
           if(err_hash) return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
           Profile.getRandomProfilePic(function(svgImage){
             var svgImage_b = new Buffer.from(svgImage).toString('base64');
-            console.log(svgImage_b);
 
             // Store hash in database
             var user = new User({
@@ -60,7 +59,7 @@ exports.emailSignup = function(req, res) {
               email:     email,
               emailVerified: false,
               pass:      hash,
-              extLink:   socialLink,
+              //extLink:   socialLink,
               desc:      description,
               profile_pic: svgImage_b,
               date:      new Date(),

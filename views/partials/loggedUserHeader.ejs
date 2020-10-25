@@ -22,6 +22,9 @@
       <li class="<%= active == 'perfil' ? 'nav-item active' : 'nav-item' %>">
         <a class="nav-link" href="/profile"><%= strings['menu']['perfil'][lang] %></a>
       </li>
+      <li class="<%= active == 'shop' ? 'nav-item active' : 'nav-item' %>">
+        <a class="nav-link" href="/shop" tabindex="-1" aria-disabled="true"><%= strings['menu']['botiga'][lang] %></a>
+      </li>
     </ul>
     <div class="nav-item">
       <a class="btn btn-success btn-sm" href="/afegirEntrada" role="button">+ <%= strings['menu']['afegir'][lang] %></a>
