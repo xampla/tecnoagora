@@ -151,26 +151,31 @@ exports.getProjectDetails = function(req, res) {
 
   Projectes.findById(id, function(err_find_proj, projecte) {
     if(err_find_proj) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
-    Comment.find({_id: {$in: projecte.comments}}, function(err_find_comm, comments) {
-      if(err_find_comm) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
-      projecte.descBig = md.render(projecte.descBig);
-      User.findOne({username: user, addedProj:{$in: id}}, function(err_own, usr) {
-        if(err_own) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
-        var owner = (usr!=null)
-        User.findOne({username: user, ratedProj:{$in: id}}, function(err_rate, usrRate) {
-          if(err_rate) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
-          var rated = (usrRate!=null)
-          User.findOne({username: user, savedProj:{$in: id}}, function(err_save, usrSave) {
-            if(err_save) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
-            Award.find({project:id}, function(err_award, awards) {
-              if(err_award) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
-              var saved = (usrSave!=null)
-              res.status(200).render(vPath + "pages/infoProjecte", {proj: projecte, user: user, active: "explora", comment: comments, rated: rated, saved: saved, owner: owner,strings:strings,lang:req.lang,receivedAwards:awards});
+    if(projecte != null){
+      Comment.find({_id: {$in: projecte.comments}}, function(err_find_comm, comments) {
+        if(err_find_comm) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
+        projecte.descBig = md.render(projecte.descBig);
+        User.findOne({username: user, addedProj:{$in: id}}, function(err_own, usr) {
+          if(err_own) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
+          var owner = (usr!=null)
+          User.findOne({username: user, ratedProj:{$in: id}}, function(err_rate, usrRate) {
+            if(err_rate) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
+            var rated = (usrRate!=null)
+            User.findOne({username: user, savedProj:{$in: id}}, function(err_save, usrSave) {
+              if(err_save) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
+              Award.find({project:id}, function(err_award, awards) {
+                if(err_award) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
+                var saved = (usrSave!=null)
+                res.status(200).render(vPath + "pages/infoProjecte", {proj: projecte, user: user, active: "explora", comment: comments, rated: rated, saved: saved, owner: owner,strings:strings,lang:req.lang,receivedAwards:awards});
+              });
             });
           });
         });
       });
-    });
+    }
+    else {
+      return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
+    }
   });
 };
 

@@ -1,17 +1,12 @@
 $(document).ready(function() {
 
-  var points = $.get("/getUserPoints");
+  var username = $('#usernameInfo').text();
+
+  var points = $.get("/getOtherUserPoints/"+username);
   points.done(function( data ) {
     $('#points').text(data['points']);
   });
 
-  var memberDate = $.get("/getUserMemberDate");
-  memberDate.done(function( data ) {
-    $('#memberDate').text(data['date']);
-  });
-
-  var username = $('#usernameInfo').text();
-  console.log(username);
   var svgPic = $.get('/getProfilePicFromUser/'+username);
   svgPic.done(function( data ) {
     $('#profilePicSVGCard').html($("rect", atob(data['svg'])));

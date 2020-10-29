@@ -152,6 +152,7 @@ projects.post('/saveProject/:id', [middlAuth.ensureAuthenticated, param('id').no
 projects.post('/unsaveProject/:id', [middlAuth.ensureAuthenticated, param('id').not().isEmpty().trim().isMongoId()], Profile.unsaveProject);
 projects.get('/activity', middlAuth.ensureAuthenticated, Profile.getActivity);
 projects.get('/getUserPoints/', middlAuth.ensureAuthenticated, Profile.getUserPoints);
+projects.get('/getOtherUserPoints/:username', param('username').not().isEmpty().trim().isLength({max: 39}).escape(),Profile.getOtherUserPoints);
 projects.get('/getUserMemberDate', middlAuth.ensureAuthenticated, Profile.getUserMemberDate);
 projects.post('/updateProfile', [
   middlAuth.ensureAuthenticated,

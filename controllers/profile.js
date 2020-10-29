@@ -158,6 +158,20 @@ exports.getUserPoints = function(req, res) {
   });
 };
 
+exports.getOtherUserPoints = function(req, res) {
+  var user = mongoSanitize.sanitize(req.params.username);
+  var errorSanitize = validationResult(req);
+  if(!errorSanitize.isEmpty()) {
+    console.log(errorSanitize);
+    return res.status(200).json({ok: false});
+  }
+
+  module.exports.getUserPointsExt(user, function(points){
+    if(points<0) return res.status(200).json({ok: false});
+    res.status(200).json({ok: true, points:points});
+  });
+};
+
 exports.getUserPointsExt = function(user,callback) {
   var points = -1;
   User.findOne({username: user}, function(err_user, u) {
