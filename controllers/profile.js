@@ -185,7 +185,7 @@ exports.getUserPointsExt = function(user,callback) {
             points = proj[0]['sumProjAdded']+proj[0]['sumProjSaved'];
             callback(points);
           }
-          else callback(points);
+          else callback(0);
         }
         else callback(points);
       });

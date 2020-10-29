@@ -4,7 +4,8 @@ $(document).ready(function() {
 
   var points = $.get("/getOtherUserPoints/"+username);
   points.done(function( data ) {
-    $('#points').text(data['points']);
+    if(data['points'] == -1) $('#points').text("Error");
+    else $('#points').text(data['points']);
   });
 
   var svgPic = $.get('/getProfilePicFromUser/'+username);
