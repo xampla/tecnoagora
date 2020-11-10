@@ -120,7 +120,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                   <%if(proj.linkWeb != ''){%>
-                    <a class="dropdown-item" data-toggle="modal" href="<%- proj.linkWeb%>" data-target="#awardModal"><%= strings['general']['visitar_web'][lang] %></a>
+                    <a class="dropdown-item" data-toggle="modal" href="<%- proj.linkWeb%>"><%= strings['general']['visitar_web'][lang] %></a>
                   <%}%>
                   <%if(owner){%>
                     <a class="dropdown-item" href="/editProject/<%= proj._id%>"><%= strings['general']['editar'][lang] %></a>
