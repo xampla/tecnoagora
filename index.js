@@ -95,7 +95,7 @@ projects.post('/addComment/:id',[
 projects.post('/rateProj/:id',[middlAuth.ensureAuthenticated,param('id').not().isEmpty().trim().isMongoId()], ProjectCtrl.addRateToProject);
 projects.post('/unrateProj/:id',[middlAuth.ensureAuthenticated,param('id').not().isEmpty().trim().isMongoId()], ProjectCtrl.removeRateFromProject);
 projects.post('/deleteProject/:id',[middlAuth.ensureAuthenticated,param('id').not().isEmpty().trim().isMongoId()], ProjectCtrl.deleteProject);
-projects.post('/preview',[middlAuth.ensureAuthenticated,body('content').not().isEmpty().trim().isLength({max: 10000000}).escape()], ProjectCtrl.previewContent);
+projects.post('/preview',[middlAuth.ensureAuthenticated,body('content').not().isEmpty().trim().isLength({max: 10000000})], ProjectCtrl.previewContent);
 projects.get('/projectesTendencia', ProjectCtrl.trendingProjects);
 projects.get('/discoverProjects',middlAuth.ensureAuthenticated, ProjectCtrl.discoverProjects);
 projects.get('/editProject/:id', [middlAuth.ensureAuthenticated,param('id').not().isEmpty().trim().isMongoId()], ProjectCtrl.getEditProject);
@@ -104,7 +104,7 @@ projects.post('/updateProject/:id', [
   param('id').not().isEmpty().trim().isMongoId(),
   body('title').not().isEmpty().trim().isLength({max: 50}).escape(),
   body('descSmall').not().isEmpty().trim().isLength({max: 500}).escape(),
-  body('descBig').not().isEmpty().trim().isLength({max: 10000000}).escape(),
+  body('descBig').not().isEmpty().trim().isLength({max: 10000000}),
   body('link').not().isEmpty().trim().isLength({max: 100}).escape(),
   body('linkWeb').trim().isLength({max: 100}).escape(),
   body('tags').not().isEmpty().trim().isLength({max: 3000}).escape()
@@ -117,6 +117,7 @@ projects.get('/sortSearch',[
   query('searchType').not().isEmpty().trim().escape(),
   query('searchedTerm').trim().isLength({max: 25}).escape(),
 ], ProjectCtrl.sortSearchedProjects);
+projects.get('/exempleMarkDown', ProjectCtrl.exempleMarkDown);
 
 projects.post('/unirse', [
   middlAuth.ensureNotAuthenticated,
@@ -178,7 +179,7 @@ projects.post('/updateEmail',[
   body('newEmail').not().isEmpty().trim().isEmail().normalizeEmail().isLength({max: 100}),
 ],Profile.updateEmail);
 projects.get('/verifyUpdateEmail/:token',[param('token').not().isEmpty().trim()], Profile.verifyUpdateEmail);
-//projects.get('/test',Profile.test);
+//projects.get('/test',Menu.test);
 
 projects.get('*', Menu.notFound);
 

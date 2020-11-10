@@ -80,7 +80,8 @@ exports.emailSignup = function(req, res) {
                 verifyEmail.save(function(err_save_ver, verEmail) {
                   if(err_save_ver) return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
                   if(verEmail) {
-                    service.sendMail(email,"welcomeVerifyEmail",token, function(result) {
+                    var d = {token:token, user:username, lang:req.lang};
+                    service.sendMail(email,"welcomeVerifyEmail",d, function(result) {
                       if(result) return res.status(200).json({ok: true, msg:strings["general"]["join_correcte"][req.lang]});
                       return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
                     });
@@ -92,7 +93,8 @@ exports.emailSignup = function(req, res) {
         });
       }
       else {
-        service.sendMail(email,"welcomeAlreadyRegistered","", function(result) {
+        var d = {user:username, lang:req.lang};
+        service.sendMail(email,"welcomeAlreadyRegistered",d, function(result) {
           if(result) return res.status(200).json({ok: true, msg:strings["general"]["join_correcte"][req.lang]});
           return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
         });
@@ -119,8 +121,8 @@ exports.emailLogin = function(req, res) {
     bcrypt.compare(pass, hash, function(err_comp_hash, result) {
       if(err_comp_hash) return res.status(200).json({ok: false, msg:strings["errors"]["error_credencials_incorrectes"][req.lang]});
       if(result) {
-        if(rem) res.cookie('Token', service.createToken(user), { maxAge:999999999, secure:true, httpOnly:true, domain:'tecnoagora.com', path:'/', sameSite: 'lax'});
-        else res.cookie('Token', service.createToken(user), { secure:true, httpOnly:true, domain:'tecnoagora.com', path:'/', sameSite: 'lax'});
+        if(rem) res.cookie('Token', service.createToken(user), { maxAge:999999999, secure:true, httpOnly:true, domain:'127.0.0.1', path:'/', sameSite: 'lax'});
+        else res.cookie('Token', service.createToken(user), { secure:true, httpOnly:true, domain:'127.0.0.1', path:'/', sameSite: 'lax'});
         return res.status(200).json({ok: true, msg:strings["general"]["login_correcte"][req.lang]});
       }
       else {
@@ -155,7 +157,8 @@ exports.forgotPasswordPost = function(req, res) {
           recover.save(function(err_save_rec,recPass) {
             if(err_save_rec) return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
             if(recPass) {
-              service.sendMail(email,"recoverPassword",token, function(result) {
+              var d = {token:token, user:user.username, lang:req.lang};
+              service.sendMail(email,"recoverPassword",d, function(result) {
                 if(result) res.status(200).json({ok: true, msg:strings["reset_pass"]["reset_pass_msg"][req.lang]});
                 return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
               });

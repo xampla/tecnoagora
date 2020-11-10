@@ -21,9 +21,9 @@ var defaultRender = md.renderer.rules.image || function(tokens, idx, options, en
 md.renderer.rules.table_open = function(tokens, idx) {
   return '<table class="table table-striped">';
 };
-md.renderer.rules.tr_open = function(tokens, idx) {
+/*md.renderer.rules.tr_open = function(tokens, idx) {
   return '<tr class="d-flex d-wrap">';
-};
+};*/
 md.renderer.rules.blockquote_open = function(tokens, idx) {
   return '<blockquote class="blockquote">';
 };
@@ -79,15 +79,13 @@ exports.findAllProjects = function(req, res) {
   });
 };
 
-/*
-exports.findById = function(req, res) {
-    Projectes.findById(req.params.id, function(err, projecte) {
-      if(err) return res.send(500, err.message);
-      console.log('GET /projectes/' + req.params.id);
-      res.status(200).jsonp(projecte);
-    });
+exports.exempleMarkDown = function(req, res) {
+  var user = service.getUserFromToken(req.cookies.Token);
+  var exemple = fs.readFileSync(__dirname + '/../views/resources/others/exempleMarkDown', 'utf8');
+  var exemple_split_rendered = md.render(exemple).split(";-;");
+  console.log(exemple_split_rendered[8]);
+  res.render(vPath + "pages/exempleMarkDown", {user: user, active: "",strings:strings,render:exemple_split_rendered,lang:req.lang});
 };
-*/
 
 exports.addProject = function(req, res) {
     var user = service.getUserFromToken(req.cookies.Token);

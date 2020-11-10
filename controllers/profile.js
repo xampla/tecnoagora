@@ -408,7 +408,8 @@ exports.updateEmail = function(req, res) {
             change.save(function(err, chng) {
               if(err) return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
               if(chng) {
-                service.sendMail(newEmail,"changeEmail",token, function(result) {
+                var d ={token:token, user:user, lang:req.lang};
+                service.sendMail(newEmail,"changeEmail",d, function(result) {
                   if(result) res.status(200).json({ok: true, msg:strings["perfil"]["email_modificat"][req.lang]});
                   return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
                 });

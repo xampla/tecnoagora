@@ -81,7 +81,16 @@
       "Gràcies per haver-te registrat a TecnoAgora. En breus rebras un correu amb un enllaç per activar el teu compte. Si us plau, revisa el correu brossa. Aquest enllaç caduca en 1 dia.",
       "Gracias por haberte registrado en TecnoAgora. En breves recibiras un correo con un enlace para activar tu cuenta. Por favor, revisa el correo basura. Este enlace caduca dentro de 1 día.",
       "Thank you for registering at TecnoAgora. You will soon receive an email with a link to activate your account. Please, check your junk mail. This link will expire within 1 day."],
-    "pass_min_length":["(Mínim 8 caracters)","(Mínimo 8 caracteres)","(Minimum 8 characters)"]
+    "pass_min_length":["(Mínim 8 caracters)","(Mínimo 8 caracteres)","(Minimum 8 characters)"],
+    "editar":["Editar","Editar","Edit"],
+    "eliminar":["Eliminar","Eliminar","Delete"],
+    "visitar_web":["Visitar web","Visitar web","Visit web"],
+    "donar_premi":["Premiar","Premiar","Give award"],
+    "buscador_tecno_agora":["Buscador de projectes tecnològics de caràcter social","Buscador de proyectos tecnológicos de carácter social","Search engine for technological projects of a social nature"],
+    "tecno_descripcio":[
+      "Comparteix, troba, opina, avalua i participa en aquells projectes que puguin tenir un impacte positiu en la nostra societat.",
+      "Comparte, encuentra, opina, evalúa y participa en aquellos proyectos que puedan tener un impacto positivo en nuestra sociedad.",
+      "Share, find, give your opinion, evaluate and participate in those projects that can have a positive impact on our society."]
   },
   "explora":{
     "no_iniciat_sessio":["No has iniciat sessió!","¡No has iniciado sesión!","You are not logged in!"],
@@ -200,10 +209,64 @@
     "welcomeAlreadyRegisteredSubject":["[TECNOAGORA] Correu ja registrat","[TECNOAGORA] Correo ya registrado","[TECNOAGORA] Account already created"],
     "changeEmailSubject":["[TECNOAGORA] Verificació adreça electrònica","[TECNOAGORA] Verificación dirección email","[TECNOAGORA] Email address verification"],
     "recoverPasswordSubject":["[TECNOAGORA] Recuperació de contrasenya","[TECNOAGORA] Recuperación de contraseña","[TECNOAGORA] Password reset"],
-    "welcomeVerifyEmailBody":["","",""],
-    "welcomeAlreadyRegisteredBody":["","",""],
-    "changeEmailBody":["","",""],
-    "recoverPasswordBody":["","",""]
+    "welcomeVerifyEmailBody":[
+      "<p> Hola {0},</p><p> Gràcies per unir-te a la comunitat de TecnoAgora. Si us plau, confirma el teu correu electrònic, per completar el procés, visitant el següent enllaç:</p><p>http://tecnoagora.com/verifyEmail/{1} </p><p>Gràcies,</p><p>Equip TecnoAgora</p>",
+      "<p> Hola {0},</p><p> Gracias por unirte a la comunidad de TecnoAgora. Por favor, confirma tu correo electrónico, para completar el proceso, visitando el seguiente enlace:</p><p>http://tecnoagora.com/verifyEmail/{1} </p><p>Gracias,</p><p>Equipo TecnoAgora</p>",
+      "<p> Hi {0},</p><p> Welcome to TecnoAgora's community. Please confirm your email to complete the process by visiting the following link: </p> <p>http://tecnoagora.com/verifyEmail/{1} </p><p>Thank you,</p><p>TecnoAgora team</p>"],
+    "welcomeAlreadyRegisteredBody":[
+      "<p> Hola {0}, Algú ha intentat registar-se amb el teu correu. Si has sigut tu, ens agradaria recordar-te que ja disposes d'un compte i que pots restablir-ne la contrasenya en cas que l'hagis oblidat. En el cas que no hagis sigut tu, no et preocupis, no has de fer res</p><p>Gràcies,</p><p>Equip TecnoAgora</p>",
+      "<p> Hola {0},</p><p>Alguien ha intentado registrarse con tu correo. Si fuiste tú, nos gustaría recordarte que ya tienes una cuenta y que puedes restablecer tu contraseña en casa que la hayas olvidado. En el caso que no hayas sido tú, no te preocupes, no debes hacer nada.</p><p>Gracias,</p><p>Equipo TecnoAgora</p>",
+      "<p> Hi {0},</p> <p> Someone has tried to sign up with your email. If it was you, we wanted to let you know you already have an account and you can reset your password in case you forgot it. If it wasn't you, you do not have to do anything.</p></p><p>Thank you,</p><p>TecnoAgora team</p>"],
+    "changeEmailBody":[
+      "<p> Hola {0},</p><p>Aquí tens l'enllaç per confirmar el nou correu electrònic:</p><p>http://tecnoagora.com/verifyUpdateEmail/{1} </p><p>Gràcies,</p><p>Equip TecnoAgora</p>",
+      "<p> Hola {0},</p><p>Aquí tienes el enlace para confirmar tu nuevo correo electrónico:</p><p>http://tecnoagora.com/verifyUpdateEmail/{1} </p><p>Gracias,</p><p>Equipo TecnoAgora</p>",
+      "<p> Hi {0},</p><p>Here you have the link to verify your new email address:</p><p>http://tecnoagora.com/verifyUpdateEmail/{1} </p><p>Thank you,</p><p>TecnoAgora team</p>"],
+    "recoverPasswordBody":[
+      "<p> Hola {0},</p><p>Aquí tens l'enllaç per restablir la teva contrasenya:</p><p>http://tecnoagora.com/recoverPassword/{1} </p><p>Gràcies,</p><p>Equip TecnoAgora</p>",
+      "<p> Hola {0},</p><p>Aquí tienes el enlace para restablecer tu contraseña:</p><p>http://tecnoagora.com/recoverPassword/{1} </p><p>Gracias,</p><p>Equipo TecnoAgora</p>",
+      "<p> Hi {0},</p><p> Here you have the link to reset your password:</p><p>http://tecnoagora.com/recoverPassword/{1} </p><p>Thank you,</p><p>TecnoAgora team</p>"]
+  },
+  "faqs":{
+    "que_es_tecnoAgora":[
+      "<p>Avui dia internet es veu inundat per milers de projectes de tot tipus que es comparteixen en forma de repositoris en plataformes com Github. Degut aquest gran quantitat, molts projectes poden caure en l’oblit. TecnoAgora pretén crear un espai on poder compartir repositoris per donar-los a conèixer i incentivar-ne la col·laboració d’usuaris interessats.</p><p>Qualsevol repositori? No. L’objectiu de TecnoAgora és ser un portal de referència que faciliti la descoberta d’aquells projectes que tinguin l’objectiu de millor la situació d’alguns grups o persones que ho requereixin.</p>",
+      "",
+      ""],
+    "qui_radera":[
+      "<p>De moment TecnoAgora ho gestiona una sola persona, però la finalitat d’aquest projecte és crear una xarxa de suport mutu i col·laboració on tothom que vulguis pugui millorar la plataforma d’una forma o una altre.</p>",
+      "",
+      ""],
+    "com_aportar":[
+      "<p>Actualment el repositori de TecnoAgora és privat però la intenció és fer-lo públic en un futur proper. Si tens ganes de col·laborar ara mateix, posa’t en contacte a través del següent formulari.</p>",
+      "",
+      ""],
+    "canvi_nom_usuari":[
+      "<p>Tal com està dissenyada actualment la plataforma, no es contempla aquesta opció.</p>",
+      "",
+      ""],
+    "com_compartir_projecte":[
+      "<p>Per poder compartir un projecte necessites tenir un compte a TecnoAgora. Si ja el tens, i tens un repositori per compartir, tens un botó verd a la barra de navegació on posa “+Afegir projecte”. </p><p>En el formulari que t’apareixi hauràs d’omplir les dades sobre el projecte: títol, descripció petita, descripció gran, enllaç a la web (si en té), etc. En la descripció gran pots utilitzar la notació Markdown per donar format a la teva entrada. Si vols veure un exemple d’aquesta notació fes clic <a href=\"/exempleMarkDown\">aquí</a>.</p>",
+      "",
+      ""],
+    "que_es_openSource":[
+      "<p>RedHat explica que: </p><p><i>“Originalmente, la expresión open source (o código abierto) hacía referencia al software open source (OSS). El software open source es un código diseñado de manera que sea accesible al público: todos pueden ver, modificar y distribuir el código de la forma que consideren conveniente. El software open source se desarrolla de manera descentralizada y colaborativa, así que depende de la revisión entre compañeros y la producción de la comunidad. Además, suele ser más económico, flexible y duradero que sus alternativas propietarias, ya que las encargadas de su desarrollo son las comunidades y no un solo autor o una sola empresa.</i></p><p><i>El Open Source se convirtió en un movimiento y una forma de trabajo que trasciende la producción del software. Este movimiento utiliza los valores y el modelo de producción descentralizada del software open source para hallar nuevas maneras de solucionar problemas en las comunidades y los sectores.”</i></p><p>Si vols saber més informació, pots llegir l’article sencer <a href=\"https://www.redhat.com/es/topics/open-source/what-is-open-source\">aquí</a>.</p>",
+      "",
+      ""],
+    "projectes_que_poden_compartir":[
+      "<p>Qualsevol projecte que respongui afirmativament a les preguntes següents pot ser compartit sense cap problema: Es Open Source? Pretén millorar o solventar un situació desfavorable sobre algun col·lectiu?</p>",
+      "",
+      ""],
+    "poder_compartir_altres_projectes":[
+      "<p>Un dels objectius de TecnoAgora és incentivar la participació dels seus usuaris en els projectes que es comparteixen. Si creus que el projecte que has trobat permet la col·laboració de qualsevol persona i en qualsevol format, llavors no hi hauria cap problema.</p>",
+      "",
+      ""],
+    "utilitat_punts":[
+      "<p>Actualment els punts serveixen per poder canviar la foto de perfil, que es genera de forma aleatòria, a través de l’apartat “Botiga”. A més, si consideres que un projecte es prou interesant pots donar-li un premi que apareixerà en els detalls del projecte. A més la persona que l’hagi rebrà els punts corresponents al premi. </p>",
+      "",
+      ""],
+    "contacte":[
+      "<p>Per qualsevol dubte o problema pots utilitzar el formulari de contacte que trobaràs <a href=\"/contact\">aquí</a>.</p>",
+      "",
+      ""]
   },
   "errors":{
     "error_general":["Alguna cosa no ha funcionat bé, torna-ho a intentar més tard","Alguna cosa no ha funcionado bien, vuélvelo a probar más tarde","Something has gone wrong, try again later"],

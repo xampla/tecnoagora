@@ -7,6 +7,8 @@ var config = require('./config');
 const { google } = require("googleapis");
 var nodemailer = require('nodemailer');
 const OAuth2 = google.auth.OAuth2;
+var fs = require('fs');
+var strings = JSON.parse(fs.readFileSync(__dirname + '/views/resources/lang/strings.json', 'utf8'));
 
 exports.createToken = function(user) {
   var payload = {
@@ -26,6 +28,18 @@ exports.getUserFromToken = function(token) {
 };
 
 exports.sendMail = function(email, type, data, callback) {
+  console.log(data['token']);
+  console.log(strings);
+
+  String.format = function(format) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    return format.replace(/{(\d+)}/g, function(match, number) {
+      return typeof args[number] != 'undefined'
+        ? args[number]
+        : match
+      ;
+    });
+  };
 
   console.log("Preparing an email....");
 
@@ -33,17 +47,21 @@ exports.sendMail = function(email, type, data, callback) {
   var emailBody;
 
   if(type=="welcomeVerifyEmail") {
-    subject = "[TECNOAGORA] Email address verification";
-    emailBody = "<p> Hi,</p> <p> Last step to fully register to TecnoAgora: </p> <p>http://tecnoagora.com/verifyEmail/" + data + "</p>";
+    subject = strings["emailService"]["welcomeVerifyEmailSubject"][data['lang']];
+    emailBody = String.format(strings["emailService"]["welcomeVerifyEmailBody"][data['lang']],data['user'],data['token']);
+    //"<p> Hi,</p> <p> Last step to fully register to TecnoAgora: </p> <p>http://tecnoagora.com/verifyEmail/" + data + "</p>"
   } else if(type=="welcomeAlreadyRegistered") {
-    subject = "[TECNOAGORA] Account already created";
-    emailBody = "<p> Hi,</p> <p> Someone has tried to sign up with you email. If it was you, we wanted to let you know you already have an account and you can reset your password in case you forgot it. If it wasn't you, you do not have to do anything.</p>";
+    subject = strings["emailService"]["welcomeAlreadyRegisteredSubject"][data['lang']];
+    emailBody = String.format(strings["emailService"]["welcomeAlreadyRegisteredBody"][data['lang']],data['user']);
+    //"<p> Hi,</p> <p> Someone has tried to sign up with you email. If it was you, we wanted to let you know you already have an account and you can reset your password in case you forgot it. If it wasn't you, you do not have to do anything.</p>"
   } else if(type=="changeEmail") {
-    subject = "[TECNOAGORA] Email address verification";
-    emailBody = "<p> Hi,</p> <p> Last step to fully register to TecnoAgora: </p> <p>http://tecnoagora.com/verifyUpdateEmail/" + data;
+    subject = strings["emailService"]["changeEmailSubject"][data['lang']];
+    emailBody = String.format(strings["emailService"]["changeEmailBody"][data['lang']],data['user'],data['token']);
+    //<p> Hi,</p> <p> Last step to fully register to TecnoAgora: </p> <p>http://tecnoagora.com/verifyUpdateEmail/" + data
   } else if(type=="recoverPassword") {
-    subject = "[TECNOAGORA] Password reset";
-    emailBody = "<p> Hi,</p> <p> Here you have the link to reset your password:</p> <p>http://tecnoagora.com/recoverPassword/" + data + "</p>";
+    subject = strings["emailService"]["recoverPasswordSubject"][data['lang']];
+    emailBody = String.format(strings["emailService"]["recoverPasswordBody"][data['lang']],data['user'],data['token']);;
+    //"<p> Hi,</p> <p> Here you have the link to reset your password:</p> <p>http://tecnoagora.com/recoverPassword/" + data + "</p>"
   } else if(type=="contactForm") {
     subject = "[CONSULTA] Nova Consulta Web";
     emailBody = "<p> Name:"+data['name']+" "+data['surname']+"</p> <p> Email: " +data['email']+" </p> <p> Consult:" +data['desc']+ "</p>";
