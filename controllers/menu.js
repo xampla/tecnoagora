@@ -122,20 +122,6 @@ exports.notFound = function(req, res) {
 };
 
 exports.test = function(req, res) {
-
-  String.format = function(format) {
-    var args = Array.prototype.slice.call(arguments, 1);
-    return format.replace(/{(\d+)}/g, function(match, number) {
-      return typeof args[number] != 'undefined'
-        ? args[number]
-        : match
-      ;
-    });
-  };
-
   var user = service.getUserFromToken(req.cookies.Token);
-  var test_msg = "xavi";
-  //console.log(String.format(msg,test_msg));
-  console.log(String.format(strings["emailService"]["welcomeVerifyEmailBody"][0],test_msg));
-  res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
+  res.render(vPath + "pages/test", {user: user, active: "",strings:strings,lang:req.lang});
 };
