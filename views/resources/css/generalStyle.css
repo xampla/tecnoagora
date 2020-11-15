@@ -94,6 +94,10 @@
   height: 100%;
 }
 
+.termsandconds {
+  margin-bottom: 12%;
+}
+
 .silverStop_1{stop-color:#e6e6e6;}
 .silverStop_2{stop-color:#808080;}
 .silverStop_3{stop-color:#ffffff;}

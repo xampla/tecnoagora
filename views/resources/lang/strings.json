@@ -14,7 +14,10 @@
     "oblidat_pass":["Has oblidat la contrasenya?","¿Olvidaste tu contraseña?","Did you forget the password?"],
     "tanca_sessio":["Tancar sessió","Cerrar sesión","Log out"],
     "iniciar_sessio":["Iniciar sessió","Iniciar sesión","Log in"],
-    "botiga":["Botiga","Tienda","Shop"]
+    "botiga":["Botiga","Tienda","Shop"],
+    "cookie_policy":["Política de cookis","Política de cookis","Cookie policy"],
+    "privacy_policy":["Política de privacidad","Política de privacidad","Privacy policy"],
+    "terms":["Termes i condicions","Términos y condiciones","Terms and conditions"]
   },
   "contacte":{
     "formulari":["Formulari de contacte","Formulario de contacto","Contact form"],
@@ -90,7 +93,11 @@
     "tecno_descripcio":[
       "Comparteix, troba, opina, avalua i participa en aquells projectes que puguin tenir un impacte positiu en la nostra societat.",
       "Comparte, encuentra, opina, evalúa y participa en aquellos proyectos que puedan tener un impacto positivo en nuestra sociedad.",
-      "Share, find, give your opinion, evaluate and participate in those projects that can have a positive impact on our society."]
+      "Share, find, give your opinion, evaluate and participate in those projects that can have a positive impact on our society."],
+      "accepting_termsandconds":[
+        "<strong>Nota: </strong>al unir-te estàs acceptant els <a href=\"/termsAndConditions\">Termes i Condicions<a>.",
+        "<strong>Nota: </strong>al unirse estás aceptando los <a href=\"/termsAndConditions\">Términos y Condiciones<a>.",
+        "<strong>Note: </strong>by joining you are accepting the <a href=\"/termsAndConditions\">Terms and Conditions<a>."]
   },
   "explora":{
     "no_iniciat_sessio":["No has iniciat sessió!","¡No has iniciado sesión!","You are not logged in!"],

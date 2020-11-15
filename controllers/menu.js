@@ -93,7 +93,7 @@ exports.changeLang = function(req, res) {
 
 exports.cookiePolicy = function(req, res) {
   var user = service.getUserFromToken(req.cookies.Token);
-  res.render(vPath + "pages/cookiePolicy", {user: user, active: "home",strings:strings,lang:req.lang});
+  res.render(vPath + "pages/cookiePolicy_1", {user: user, active: "home",strings:strings,lang:req.lang});
 }
 
 exports.privacyPolicy = function(req, res) {
