@@ -74,7 +74,7 @@ exports.emailSignup = function(req, res) {
                 var verifyEmail = new VerifyEmail({
                  token:      token,
                  email:      email,
-                 expire:     Date.now()+3600000 //1 hour
+                 expire:     Date.now()+86400000 //24 hour
                 });
 
                 verifyEmail.save(function(err_save_ver, verEmail) {
