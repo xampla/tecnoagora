@@ -276,7 +276,7 @@ exports.verifyEmail = function(req,res) {
         if(err_update_usr) {
           res.render(vPath + "pages/verifyEmail", {user: user, active: "", ok:false,strings:strings,lang:req.lang});
         } else {
-          VerifyEmail.updateOne({token: token}, {expire: Date.now()-3600000}, function(err_update_ver, rec) {
+          VerifyEmail.updateOne({token: token}, {expire: Date.now()-86400000}, function(err_update_ver, rec) {
             if(err_update_ver) return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
             res.render(vPath + "pages/verifyEmail", {user: user, active: "", ok:true,strings:strings,lang:req.lang});
           });
