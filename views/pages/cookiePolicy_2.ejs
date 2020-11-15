@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ('../partials/head') -%>
+  <link rel="stylesheet" type="text/css" href="/src/css/generalStyle.css">
+  <script type="text/javascript" src="/src/js/loginUtilities.js"></script>
+</head>
+<body>
+
+<header>
+  <%if(user=='Usuari'){%>
+      <%- include ('../partials/header') -%>
+  <%} else {%>
+      <%- include ('../partials/loggedUserHeader') -%>
+  <%}%>
+</header>
+
+<main>
+  <div class="container mb-5">
+    <h2>Cookie policy</h2>
+    <p><strong>Cookie</strong> is a file that is downloaded to your computer when you access certain websites. Cookies allow a website, among other things, to store and retrieve information about the browsing habits of a user or his/her computer and, depending on the information they contain and the way he/she uses his/her computer, they can be used to recognise the user. The user's browser stores cookies on the hard disk only during the current session, occupying a minimum amount of memory space and not harming the computer. Cookies do not contain any specific personal information, and most of them are deleted from the hard drive at the end of the browser session (so-called session cookies).</p>
+
+    <p>Most browsers accept cookies as standard and, regardless of the browser, allow or prevent temporary or stored cookies in the security settings.</p>
+
+    <p>This website uses the following types of cookies:</p>
+
+    <ul><li><strong>Technical cookies</strong>: These are those that allow the user to navigate through a website, platform or application and use the different options or services that exist therein, such as, for example, controlling traffic and data communication, identifying the session, accessing parts of restricted access, remembering the elements that make up an order, carrying out the process of purchasing an order, applying for registration or participation in an event, using security elements during navigation, storing content for the broadcasting of videos or sound or sharing content through social networks.
+    </li><li><strong>Personalisation cookies</strong>: These are cookies that allow the user to access the service with some general characteristics predefined according to a series of criteria in the user's terminal, such as the language, the type of browser used to access the service, the regional configuration from which the user accesses the service, etc.
+    </li><li><strong>Analysis cookies</strong>: These are those which, whether processed by us or by third parties, allow us to quantify the number of users and thus carry out the measurement and statistical analysis of the use made by the users of the service offered. To this end, your navigation of our website is analysed in order to improve the products or services we offer you, in this case our publications.</li></ul>
+
+    <h3>Active cookies</h3>
+    <p>This website uses its own cookies for its proper functioning.</p>
+
+    <h3>Management of cookies according to the browser</h3>
+    <ul><li>For more information on Internet Explorer click <a href="https://windows.microsoft.com/es-ES/windows7/How-to-manage-cookies-in-Internet-Explorer-9" target="_blank" rel="noreferrer noopener">here.</a></li>
+      <li>For more information about Firefox click <a href="https://support.mozilla.org/es/kb/cookies-informacion-que-los-sitios-web-guardan-en-" target="_blank" rel="noreferrer noopener">here.</a></li>
+      <li>For more information about Google Chrome click  <a href="https://support.google.com/chrome/bin/answer.py?hl=es&amp;answer=95647" target="_blank" rel="noreferrer noopener">here.</a></li>
+      <li>For more information about Safari click  <a href="https://support.apple.com/kb/PH5042" target="_blank" rel="noreferrer noopener">here.</a></li>
+      <li>For more information about Opera click  <a href="https://www.opera.com/browser/tutorials/security/privacy/" target="_blank" rel="noreferrer noopener">here.</a></li></ul>
+    <p>If your browser is not one of the above, you should read the corresponding help page, which is usually provided in an accessible way in its menus or on its official website.</p>
+
+    <h3>Privacy policy</h3>
+    <p>You can consult <a href="/privacyPolicy">here</a> the privacy policy of the page.</p>
+
+    <h3>Contact</h3>
+    <p>Users <strong>may exercise their rights</strong> by contacting the e-mail address <a href="mailto:tecnoagoraorg@gmail.com">tecnoagoraorg@gmail.com</a>, contacting the site's administration team.</p>
+  </div>
+</main>
+<%- include ('../partials/footer') -%>
+</body>
+</html>
