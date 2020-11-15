@@ -18,18 +18,11 @@
 
 <main>
   <div class="jumbotron">
-    <h1 class="text-center">Exemple de notació MarkDown</h1>
+    <h1 class="text-center"><%- strings['exemple_markdown']['exemple_notacio'][lang] -%></h1>
     <div class="container mt-5">
       <div class="row">
         <div class="col">
-          <p>
-            # Capçalera 1<br>
-            ## Capçalera 2<br>
-            ### Capçalera 3<br>
-            #### Capçalera 4<br>
-            ##### Capçalera 5<br>
-            ###### Capçalera 6<br>
-          </p>
+          <%- strings['exemple_markdown']['heading'][lang] -%>
         </div>
         <div class="col">
           <%- render[0] -%>
@@ -38,11 +31,7 @@
       <hr>
       <div class="row">
         <div class="col">
-          <p>
-            ___<br>
-            ---<br>
-            ***<br>
-          </p>
+          <%- strings['exemple_markdown']['horizontal_lines'][lang] -%>
         </div>
         <div class="col">
           <%- render[1] -%>
@@ -51,7 +40,7 @@
       <hr>
       <div class="row">
         <div class="col">
-          <p>(c) (C) (r) (R) (tm) (TM) (p) (P) +-</p>
+          <%- strings['exemple_markdown']['typographic'][lang] -%>
         </div>
         <div class="col">
           <%- render[2] -%>
@@ -60,13 +49,7 @@
       <hr>
       <div class="row">
         <div class="col">
-          <p>
-            **This is bold text**<br>
-            __This is bold text__<br>
-            *This is italic text*<br>
-            _This is italic text_<br>
-            ~~Strikethrough~~<br>
-          </p>
+          <%- strings['exemple_markdown']['emphasis'][lang] -%>
         </div>
         <div class="col">
           <%- render[3] -%>
@@ -75,11 +58,7 @@
       <hr>
       <div class="row">
         <div class="col">
-          <p>
-            > Blockquotes can also be nested...<br>
-            >> ...by using additional greater-than signs right next to each other...<br>
-            > > > ...or with spaces between arrows.<br>
-          </p>
+          <%- strings['exemple_markdown']['blockquotes'][lang] -%>
         </div>
         <div class="col">
           <%- render[4] -%>
@@ -88,33 +67,7 @@
       <hr>
       <div class="row">
         <div class="col">
-            Unordered
-            <pre>
-+ Create a list by starting a line with `+`, `-`, or `*`
-+ Sub-lists are made by indenting 2 spaces:
-  - Marker character change forces new list start:
-    * Ac tristique libero volutpat at
-    + Facilisis in pretium nisl aliquet
-    - Nulla volutpat aliquam velit
-+ Very easy!
-            </pre>
-            Ordered
-            <pre>
-1. Lorem ipsum dolor sit amet
-2. Consectetur adipiscing elit
-3. Integer molestie lorem at massa
-
-
-1. You can use sequential numbers...
-1. ...or keep all the numbers as `1.`
-            </pre>
-
-
-            Start numbering with offset:
-            <pre>
-57. foo
-1. bar
-          </pre>
+          <%- strings['exemple_markdown']['lists'][lang] -%>
         </div>
         <div class="col">
           <%- render[5] -%>
@@ -123,23 +76,7 @@
       <hr>
       <div class="row">
         <div class="col">
-          Inline `code`<br>
-
-          Indented code<br>
-<pre>
-    // Some comments
-    line 1 of code
-    line 2 of code
-    line 3 of code
-</pre>
-
-          Block code "fences"
-          <pre>
-
-```
-Sample text here...
-```
-          </pre>
+          <%- strings['exemple_markdown']['code'][lang] -%>
         </div>
         <div class="col">
           <%- render[6] -%>
@@ -148,19 +85,7 @@ Sample text here...
       <hr>
       <div class="row">
         <div class="col">
-          | Option | Description |<br>
-          | ------ | ----------- |<br>
-          | data   | path to data files to supply the data that will be passed into templates. |<br>
-          | engine | engine to be used for processing templates. Handlebars is the default. |<br>
-          | ext    | extension to be used for dest files. |<br>
-
-          Right aligned columns<br>
-
-          | Option | Description |<br>
-          | ------:| -----------:|<br>
-          | data   | path to data files to supply the data that will be passed into templates. |<br>
-          | engine | engine to be used for processing templates. Handlebars is the default. |<br>
-          | ext    | extension to be used for dest files. |<br>
+          <%- strings['exemple_markdown']['tables'][lang] -%>
         </div>
         <div class="col">
           <%- render[7] -%>
@@ -169,16 +94,7 @@ Sample text here...
       <hr>
       <div class="row">
         <div class="col">
-          ![Minion](https://octodex.github.com/images/minion.png)<br>
-          ![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")<br>
-
-          Like links, Images also have a footnote style syntax<br>
-
-          ![Alt text][id]<br>
-
-          With a reference later in the document defining the URL location:<br>
-
-          [id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"<br>
+          <%- strings['exemple_markdown']['images'][lang] -%>
         </div>
         <div class="col">
           <%- render[8] -%>

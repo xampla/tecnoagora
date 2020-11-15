@@ -102,12 +102,15 @@
     "titol":["Canvia punts i dona suport a TecnoAgora","Cambia puntos y da soporte a TecnoAgora","Exchange points and support TecnoAgora"],
     "comprar":["Comprar","Comprar","Buy"],
     "canvi_foto_titol":["Canvi del icone de perfil","Cambio del icono de perfil","Change profile picture"],
-    "canvi_foto_desc":["Canvi aleatori de la foto de perfil, única en tota la plataforma.","Cambio aleatorio de la foto de perfil, única en toda la plataforma","Random change of the profile photo, unique in the whole platform"],
+    "canvi_foto_desc":["Canvi aleatori de la foto de perfil, única en tota la plataforma.","Cambio aleatorio de la foto de perfil, única en toda la plataforma.","Random change of the profile photo, unique in the whole platform."],
     "soon":["Properament...","Próximamente...","Coming soon..."],
     "gastar":["Estás a punt de gastar: ","Estás a punto de gastar: ","Your are going to exchange: "],
     "punts_insuficients":["No disposa de punts suficients","No dispone de puntos suficientes","You do not have enough points"],
     "operacio_finalitzada":["Operació finalitzada correctament","Operación finalizada correctamente","Operation successfully completed"],
-    "dona_premi":["Dóna un premi a aquest projecte","Da un premio a este proyecto ","Give an award to this project"]
+    "dona_premi":["Dóna un premi a aquest projecte","Da un premio a este proyecto ","Give an award to this project"],
+    "support":["Donar suport","Dar soporte","Support the project"],
+    "donation_desc":["Dóna suport a TecnoAgora a través d'una aportació.","Da soporte a TecnoAgora a través de una aportación,","Give support to TecnoAgora through a contribution."],
+    "any_amount":["Tu decideixes","Tú decides","It's up to you"]
   },
   "footer":{
     "footer_descripcio":[
@@ -229,44 +232,101 @@
   "faqs":{
     "que_es_tecnoAgora":[
       "<p>Avui dia internet es veu inundat per milers de projectes de tot tipus que es comparteixen en forma de repositoris en plataformes com Github. Degut aquest gran quantitat, molts projectes poden caure en l’oblit. TecnoAgora pretén crear un espai on poder compartir repositoris per donar-los a conèixer i incentivar-ne la col·laboració d’usuaris interessats.</p><p>Qualsevol repositori? No. L’objectiu de TecnoAgora és ser un portal de referència que faciliti la descoberta d’aquells projectes que tinguin l’objectiu de millor la situació d’alguns grups o persones que ho requereixin.</p>",
-      "",
-      ""],
+      "<p>Hoy en día internet se ve inundado por una gran cantidad de proyectos de todo tipo que se comparten en forma de repositorios en plataformas como Github. Debido a esta gran cantidad, muchos proyectos caen en el olvido. TecnoAgora pretende crear un espacio donde poder compartir repositorios para darlos a conocer y incentivar la colaboración de usuarios interesados.</p><p>Cualquier repositorio? No. El objetivo de TecnoAgora es ser un portal de referencia que facilite la descubierta de esos proyectos que tengan como objetivo mejorar la situación de grupos o personas que lo requieran.</p>",
+      "<p>Today the internet is flooded with a large number of projects of all kinds that are shared in the form of repositories on platforms like Github. Due to this large amount, many projects fall into oblivion. TecnoAgora aims to create a space where repositories can be shared in order to make them known and to encourage the collaboration of interested users. </p><p>Any repository? No. The aim of TecnoAgora is to be a reference portal that facilitates the discovery of those projects that aim to improve the situation of groups or people that require it.</p>"],
     "qui_radera":[
       "<p>De moment TecnoAgora ho gestiona una sola persona, però la finalitat d’aquest projecte és crear una xarxa de suport mutu i col·laboració on tothom que vulguis pugui millorar la plataforma d’una forma o una altre.</p>",
-      "",
-      ""],
+      "<p>De momento TecnoAgora lo gestiona una sola persona, pero la finalidad de este proyecto es crear una red de soporte mutuo y colaborativo donde todo el mundo que quiera pueda mejorar la plataforma de una forma o otra.</p>",
+      "<p>At the moment TecnoAgora is managed by only one person, but the aim of this project is to create a mutual and collaborative support network where everyone who wants to can improve the platform in one way or another.</p>"],
     "com_aportar":[
-      "<p>Actualment el repositori de TecnoAgora és privat però la intenció és fer-lo públic en un futur proper. Si tens ganes de col·laborar ara mateix, posa’t en contacte a través del següent formulari.</p>",
-      "",
-      ""],
+      "<p>Actualment el repositori de TecnoAgora és privat però la intenció és fer-lo públic en un futur proper. Si tens ganes de col·laborar ara mateix, posa’t en contacte a través del següent <a href=\"/contact\">formulari</a>. En el cas que vulguis fer una aportació econòmica, en l'apartat “Botiga” hi trobarás un enllaç a Paypal i una adreça de Bitcoin.</p>",
+      "<p>Actualmente el repositorio de TecnoAgora es privado pero la intención es hacerlo público en un futuro cercano. Si tienes ganas de colaborar ahora mismo, ponte en contacto a través del siguiente <a href=\"/contact\">formulario</a>. En el caso que quieras hacer una aportación económica, en el apartado “Tienda” encontrarás un enlace a Paypal y una dirección de Bitcoin.</p>",
+      "<p>Currently the TecnoAgora repository is private but the intention is to make it public in the near future. If you want to collaborate right now, please contact us through the following <a href=\"/contact\">form</a>. In case you want to make a financial contribution, in the Shop section you will find a link to Paypal and a Bitcoin address.</p>"],
     "canvi_nom_usuari":[
       "<p>Tal com està dissenyada actualment la plataforma, no es contempla aquesta opció.</p>",
-      "",
-      ""],
+      "<p>Tal como está diseñada actualmente la plataforma, no se contempla esta opción.</p>",
+      "<p>As the platform is currently designed, this option is not contemplated.</p>"],
     "com_compartir_projecte":[
-      "<p>Per poder compartir un projecte necessites tenir un compte a TecnoAgora. Si ja el tens, i tens un repositori per compartir, tens un botó verd a la barra de navegació on posa “+Afegir projecte”. </p><p>En el formulari que t’apareixi hauràs d’omplir les dades sobre el projecte: títol, descripció petita, descripció gran, enllaç a la web (si en té), etc. En la descripció gran pots utilitzar la notació Markdown per donar format a la teva entrada. Si vols veure un exemple d’aquesta notació fes clic <a href=\"/exempleMarkDown\">aquí</a>.</p>",
-      "",
-      ""],
+      "<p>Per poder compartir un projecte necessites tenir un compte a TecnoAgora. Si ja el tens, i disposes d'un repositori que desitgis compartir, tens un botó verd a la barra de navegació on posa “+Afegir projecte”. </p><p>En el formulari que t’apareixi hauràs d’omplir les dades sobre el projecte: títol, descripció petita, descripció gran, enllaç a la web (si en té), etc. En la descripció gran pots utilitzar la notació Markdown per donar format a la teva entrada. Si vols veure un exemple d’aquesta notació fes clic <a href=\"/exempleMarkDown\">aquí</a>.</p>",
+      "<p>Para poder compartir un proyecto necesitas tener una cuenta en TecnoAgora. Si ya lo tienes, y dispones de un repositorio que desees compartir, tienes un botón verde en la barra de navegación donde pone “+Añadir proyecto”.</p><p>En el formulario que te aparecerá deberás rellenar los datos sobre el proyecto: título, descripción pequeña, descripción grande, enlace a la web (si tiene), etc. En la descripción grande puedes utilizar la notación Markdown para dar formato a tu entrada. Si quieres ver un ejemplo de esta notación haz clic <a href=\"/exempleMarkDown\">aquí</a>.</p>",
+      "<p>In order to share a project, you need to have an account at TecnoAgora. If you already have one and you have a repository that you want to share, you have a green button on the navigation bar where it says “+Add project”. In the form that will appear, you must fill in the details about the project: title, small description, big description, link to the web (if it has one), etc. In the large description you can use the Markdown notation to format your entry. If you want to see an example of this notation click <a href=\"/exempleMarkDown\">here</a>.</p>"],
     "que_es_openSource":[
-      "<p>RedHat explica que: </p><p><i>“Originalmente, la expresión open source (o código abierto) hacía referencia al software open source (OSS). El software open source es un código diseñado de manera que sea accesible al público: todos pueden ver, modificar y distribuir el código de la forma que consideren conveniente. El software open source se desarrolla de manera descentralizada y colaborativa, así que depende de la revisión entre compañeros y la producción de la comunidad. Además, suele ser más económico, flexible y duradero que sus alternativas propietarias, ya que las encargadas de su desarrollo son las comunidades y no un solo autor o una sola empresa.</i></p><p><i>El Open Source se convirtió en un movimiento y una forma de trabajo que trasciende la producción del software. Este movimiento utiliza los valores y el modelo de producción descentralizada del software open source para hallar nuevas maneras de solucionar problemas en las comunidades y los sectores.”</i></p><p>Si vols saber més informació, pots llegir l’article sencer <a href=\"https://www.redhat.com/es/topics/open-source/what-is-open-source\">aquí</a>.</p>",
-      "",
-      ""],
+      "<p>RedHat explica que: </p><p><i>“Originalment, la expressió open source (o codi obert) feia referència al software open source (OSS). El software open source és un codi dissenyat de manera que sigui accessible al públic: tots poden veure, modificar i distribuir el codi de la forma que considerin convenient. El software open source es desenvolupa de manera descentralitzada i col·laborativa, així que depèn de la revisió entre companys i la producció de la comunitat. A més, sol ser més econòmic, flexible i duradores que les seves alternatives propietàries, ja que les encarregades del seu desenvolupament son les comunitats i no un sol autor o una sola empresa.</i></p><p><i>El Open Source es va convertir en un moviment i una forma de treball que transcendeix la producció del software. Aquest moviment utilitza els valors y el model de producció descentralitzada del software open source para trobar noves maneres de solucionar problemes en les comunitats i els sectors.”</i></p><p>Si vols saber més informació, pots llegir l’article sencer <a href=\"https://www.redhat.com/es/topics/open-source/what-is-open-source\">aquí</a>.</p>",
+      "RedHat explica que: </p><p><i>“Originalmente, la expresión open source (o código abierto) hacía referencia al software open source (OSS). El software open source es un código diseñado de manera que sea accesible al público: todos pueden ver, modificar y distribuir el código de la forma que consideren conveniente. El software open source se desarrolla de manera descentralizada y colaborativa, así que depende de la revisión entre compañeros y la producción de la comunidad. Además, suele ser más económico, flexible y duradero que sus alternativas propietarias, ya que las encargadas de su desarrollo son las comunidades y no un solo autor o una sola empresa.</i></p><p><i>El Open Source se convirtió en un movimiento y una forma de trabajo que trasciende la producción del software. Este movimiento utiliza los valores y el modelo de producción descentralizada del software open source para hallar nuevas maneras de solucionar problemas en las comunidades y los sectores.”</i></p><p>Si quieres saber más información, puedes leer el artículo entero <a href=\"https://www.redhat.com/es/topics/open-source/what-is-open-source\">aquí</a>.</p>",
+      "<p>RedHat explains thtat:</p><p><i>“Open source is a term that originally referred to open source software (OSS). Open source software is code that is designed to be publicly accessible—anyone can see, modify, and distribute the code as they see fit. Open source software is developed in a decentralized and collaborative way, relying on peer review and community production. Open source software is often cheaper, more flexible, and has more longevity than its proprietary peers because it is developed by communities rather than a single author or company.</i></p><p><i>Open source has become a movement and a way of working that reaches beyond software production. The open source movement uses the values and decentralized production model of open source software to find new ways to solve problems in their communities and industries.”</i></p><p>If you want to know more, you can read the whole article <a href=\"https://www.redhat.com/es/topics/open-source/what-is-open-source\">here</a>.<p>"],
     "projectes_que_poden_compartir":[
-      "<p>Qualsevol projecte que respongui afirmativament a les preguntes següents pot ser compartit sense cap problema: Es Open Source? Pretén millorar o solventar un situació desfavorable sobre algun col·lectiu?</p>",
-      "",
-      ""],
+      "<p>Qualsevol projecte que respongui afirmativament a les preguntes següents pot ser compartit sense cap problema: És Open Source? Pretén millorar o solventar un situació desfavorable per algú o algun grup?</p>",
+      "<p>Cualquier proyecto que responda afirmativamente a las preguntas siguientes puede ser compartido sin ningún problema: ¿Es Open Source? ¿Pretende mejorar o solventar una situación desfavorable para alguien o algún grupo?</p>",
+      "<p>Any project that answers yes to the following questions can be shared without any problem: Is it Open Source? Do you intend to improve or solve a situation that is unfavourable to someone or a group?</p>"],
     "poder_compartir_altres_projectes":[
       "<p>Un dels objectius de TecnoAgora és incentivar la participació dels seus usuaris en els projectes que es comparteixen. Si creus que el projecte que has trobat permet la col·laboració de qualsevol persona i en qualsevol format, llavors no hi hauria cap problema.</p>",
-      "",
-      ""],
+      "<p>Uno de los objetivos de TecnoAgora es inventivar la participación de sus usuarios en los proyectos que se comparten. Si crees que el proyecto que has encontrado permite la colaboración de cualquier persona i en cualquier formato, entonces no habrá ningún problema.</p>",
+      "<p>One of TecnoAgora's objectives is to encourage the participation of its users in the projects they share. If you think that the project you have found allows the collaboration of any person and in any format, then there will be no problem.</p>"],
     "utilitat_punts":[
-      "<p>Actualment els punts serveixen per poder canviar la foto de perfil, que es genera de forma aleatòria, a través de l’apartat “Botiga”. A més, si consideres que un projecte es prou interesant pots donar-li un premi que apareixerà en els detalls del projecte. A més la persona que l’hagi rebrà els punts corresponents al premi. </p>",
-      "",
-      ""],
+      "<p>Actualment els punts serveixen per poder canviar la foto de perfil, que es genera de forma aleatòria, a través de l’apartat “Botiga”. A més, si consideres que un projecte és prou interesant pots donar-li un premi que apareixerà en els detalls d'aquest, sota el seu nom. Fent això no només indicaràs que aquell projecte té certa rellevància, cosa que pot ajudar a que altres usuaris hi vulguin participar, si no que qui l'hagi compartit rebrà els punts corresponents al premi.</p>",
+      "<p>Actualmente los puntos sirven para poder canviar la foto de perfil, que se genera de forma aleatória, a través del apartado “Tienda”. Además, si consideras que un proyecto es suficintemente interesante puedes darle un premio que aparecera en los detalles de este, debajo de su nombre. Haciendo esto no solo indicarás que ese proyecto tiene cierta relevancia, cosa que puede ayudar a otros usuario a que quierean participar, sinó que quién lo haya compartido recibirá los puntos correspondientes al premio.",
+      "<p>Currently the points are used to change the profile photo, which is generated at random, through the “Shop” section. In addition, if you consider a project interesting enough, you can give it a prize that will appear in the details of the project, under its name. By doing this you will not only indicate that the project has a certain relevance, which may help other users to participate, but also that the person who has shared it will receive the points corresponding to the prize.</p>"],
     "contacte":[
       "<p>Per qualsevol dubte o problema pots utilitzar el formulari de contacte que trobaràs <a href=\"/contact\">aquí</a>.</p>",
-      "",
-      ""]
+      "<p>Para cualquier duda o problema puedes utilitzar el formulario de contacto que encontrarás <a href=\"/contact\">aquí</a>.</p>",
+      "<p>For any doubt or problem you can use the contact form that you will find <a href=\"/contact\">here</a>.</p>"],
+    "que_es_tecnoAgora_preg":["Què és TecnoAgora i quin objectiu té?","¿Qué es TecnoAgora y qué objetivo tiene?","What is TecnoAgora and what is its purpose?"],
+    "qui_radera_preg":["Qui hi ha radera?","¿Quién hay detrás?","Who is behind it?"],
+    "com_aportar_preg":["Com puc aportar?","¿Cómo puedo aportar?","How can I contribute?"],
+    "canvi_nom_usuari_preg":["Un cop m'he registrat, em puc canviar el nom d'usuari?","Una vez me he registrado, ¿me puedo cambiar el nombre de usuario?","Once I have registered, can I change my user name?"],
+    "com_compartir_projecte_preg":["Com comparteixo un projecte?","¿Cómo comparto un proyecto?","How do I share a project?"],
+    "que_es_openSource_preg":["Què vol dir Open Source?","¿Qué quiere decir Open Source?","What does Open Source mean?"],
+    "projectes_que_poden_compartir_preg":["Com sé si el projecte que vull compartir encaixa en la filosofia del portal?","¿Como sé si el proyecto que quiero compartir encaja con la filosofía del portal?","How do I know if the project I want to share fits with the philosophy of the portal?"],
+    "poder_compartir_altres_projectes_preg":[
+      "Es poden compartir projectes tecnològics Open Source que no estan relacionats directa o indirectament amb la programació?",
+      "¿Se pueden compartir proyectos tecnológicos Open Source que no están relacionados directa o indirectamente con la programación?",
+      "Can you share Open Source technology projects that are not directly or indirectly related to programming?"],
+    "utilitat_punts_preg":["Per a què serveixen els punts?","¿Para qué sirven los puntos?","What are the points for?"],
+    "contacte_preg":["Tinc més dubtes, com em poso en contacte?","Tengo más dudas, ¿cómo me pongo en contacto?","I have more questions, how do I get in touch?"]
+  },
+  "exemple_markdown": {
+    "exemple_notacio":["Exemple de notació MarkDown","Ejemplo notación MarkDown","MarkDown notation example"],
+    "heading":[
+      "<p> # Capçalera 1<br> ## Capçalera 2<br> ### Capçalera 3<br>#### Capçalera 4<br>##### Capçalera 5<br> ###### Capçalera 6<br></p>",
+      "<p> # Encabezado 1<br> ## Encabezado 2<br> ### Encabezado 3<br>#### Encabezado 4<br>##### Encabezado 5<br> ###### Encabezado 6<br></p>",
+      "<p> # Heading 1<br> ## Heading 2<br> ### Heading 3<br>#### Heading 4<br>##### Heading 5<br> ###### Heading 6<br></p>"],
+    "horizontal_lines":[
+      "<h2>Línies horitzontals</h2><p>___<br>---<br>***<br></p>",
+      "<h2>Líneas horizontales</h2><p>___<br>---<br>***<br></p>",
+      "<h2>Horizontal Rules</h2><p>___<br>---<br>***<br></p>"],
+    "typographic":[
+      "<h2>Remplaçaments tipogràfics</h2><p>(c) (C) (r) (R) (tm) (TM) (p) (P) +-</p>",
+      "<h2>Remplazamientos tipográficos</h2><p>(c) (C) (r) (R) (tm) (TM) (p) (P) +-</p>",
+      "<h2>Typographic replacements</h2><p>(c) (C) (r) (R) (tm) (TM) (p) (P) +-</p>"],
+    "emphasis":[
+      "<h2>Èmfasi</h2><p>**Això està en negreta**<br>__Això està en negreta__<br>*Això està en cursiva*<br>_Això està en cursiva_<br>~~Aquest text està ratllat~~<br></p>",
+      "<h2>Énfasis</h2><p>**Esto está en negrita**<br>__Esto está en negrita__<br>*Esto está en cursiva*<br>_Esto está en cursiva_<br>~~Este texto está tachado~~<br></p>",
+      "<h2>Emphasis</h2><p>**This is bold text**<br>__This is bold text__<br>*This is italic text*<br>_This is italic text_<br>~~Strikethrough~~<br></p>"],
+    "blockquotes":[
+      "<h2>Blocs</h2><p> > Es poden introduir blocs dintre d'altres...<br> >> ...utilitzant signes adicionals (>) just al costat...<br> > > > ...o amb espais entre les fletxes.<br></p>",
+      "<h2>Bloques</h2><p> > Se pueden utilitar bloques dentro de otros...<br> >> ...utilitzando signos adicionales (>) justo al lado...<br> > > > ...o con espacios entre las flechas.<br></p>",
+      "<h2>Blockquotes</h2><p> > Blockquotes can also be nested...<br> >> ...by using additional greater-than signs right next to each other...<br> > > > ...or with spaces between arrows.<br></p>"],
+    "lists":[
+      "<h2>Llistes</h2><p>Sense ordenar</p><pre>+ Crea una llista començant una línia amb `+`, `-`, or `*`<br>+ Les sub-llistes es fan sagnant 2 espais:<br>  - EL canvi de símbol no implica una nova línia:<br>    * Ac tristique libero volutpat at<br>    + Facilisis in pretium nisl aliquet<br>    - Nulla volutpat aliquam velit<br>+ Super fàcil!</pre><p>Ordenada</p><pre>1. Lorem ipsum dolor sit amet<br>2. Consectetur adipiscing elit<br>3. Integer molestie lorem at massa<br><br>1. Pots utilitzar números consecutius...<br>1. ...o seguir amb tots el números com `1.`</pre><p>Pots començar i seguir a partir d'un número concret:</p><pre>57. foo<br>1. bar</pre>",
+
+      "<h2>Listas</h2><p>Sin ordenar</p><pre>+ Crea un lista empezando una línea con `+`, `-`, or `*`<br>+ Las sub-listes se hacen con un sangrado de 2 espacios:<br>  - EL cambio de símbolo no implica una nueva línea:<br>    * Ac tristique libero volutpat at<br>    + Facilisis in pretium nisl aliquet<br>    - Nulla volutpat aliquam velit<br>+ Súper fácil!</pre><p>Ordenada</p><pre>1. Lorem ipsum dolor sit amet<br>2. Consectetur adipiscing elit<br>3. Integer molestie lorem at massa<br><br>1. Puedes utilizar números consecutivos...<br>1. ...o seguir todos los números con `1.`</pre><p>Puedes empezar y seguir a partir de un número en concreto:</p><pre>57. foo<br>1. bar</pre>",
+
+      "<h2>Lists</h2><p>Unordered</p><pre>+ Create a list by starting a line with `+`, `-`, or `*`<br>+ Sub-lists are made by indenting 2 spaces:<br>  - Marker character change does not mean new list start:<br>    * Ac tristique libero volutpat at<br>    + Facilisis in pretium nisl aliquet<br>    - Nulla volutpat aliquam velit<br>+ Very easy!</pre><p>Ordered</p><pre>1. Lorem ipsum dolor sit amet<br>2. Consectetur adipiscing elit<br>3. Integer molestie lorem at massa<br><br>1. You can use sequential numbers...<br>1. ...or keep all the numbers as `1.`</pre><p>Start numbering with offset:</p><pre>57. foo<br>1. bar</pre>"],
+    "code":[
+      "<h2>Codi</h2><p>En una línia: `codi`</p><p>Utilitza un sagnat de 4 espais per crear un bloc de codi:</p><pre>    // Alguns comentaris<br>    línia 1 de codi<br>    línia 2 de codi<br>    línia 3 de codi</pre><p>Bloc de codi utilitzant \"tanques\"</p><pre>```<br>Aquí va el codi...<br>```</pre>",
+      "<h2>Código</h2><p>En una línéa: `código`</p><p>Utilizando un sangrado de 4 espacios para crear un bloque de código:</p><pre>    // Algunos comentarios<br>    línea 1 de código<br>    línea 2 de código<br>    línea 3 de código</pre><p>Bloque de código utilizando \"vallas\"</p><pre>```<br>Aquí va el código...<br>```</pre>",
+      "<h2>Code</h2><p>Inline `code`</p><p>Indented code with 4 spaces:</p><pre>    // Some comments<br>    line 1 of code<br>    line 2 of code<br>    line 3 of code</pre><p>Block code \"fences\"</p><pre>```<br>Sample text here...<br>```</pre>"],
+    "tables":[
+      "<h2>Taules</h2><p>| Opció | Descripció |<br>| ------ | ----------- |<br>| dada_1   | exemple descripció 1. |<br>| dada_2 | exemple descripció 2. |<br>| dada_3    | exemple descripció 3. |<br></p>",
+      "<h2>Tablas</h2><p>| Opción | Descripción |<br>| ------ | ----------- |<br>| dato_1   | ejemplo descripción 1. |<br>| dato_2 | ejemplo descripción 2. |<br>| dato_3    | ejemplo descripción 3. |<br></p>",
+      "<h2>Tables</h2><p>| Option | Description |<br>| ------ | ----------- |<br>| data_1   | description example 1. |<br>| data_2 | description example 2. |<br>| data_3    | description example 3. |<br></p>"],
+    "images":[
+      "<h2>Imatges i enllaços</h2><p>Això és un [enllaç](https://www.tecnoagora.com)</p><h6>Imatge amb la mida nativa:</h6><p>![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png)</p><h6>Especificar el text al posar el cursos sobre la imatge:</h6><p>![TecnoAgora_2](https://tecnoagora.com/src/imgs/tecnoAgora_background.png \"Projecte TecnoAgora\")</p><h6>Canvi de mida de la imatge:</h6><p>![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png =300x)</p><h6>Crear un enllaç amb la imatge:</h6><p>[![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png)](https://www.tecnoagora.com)</p><h6>Tot alhora:</h6><p>[![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png \"Projecte TecnoAgora\" =300x)](https://www.tecnoagora.com)</p>",
+
+      "<h2>Imágenes y enlaces</h2><p>Esto es un [enlace](https://www.tecnoagora.com)</p><h6>Imagen con el tamaño nativo:</h6><p>![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png)</p><h6>Especificar el texto al poner el cursor sobre la imagen:</h6><p>![TecnoAgora_2](https://tecnoagora.com/src/imgs/tecnoAgora_background.png \"Proyecto TecnoAgora\")</p><h6>Cambio del tamaño de la imagen:</h6><p>![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png =300x)</p><h6>Crear un enlace con una imagen:</h6><p>[![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png)](https://www.tecnoagora.com)</p><h6>Todo a la vez:</h6><p>[![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png \"Proyecto TecnoAgora\" =300x)](https://www.tecnoagora.com)</p>",
+
+      "<h2>Images and links</h2><p>This is a [link](https://www.tecnoagora.com)</p><h6>Images with native size:</h6><p>![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png)</p><h6>Specifying text when cursor hover the image:</h6><p>![TecnoAgora_2](https://tecnoagora.com/src/imgs/tecnoAgora_background.png \"Project TecnoAgora\")</p><h6>Changing image size:</h6><p>![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png =300x)</p><h6>Creating a link with an image:</h6><p>[![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png)](https://www.tecnoagora.com)</p><h6>All together:</h6><p>[![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png \"Project TecnoAgora\" =300x)](https://www.tecnoagora.com)</p>"]
+
   },
   "errors":{
     "error_general":["Alguna cosa no ha funcionat bé, torna-ho a intentar més tard","Alguna cosa no ha funcionado bien, vuélvelo a probar más tarde","Something has gone wrong, try again later"],

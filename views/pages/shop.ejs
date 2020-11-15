@@ -23,14 +23,24 @@
     </div>
     <div class="row"></div>
     <div class="row my-5">
-      <div class="col-lg order-lg-first my-3">
-        <div class="card shadow cardShop-style-soon">
+      <div class="col-lg order-lg-first mb-2">
+        <div class="card shadow cardShop-style">
           <div class="card-body">
-            <h6 class="card-subtitle mb-2 text-muted"><%= strings['botiga']['soon'][lang] %></h6>
+            <h5 class="card-title"><%= strings['botiga']['support'][lang] %></h5>
+            <h6 class="card-subtitle mb-2 text-muted text-right"><%= strings['botiga']['any_amount'][lang] %></h6>
+            <p class="card-text"><%= strings['botiga']['donation_desc'][lang] %></p>
+            <div class="row">
+              <div class="col">
+                <a role="button" href="https://paypal.me/tecnoagora" class="btn btn-primary btn-lg btn-block">Paypal</a>
+              </div>
+              <div class="col">
+                <button class="btn btn-warning btn-lg btn-block" data-toggle="modal" data-target="#modalBitcoin">Bitcoin</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-lg order-first">
+      <div class="col-lg order-first mb-2">
         <div class="card shadow cardShop-style">
           <div class="card-body">
             <h5 class="card-title"><%= strings['botiga']['canvi_foto_titol'][lang] %></h5>
@@ -44,7 +54,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg my-3">
+      <div class="col-lg mb-2">
         <div class="card shadow cardShop-style-soon">
           <div class="card-body">
             <h6 class="card-subtitle mb-2 text-muted"><%= strings['botiga']['soon'][lang] %></h6>
@@ -53,6 +63,16 @@
       </div>
     </div>
     <div class="row"></div>
+  </div>
+
+  <div class="modal fade" id="modalBitcoin" tabindex="-1" aria-labelledby="modalBitcoin" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p>1EqubYimUoiXaLnBDV1wkGytUfRRKNKoNc</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="modal fade" id="modalBotiga" tabindex="-1" aria-labelledby="modalBotiga" aria-hidden="true">

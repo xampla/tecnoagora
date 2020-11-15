@@ -46,7 +46,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 
 exports.findAllProjects = function(req, res) {
   var user = service.getUserFromToken(req.cookies.Token);
-  var page = (req.query.p) ? req.query.p:1;
+  var page = (req.query.p) ? parseInt(req.query.p):1;
   var pages = {actual:'', prev:'',next:'',total:''};
 
   var errorSanitize = validationResult(req);
@@ -58,9 +58,11 @@ exports.findAllProjects = function(req, res) {
   Projectes.countDocuments(function(err_count, countProj) {
     if(err_count) return res.render(vPath + "pages/error", {user: error, active: "",strings:strings,lang:req.lang});
     pages['total'] = (countProj%10 == 0 && countProj != 0) ? countProj/10 : parseInt(countProj/10)+1;
-    pages['actual'] = (page==null || page==0 || parseInt(req.query.p)>pages.total) ? 1: parseInt(req.query.p);
+    //pages['actual'] = (page==null || page==0 || parseInt(req.query.p)>pages.total) ? 1: parseInt(req.query.p);
+    pages['actual'] = (page>pages.total) ? 1: page;
     pages['next'] = (pages.actual+1>=pages.total) ? pages.total : pages.actual+1;
     pages['prev'] = (pages.actual-1<=0 || pages.actual>pages.total) ? 1:pages.actual-1;
+    console.log((0));
     Projectes.find({}).sort({ date: -1 }).skip(10*(pages.actual-1)).limit(10).exec(function(err_find, projects) {
       if(err_find) return res.status(200).render(vPath + "pages/error", {user: user, active: "explora",strings:strings,lang:req.lang});
       for (var i = 0; i < projects.length; i++) {
@@ -81,9 +83,8 @@ exports.findAllProjects = function(req, res) {
 
 exports.exempleMarkDown = function(req, res) {
   var user = service.getUserFromToken(req.cookies.Token);
-  var exemple = fs.readFileSync(__dirname + '/../views/resources/others/exempleMarkDown', 'utf8');
+  var exemple = fs.readFileSync(__dirname + '/../views/resources/others/exempleMarkDown_'+req.lang, 'utf8');
   var exemple_split_rendered = md.render(exemple).split(";-;");
-  console.log(exemple_split_rendered[8]);
   res.render(vPath + "pages/exempleMarkDown", {user: user, active: "",strings:strings,render:exemple_split_rendered,lang:req.lang});
 };
 

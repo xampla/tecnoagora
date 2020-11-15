@@ -37,7 +37,7 @@ exports.logout = function(req, res) {
 
 exports.faqs = function(req, res) {
   var user = service.getUserFromToken(req.cookies.Token);
-  res.render(vPath + "pages/faqs", {user: user, active: "",strings:strings,lang:0});
+  res.render(vPath + "pages/faqs", {user: user, active: "",strings:strings,lang:req.lang});
 };
 
 exports.contact = function(req, res) {

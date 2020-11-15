@@ -1,0 +1,111 @@
+# Capçalera 1
+## Capçalera 2
+### Capçalera 3
+#### Capçalera 4
+##### Capçalera 5
+###### Capçalera 6
+;-;
+
+## Línies horitzontals
+
+___
+
+---
+
+***
+;-;
+
+## Remplaçaments tipogràfics
+
+(c) (C) (r) (R) (tm) (TM) (p) (P) +-
+
+;-;
+
+## Èmfasi
+
+**Això està en negreta**
+
+__Això està en negreta__
+
+*Això està en cursiva*
+
+_Això està en cursiva_
+
+~~Aquest text està ratllat~~
+
+;-;
+## Blocs
+> Es poden introduir blocs dintre d'altres...
+>> ...utilitzant signes adicionals (>) just al costat...
+> > > ...o amb espais entre les fletxes.
+
+;-;
+## Llistes
+
+Sense ordenar
+
++ Crea una llista començant una línia amb `+`, `-`, or `*`
++ Les sub-llistes es fan sagnant 2 espais:
+  - EL canvi de símbol no implica una nova línia:
+    * Ac tristique libero volutpat at
+    + Facilisis in pretium nisl aliquet
+    - Nulla volutpat aliquam velit
++ Súper fàcil!
+
+Ordenada
+
+1. Lorem ipsum dolor sit amet
+2. Consectetur adipiscing elit
+3. Integer molestie lorem at massa
+
+
+1. Pots utilitzar números consecutius...
+1. ...o seguir amb tots el números com `1.`
+
+Pots començar i seguir a partir d'un número concret:
+
+57. foo
+1. bar
+;-;
+
+## Codi
+
+En una línia: `codi`
+
+Utilitza un sagnat de 4 espais per crear un bloc de codi:
+
+    // Alguns comentaris
+    línia 1 de codi
+    línia 2 de codi
+    línia 3 de codi
+
+
+Bloc de codi utilitzant "tanques"
+
+```
+Aquí va el codi...
+```
+
+;-;
+## Taules
+
+| Opció | Descripció |
+| ------ | ----------- |
+| dada_1   | exemple descripció 1. |
+| dada_2 | exemple descripció 2. |
+| dada_3    | exemple descripció 3. |
+
+
+;-;
+## Imatges i enllaços
+Això és un [enllaç](https://www.tecnoagora.com)
+###### Imatge amb la mida nativa:
+![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png)
+###### Especificar el text al posar el cursor sobre la imatge:
+![TecnoAgora_2](https://tecnoagora.com/src/imgs/tecnoAgora_background.png "Projecte TecnoAgora")
+###### Canvi de mida de la imatge:
+![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png =300x)
+###### Crear un enllaç amb una imatge:
+[![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png)](https://www.tecnoagora.com)
+###### Tot alhora:
+[![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png "Projecte TecnoAgora" =300x)](https://www.tecnoagora.com)

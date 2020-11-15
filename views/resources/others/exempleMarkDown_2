@@ -1,0 +1,111 @@
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+;-;
+
+## Horizontal Rules
+
+___
+
+---
+
+***
+;-;
+
+## Typographic replacements
+
+(c) (C) (r) (R) (tm) (TM) (p) (P) +-
+
+;-;
+
+## Emphasis
+
+**This is bold text**
+
+__This is bold text__
+
+*This is italic text*
+
+_This is italic text_
+
+~~Strikethrough~~
+
+;-;
+## Blockquotes
+> Blockquotes can also be nested...
+>> ...by using additional greater-than signs right next to each other...
+> > > ...or with spaces between arrows.
+
+;-;
+## Lists
+
+Unordered
+
++ Create a list by starting a line with `+`, `-`, or `*`
++ Sub-lists are made by indenting 2 spaces:
+  - Marker character change does not mean new list start:
+    * Ac tristique libero volutpat at
+    + Facilisis in pretium nisl aliquet
+    - Nulla volutpat aliquam velit
++ Very easy!
+
+Ordered
+
+1. Lorem ipsum dolor sit amet
+2. Consectetur adipiscing elit
+3. Integer molestie lorem at massa
+
+
+1. You can use sequential numbers...
+1. ...or keep all the numbers as `1.`
+
+Start numbering with offset:
+
+57. foo
+1. bar
+;-;
+
+## Code
+
+Inline `code`
+
+Indented code with 4 spaces
+
+    // Some comments
+    line 1 of code
+    line 2 of code
+    line 3 of code
+
+
+Block code "fences"
+
+```
+Sample text here...
+```
+
+;-;
+## Tables
+
+| Option | Description |
+| ------ | ----------- |
+| data_1   | description example 1. |
+| data_2 | description example 2. |
+| data_3    | description example 3. |
+
+
+;-;
+## Images and links
+This is a [link](https://www.tecnoagora.com)
+###### Images with native size:
+![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png)
+###### Specifying text when cursor hover the image:
+![TecnoAgora_2](https://tecnoagora.com/src/imgs/tecnoAgora_background.png "Project TecnoAgora")
+###### Changing image size:
+![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png =300x)
+###### Creating a link with an image:
+[![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png)](https://www.tecnoagora.com)
+###### All together:
+[![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png "Project TecnoAgora" =300x)](https://www.tecnoagora.com)

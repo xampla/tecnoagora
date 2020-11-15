@@ -1,0 +1,111 @@
+# Encabezado 1
+## Encabezado 2
+### Encabezado 3
+#### Encabezado 4
+##### Encabezado 5
+###### Encabezado 6
+;-;
+
+## Líneas horizontales
+
+___
+
+---
+
+***
+;-;
+
+## Remplazamientos tipográficos
+
+(c) (C) (r) (R) (tm) (TM) (p) (P) +-
+
+;-;
+
+## Énfasis
+
+**Esto está en negrita**
+
+__Esto está en negrita__
+
+*Esto está en cursiva*
+
+_Esto está en cursiva_
+
+~~Este texto está tachado~~
+
+;-;
+## Bloques
+> Se pueden utilitar bloques dentro de otros...
+>> ...utilitzando signos adicionales (>) justo al lado...
+> > > ...o con espacios entre las flechas.
+
+;-;
+## Listas
+
+Sin ordenar
+
++ Crea un lista empezando una línea con `+`, `-`, or `*`
++ Las sub-listes se hacen con un sangrado de 2 espacios:
+  - EL cambio de símbolo no implica una nueva línea:
+    * Ac tristique libero volutpat at
+    + Facilisis in pretium nisl aliquet
+    - Nulla volutpat aliquam velit
++ Súper fácil!
+
+Ordenada
+
+1. Lorem ipsum dolor sit amet
+2. Consectetur adipiscing elit
+3. Integer molestie lorem at massa
+
+
+1. Puedes utilizar números consecutivos...
+1. ...o seguir todos los números con `1.`
+
+Puedes empezar y seguir a partir de un número en concreto:
+
+57. foo
+1. bar
+;-;
+
+## Código
+
+En una línéa: `código`
+
+Utilizando un sangrado de 4 espacios para crear un bloque de código:
+
+    // Algunos comentarios
+    línea 1 de código
+    línea 2 de código
+    línea 3 de código
+
+
+Bloque de código utilizando "vallas"
+
+```
+Aquí va el código...
+```
+
+;-;
+## Tablas
+
+| Opción | Descripción |
+| ------ | ----------- |
+| dato_1   | ejemplo descripción 1. |
+| dato_2 | ejemplo descripción 2. |
+| dato_3    | ejemplo descripción 3. |
+
+
+;-;
+## Imágenes y enlaces
+Esto es un [enlace](https://www.tecnoagora.com)
+###### Imagen con el tamaño nativo:
+![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png)
+###### Especificar el texto al poner el cursor sobre la imagen:
+![TecnoAgora_2](https://tecnoagora.com/src/imgs/tecnoAgora_background.png "Proyecto TecnoAgora")
+###### Cambio del tamaño de la imagen:
+![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png =300x)
+###### Crear un enlace con una imagen:
+[![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png)](https://www.tecnoagora.com)
+###### Todo a la vez:
+[![TecnoAgora_1](https://tecnoagora.com/src/imgs/tecnoAgora_background.png "Proyecto TecnoAgora" =300x)](https://www.tecnoagora.com)
