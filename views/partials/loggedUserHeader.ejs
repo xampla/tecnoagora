@@ -10,19 +10,16 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
-      <li>
-        <button class="btn btn-warning btn-sm p-0">Beta</button>
-      </li>
-      <li class="<%= active == 'home' ? 'nav-item active' : 'nav-item' %>">
+      <li class="<%= active == 'home' ? 'nav-item active' : 'nav-item' %> mx-lg-2">
         <a class="nav-link" href="/"><%= strings['menu']['inici'][lang] %></a>
       </li>
-      <li class="<%= active == 'explora' ? 'nav-item active' : 'nav-item' %>">
+      <li class="<%= active == 'explora' ? 'nav-item active' : 'nav-item' %> mx-lg-2">
         <a class="nav-link" href="/explora?p=1"><%= strings['menu']['explora'][lang] %></a>
       </li>
-      <li class="<%= active == 'perfil' ? 'nav-item active' : 'nav-item' %>">
+      <li class="<%= active == 'perfil' ? 'nav-item active' : 'nav-item' %> mx-lg-2">
         <a class="nav-link" href="/profile"><%= strings['menu']['perfil'][lang] %></a>
       </li>
-      <li class="<%= active == 'shop' ? 'nav-item active' : 'nav-item' %>">
+      <li class="<%= active == 'shop' ? 'nav-item active' : 'nav-item' %> mx-lg-2">
         <a class="nav-link" href="/shop" tabindex="-1" aria-disabled="true"><%= strings['menu']['botiga'][lang] %></a>
       </li>
     </ul>
