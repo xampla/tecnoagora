@@ -15,7 +15,12 @@ exports.ensureAuthenticated = function(req, res, next) {
     return res.status(403).render(vPath + "pages/error", {user: "Usuari", active: "",strings:strings,lang:req.lang});
   }
   var token = req.cookies.Token;
-  var payload = jwt.decode(token, config.TOKEN_SECRET);
+  var payload;
+  try {
+    payload = jwt.decode(token, config.TOKEN_SECRET);
+  } catch (ex) {
+    return res.render(vPath + "pages/home", {user: "Usuari", active: "home",strings:strings,lang:req.lang});;
+  }
   var user = payload.sub;
   User.exists({username:user}, function(err_user, result) {
     if(err_user) return res.status(403).render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
