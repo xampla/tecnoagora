@@ -20,9 +20,13 @@ exports.createToken = function(user) {
 };
 
 exports.getUserFromToken = function(token) {
-  var user = "Usuari"
+  var user = "Usuari";
   if(token!=null) {
-    user = jwt.decode(token, config.TOKEN_SECRET).sub;
+    try {
+      user = jwt.decode(token, config.TOKEN_SECRET).sub;
+    } catch(e) {
+      user = "Usuari";
+    }
   }
   return user;
 };

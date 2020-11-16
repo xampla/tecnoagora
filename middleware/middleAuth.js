@@ -18,7 +18,7 @@ exports.ensureAuthenticated = function(req, res, next) {
   var payload;
   try {
     payload = jwt.decode(token, config.TOKEN_SECRET);
-  } catch (ex) {
+  } catch(e) {
     return res.render(vPath + "pages/home", {user: "Usuari", active: "home",strings:strings,lang:req.lang});;
   }
   var user = payload.sub;
@@ -36,7 +36,12 @@ exports.ensureAuthenticated = function(req, res, next) {
 
 exports.ensureNotAuthenticated = function(req, res, next) {
   if(req.cookies.Token) {
-    var payload = jwt.decode(req.cookies.Token, config.TOKEN_SECRET);
+    var payload;
+    try {
+      payload= jwt.decode(req.cookies.Token, config.TOKEN_SECRET);
+    } catch(e) {
+      return res.redirect('/');
+    }
     var user = payload.sub;
     User.exists({username:user}, function(err, result) {
       if(err) return res.status(403).render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
@@ -56,7 +61,12 @@ exports.ensureNotAuthenticated = function(req, res, next) {
 
 exports.secCheck = function(req, res, next) {
   if(req.cookies.Token) {
-    var payload = jwt.decode(req.cookies.Token, config.TOKEN_SECRET);
+    var payload;
+    try {
+      payload = jwt.decode(req.cookies.Token, config.TOKEN_SECRET);
+    } catch(e) {
+      return res.cookie('Token', req.cookies.Token, { maxAge:0, secure:true, httpOnly:true, domain:'tecnoagora.com', path:'/', sameSite: 'lax' }).render(vPath + "pages/home", {user: "Usuari", active: "home",strings:strings,lang:req.lang});
+    }
     var user = payload.sub;
     User.exists({username:user}, function(err, result) {
       if(result) {
