@@ -218,8 +218,13 @@ exports.updateProfile = function(req, res) {
     return res.status(200).json({ok: false, msg:strings["errors"]["error_dades"][req.lang]});
   }
 
-  User.updateOne({username: user}, {$set:{$name:name, $surname:surname, $desc:desc}}, function(err, usr) {
+  User.updateOne({username: user}, {$set:{name:"test", surname:"test", desc:desc}}, function(err, usr) {
     if(err) return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
+    console.log(user);
+    console.log(name);
+    console.log(surname);
+    console.log(desc);
+    console.log(usr);
     res.status(200).json({ok: true, msg:strings["general"]["dades_actualitzades"][req.lang]});
   });
 };
