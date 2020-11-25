@@ -359,6 +359,11 @@
     "error_email_usat":[
       "L'addreça electrónica indicada ja està en ús. Si no recorda la contrasenya, feu clic al botó 'Has oblidat la contrasenya', que hi ha al formulari d'accés a la plataforma, per recuperar-la!",
       "La dirección electrónica especificada ya está en uso. Si no recuerda la contraseña, haz clic en el botón '¿Olvidaste tu contraseña?', que hay en el formulario de acceso a la plataforma, para recuperarla!",
-      "The specified e-mail address is already in use. If you don't remember your password, click on the 'Did you forget the password?' button, located in the log in form, to retrieve it!"]
+      "The specified e-mail address is already in use. If you don't remember your password, click on the 'Did you forget the password?' button, located in the log in form, to retrieve it!"],
+    "error_too_much_contact":["Has excedit el número de peticions de contacte d'avui.","Has excedido el número de peticiones de contacto por hoy.","You have exceeded the number of contact requests for today."],
+    "error_too_much_login":[
+      "Has excedit el número d'intents per iniciar sessió. Si us plau, clica <a href=\"/forgotPassword\">aquí</a> per restablir la a contrasenya o torna-ho a intentar dintre de 1 hora.",
+      "Has excedido el número de intentos para iniciar sesión. Por favor, haz clic <a href=\"/forgotPassword\">aquí</a> para restablecer la contraseña o vuélvelo a probar dentro de 1 hora.",
+      "You have exceeded the number of attempts to log in. Please, click <a href=\"/forgotPassword\">here</a> to reset your password or try it again in 1 hour."]
   }
 }

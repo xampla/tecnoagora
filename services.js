@@ -32,9 +32,6 @@ exports.getUserFromToken = function(token) {
 };
 
 exports.sendMail = function(email, type, data, callback) {
-  console.log(data['token']);
-  console.log(strings);
-
   String.format = function(format) {
     var args = Array.prototype.slice.call(arguments, 1);
     return format.replace(/{(\d+)}/g, function(match, number) {
@@ -105,7 +102,6 @@ exports.sendMail = function(email, type, data, callback) {
      };
 
      smtpTransport.sendMail(mailOptions, function (err_send_email, info) {
-       console.log(info);
        callback(true);
      });
 };

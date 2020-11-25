@@ -6,6 +6,7 @@ var service = require('../services');
 var Profile = require('./profile');
 var nodemailer = require('nodemailer');
 const { google } = require("googleapis");
+const { RateLimiterMongo } = require('rate-limiter-flexible');
 var config = require('../config');
 const OAuth2 = google.auth.OAuth2;
 const bcrypt = require('bcrypt');
@@ -17,6 +18,17 @@ var strings = JSON.parse(fs.readFileSync(__dirname + '/../views/resources/lang/s
 
 const { validationResult } = require('express-validator');
 const mongoSanitize = require('express-mongo-sanitize');
+
+const mongooseClient = mongoose.connection;
+const maxConsecutiveFailsByUsernameAndIP = 5;
+const limiterConsecutiveFailsByUsernameAndIP = new RateLimiterMongo({
+  storeClient: mongooseClient,
+  keyPrefix: 'login_fail_consecutive_username_and_ip',
+  points: maxConsecutiveFailsByUsernameAndIP,
+  duration: 60 * 60 * 24, // Store per 1 day
+  blockDuration: 60 * 60, // Block for 1 hour
+});
+const getUsernameIPkey = function(username, ip) { `${username}_${ip}`};
 
 exports.login = function(req, res) {
   res.render(vPath + "pages/login", {user: "Usuari", active: "",strings:strings,lang:req.lang});
@@ -103,33 +115,96 @@ exports.emailSignup = function(req, res) {
   });
 };
 
-exports.emailLogin = function(req, res) {
+/*
+User.findOne({email: email}, function(err_find_user, user) {
+  if(!user) return res.status(200).json({ok: false, msg:strings["errors"]["error_credencials_incorrectes"][req.lang]});
+  if(err_find_user) return res.status(200).json({ok: false, msg:strings["errors"]["error_credencials_incorrectes"][req.lang]});
+  hash = user.pass;
+  bcrypt.compare(pass, hash, function(err_comp_hash, result) {
+    if(err_comp_hash) return res.status(200).json({ok: false, msg:strings["errors"]["error_credencials_incorrectes"][req.lang]});
+    if(result) {
+      if(rem) res.cookie('Token', service.createToken(user), { maxAge:999999999, secure:true, httpOnly:true, domain:'tecnoagora.com', path:'/', sameSite: 'lax'});
+      else res.cookie('Token', service.createToken(user), { secure:true, httpOnly:true, domain:'tecnoagora.com', path:'/', sameSite: 'lax'});
+      return res.status(200).json({ok: true, msg:strings["general"]["login_correcte"][req.lang]});
+    }
+    else {
+      return res.status(200).json({ok: false, msg:strings["errors"]["error_credencials_incorrectes"][req.lang]});
+    }
+  });
+});
+*/
+
+function loginUser(email,pass,next) {
+  User.findOne({email: email}, function(err_find_user, user) {
+    if(!user) next(null);
+    if(err_find_user) next(null);
+    hash = user.pass;
+    bcrypt.compare(pass, hash, function(err_comp_hash, result) {
+      if(err_comp_hash) next(null);
+      if(result) next(user);
+      else next(null);
+    });
+  });
+}
+
+exports.emailLogin = async function(req, res) {
   var email = req.body.email;
   var pass = req.body.pass;
   var rem = req.body.remember;
 
   var errorSanitize = validationResult(req);
   if(!errorSanitize.isEmpty()) {
-    console.log(errorSanitize);
     return res.status(200).json({ok: false, msg:strings["errors"]["error_credencials_incorrectes"][req.lang]});
   }
 
-  User.findOne({email: email}, function(err_find_user, user) {
-    if(!user) return res.status(200).json({ok: false, msg:strings["errors"]["error_credencials_incorrectes"][req.lang]});
-    if(err_find_user) return res.status(200).json({ok: false, msg:strings["errors"]["error_credencials_incorrectes"][req.lang]});
-    hash = user.pass;
-    bcrypt.compare(pass, hash, function(err_comp_hash, result) {
-      if(err_comp_hash) return res.status(200).json({ok: false, msg:strings["errors"]["error_credencials_incorrectes"][req.lang]});
-      if(result) {
-        if(rem) res.cookie('Token', service.createToken(user), { maxAge:999999999, secure:true, httpOnly:true, domain:'tecnoagora.com', path:'/', sameSite: 'lax'});
-        else res.cookie('Token', service.createToken(user), { secure:true, httpOnly:true, domain:'tecnoagora.com', path:'/', sameSite: 'lax'});
+  //const getUsernameIPkey = function(username, ip) { `${username}_${ip}`};
+  const ipAddr = req.ip;
+  const usernameIPkey = getUsernameIPkey(email, ipAddr);
+
+  const resUsernameAndIP=await Promise.all([limiterConsecutiveFailsByUsernameAndIP.get(usernameIPkey)]);
+
+  let retrySecs = 0;
+
+
+  if (resUsernameAndIP[0] !== null && resUsernameAndIP[0].consumedPoints > maxConsecutiveFailsByUsernameAndIP) {
+    retrySecs = Math.round(resUsernameAndIP[0].msBeforeNext / 1000) || 1;
+  }
+
+  if (retrySecs > 0) {
+    res.status(200).json({ok: false, msg:strings["errors"]["error_too_much_login"][req.lang]});
+  } else {
+    // should be implemented in your project
+    loginUser(email,pass, async function(user) {
+      if (!user) {
+        // Consume 1 point from limiters on wrong attempt and block if limits reached
+        try {
+          // Count failed attempts by Username + IP only for registered users
+          const promises = limiterConsecutiveFailsByUsernameAndIP.consume(usernameIPkey);
+          await Promise.all([promises]);
+          res.status(200).json({ok: false, msg:strings["errors"]["error_credencials_incorrectes"][req.lang]});
+
+        } catch (rlRejected) {
+          if (rlRejected instanceof Error) {
+            throw rlRejected;
+          } else {
+            res.status(200).json({ok: false, msg:strings["errors"]["error_too_much_login"][req.lang]});
+          }
+        }
+      }
+
+      if (user) {
+
+        if (resUsernameAndIP[0] !== null && resUsernameAndIP[0].consumedPoints > 0) {
+          // Reset on successful authorisation
+          await limiterConsecutiveFailsByUsernameAndIP.delete(usernameIPkey);
+        }
+
+        if(rem) res.cookie('Token', service.createToken(user), { maxAge:999999999, secure:true, httpOnly:true, domain:'127.0.0.1', path:'/', sameSite: 'lax'});
+        else res.cookie('Token', service.createToken(user), { secure:true, httpOnly:true, domain:'127.0.0.1', path:'/', sameSite: 'lax'});
         return res.status(200).json({ok: true, msg:strings["general"]["login_correcte"][req.lang]});
       }
-      else {
-        return res.status(200).json({ok: false, msg:strings["errors"]["error_credencials_incorrectes"][req.lang]});
-      }
     });
-  });
+  }
 };
 
 exports.forgotPasswordPost = function(req, res) {
@@ -220,6 +295,8 @@ exports.recoverPasswordPost = function(req, res) {
           if(error_update_user) return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
           RecoverPass.updateOne({token: token}, {expire: Date.now()-3600000}, function(err_update_rec, rec) {
             if(err_update_rec) return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
+            const usernameIPkey = getUsernameIPkey(rec.email, req.ip);
+            limiterConsecutiveFailsByUsernameAndIP.delete(usernameIPkey);
             res.status(200).json({ok: true, msg:strings["reset_pass"]["reset_correct"][req.lang]});
           });
         });

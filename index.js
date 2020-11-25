@@ -21,10 +21,12 @@ var Shop = require('./controllers/shop');
 var vPath = __dirname + '/views/'
 var middlAuth = require('./middleware/middleAuth');
 var middlGeneral = require('./middleware/middleGeneral');
+var middlRateLimit = require('./middleware/middleRateLimiter');
 var config = require('./config');
 var jwt = require('jwt-simple');
 var helmet = require('helmet');
 const { body, param, query } = require('express-validator');
+const { RateLimiterMongo } = require('rate-limiter-flexible');
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -59,7 +61,7 @@ projects.get('/privacyPolicy', Menu.privacyPolicy);
 projects.get('/termsAndConditions', Menu.termsAndConditions);
 projects.get('/contact', Menu.contact);
 projects.get('/error', Menu.error);
-projects.post('/sendContact',[
+projects.post('/sendContact',[middlRateLimit.rateLimiterContact,
   body('name').not().isEmpty().trim().isLength({max: 50}).escape(),
   body('surname').not().isEmpty().isLength({max: 50}).trim(),
   body('email').not().isEmpty().trim().isEmail().normalizeEmail().isLength({max: 100}),
@@ -179,7 +181,7 @@ projects.post('/updateEmail',[
   body('newEmail').not().isEmpty().trim().isEmail().normalizeEmail().isLength({max: 100}),
 ],Profile.updateEmail);
 projects.get('/verifyUpdateEmail/:token',[param('token').not().isEmpty().trim()], Profile.verifyUpdateEmail);
-//projects.get('/test',Menu.test);
+projects.get('/test', Menu.test);
 
 projects.get('*', Menu.notFound);
 

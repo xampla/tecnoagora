@@ -31,7 +31,7 @@ exports.join = function(req, res) {
 };
 
 exports.logout = function(req, res) {
-  res.cookie('Token', req.cookies.Token, { maxAge:0, secure:true, httpOnly:true, domain:'tecnoagora.com', path:'/', sameSite: 'lax'});
+  res.cookie('Token', req.cookies.Token, { maxAge:0, secure:true, httpOnly:true, domain:'127.0.0.1', path:'/', sameSite: 'lax'});
   res.redirect('/');
 };
 
@@ -51,6 +51,10 @@ exports.sendContact = function(req, res) {
   var surname = req.body.surname;
   var desc = req.body.desc;
   var email = req.body.email;
+
+  if(req.bruteForce) {
+    return res.status(200).json({ok: false, msg:strings["errors"]["error_too_much_contact"][req.lang]});
+  }
 
   var errorSanitize = validationResult(req);
   if(!errorSanitize.isEmpty()) {
