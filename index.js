@@ -181,7 +181,9 @@ projects.post('/updateEmail',[
   body('newEmail').not().isEmpty().trim().isEmail().normalizeEmail().isLength({max: 100}),
 ],Profile.updateEmail);
 projects.get('/verifyUpdateEmail/:token',[param('token').not().isEmpty().trim()], Profile.verifyUpdateEmail);
-projects.get('/test', Menu.test);
+projects.get('/saved', Profile.profileSaved);
+projects.get('/settings', Profile.profileSettings);
+//projects.get('/test', Menu.test);
 
 projects.get('*', Menu.notFound);
 

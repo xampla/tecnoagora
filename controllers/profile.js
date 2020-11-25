@@ -31,7 +31,49 @@ exports.profile = function(req, res) {
           if(err_proj_added) return res.render(vPath + "pages/error", {user: "Usuari", active: "",strings:strings,lang:req.lang});
           else {
             profile.pass = "";
-            res.render(vPath + "pages/profile", {user: user, active: "perfil", profile:profile, savedProj: saved, addedProj: added,strings:strings,lang:req.lang});
+            res.render(vPath + "pages/profile", {user: user, active: "perfil", profile:profile, savedProj: saved, addedProj: added,strings:strings,lang:req.lang,activeTab:""});
+          }
+        });
+      });
+    }
+  });
+};
+
+exports.profileSaved = function(req, res) {
+  var user = service.getUserFromToken(req.cookies.Token);
+  User.findOne({username:user}, function(err_user, profile) {
+    if(profile==null) {
+      return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
+    }
+    else {
+      Projectes.find({_id: {$in: profile.savedProj}}, function(err_proj_saved, saved) {
+        if(err_proj_saved) return res.render(vPath + "pages/error", {user: "Usuari", active: "",strings:strings,lang:req.lang});
+        Projectes.find({_id: {$in: profile.addedProj}}, function(err_proj_added, added) {
+          if(err_proj_added) return res.render(vPath + "pages/error", {user: "Usuari", active: "",strings:strings,lang:req.lang});
+          else {
+            profile.pass = "";
+            res.render(vPath + "pages/profile", {user: user, active: "perfil", profile:profile, savedProj: saved, addedProj: added,strings:strings,lang:req.lang,activeTab:"saved"});
+          }
+        });
+      });
+    }
+  });
+};
+
+exports.profileSettings = function(req, res) {
+  var user = service.getUserFromToken(req.cookies.Token);
+  User.findOne({username:user}, function(err_user, profile) {
+    if(profile==null) {
+      return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
+    }
+    else {
+      Projectes.find({_id: {$in: profile.savedProj}}, function(err_proj_saved, saved) {
+        if(err_proj_saved) return res.render(vPath + "pages/error", {user: "Usuari", active: "",strings:strings,lang:req.lang});
+        Projectes.find({_id: {$in: profile.addedProj}}, function(err_proj_added, added) {
+          if(err_proj_added) return res.render(vPath + "pages/error", {user: "Usuari", active: "",strings:strings,lang:req.lang});
+          else {
+            profile.pass = "";
+            res.render(vPath + "pages/profile", {user: user, active: "perfil", profile:profile, savedProj: saved, addedProj: added,strings:strings,lang:req.lang,activeTab:"settings"});
           }
         });
       });
