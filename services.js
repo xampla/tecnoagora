@@ -66,6 +66,7 @@ exports.sendMail = function(email, type, data, callback) {
   } else if(type=="contactForm") {
     subject = "[CONSULTA] Nova Consulta Web";
     emailBody = "<p> Name:"+data['name']+" "+data['surname']+"</p> <p> Email: " +data['email']+" </p> <p> Consult:" +data['desc']+ "</p>";
+    email = config.mail.user;
   }
   else {
     callback(false);
