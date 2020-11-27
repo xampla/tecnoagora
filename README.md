@@ -19,6 +19,6 @@ You can read the FAQS [here](https://tecnoagora.com/faqs).
 ## I have more questions, how do I get in touch?              
 For any doubt or problem you can use the contact form that you will find [here](https://tecnoagora.com/contact).
 ---
-### Credit to website which resources are used
+### Credit to websites which resources are used
 * [tinygraphs](http://www.tinygraphs.com/) for profile pictures
 * [icons8](https://icons8.com) for the star icon used to award projects
