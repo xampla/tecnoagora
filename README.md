@@ -16,8 +16,9 @@ One of TecnoAgora's objectives is to encourage the participation of its users in
 ## FAQS
 You can read the FAQS [here](https://tecnoagora.com/faqs).
 
-## I have more questions, how do I get in touch?              
+## I have more questions, how do I get in touch?
 For any doubt or problem you can use the contact form that you will find [here](https://tecnoagora.com/contact).
+
 ---
 ### Credit to websites which resources are used
 * [tinygraphs](http://www.tinygraphs.com/) for profile pictures
