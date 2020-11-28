@@ -250,7 +250,11 @@
           <label for="inputDesc" class="col col-form-label"><%= strings['infoProj']['afegeix_comentari'][lang] %>:</label>
           <div class="col">
             <textarea id="inputDesc" rows="3" class="form-control" name="desc" required></textarea>
-            <button type="submit" class="btn btn-primary btn-block"><%= strings['afegir']['afegir_proj'][lang] %></button>
+            <%if(user=='Usuari'){%>
+              <button type="submit" class="btn btn-primary btn-block" data-toggle="modal" data-target="#test_rate"><%= strings['afegir']['afegir_proj'][lang] %></button>
+            <%} else {%>
+              <button type="submit" class="btn btn-primary btn-block"><%= strings['afegir']['afegir_proj'][lang] %></button>
+            <%}%>
           </div>
         </form>
         <div class="card mt-3 shadow-sm">
