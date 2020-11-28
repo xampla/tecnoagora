@@ -20,6 +20,6 @@ You can read the FAQS [here](https://tecnoagora.com/faqs).
 For any doubt or problem you can use the contact form that you will find [here](https://tecnoagora.com/contact).
 
 ---
-### Credit to websites which resources are used
+### Some resources are extracted from:
 * [tinygraphs](http://www.tinygraphs.com/) for profile pictures
 * [icons8](https://icons8.com) for the star icon used to award projects
