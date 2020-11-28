@@ -212,7 +212,8 @@
     "proj_guardat":["Algú ha guardat el teu projecte i ara el segueix:","Alguien ha guardado tu proyecto y ahora lo sigue:","Someone has saved your project and now is following it:"],
     "proj_comentat":["El teu projecte té un nou comentari:","Tu proyecto tiene un nuevo comentario:","You project has a new comment:"],
     "proj_eliminat":["Has eliminat un projecte que havies compartit:","Has eliminado un proyecto que habías compartido:",""],
-    "no_disponible":["Dades no disponibles","Datos no disponibles","Data not available"]
+    "no_disponible":["Dades no disponibles","Datos no disponibles","Data not available"],
+    "proj_awarded":["Un usuari ha premiat el teu projecte. Felicitats!","Un usuario ha premiado tu proyecto. Felicitates!","One user has awarded your project. Congratulations!"]
   },
   "emailService":{
     "welcomeVerifyEmailSubject":["[TECNOAGORA] Verificació adreça electrònica","[TECNOAGORA] Verificación dirección email","[TECNOAGORA] Email address verification"],

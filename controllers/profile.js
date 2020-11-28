@@ -81,21 +81,6 @@ exports.profileSettings = function(req, res) {
   });
 };
 
-/*
-exports.editProfile = function(req, res) {
-  var user = service.getUserFromToken(req.cookies.Token);
-  User.findOne({username:user},function(err, profile) {
-    res.render(vPath + "pages/editProfile", {user: user, active: "perfil", profile:profile});
-  });
-};
-
-
-exports.savedProjects = function(req, res) {
-  var user = service.getUserFromToken(req.cookies.Token);
-  res.render(vPath + "pages/savedProjects", {user: user, active: "perfil"});
-};
-*/
-
 exports.saveProject = function(req, res) {
   var user = service.getUserFromToken(req.cookies.Token);
 
@@ -121,8 +106,8 @@ exports.saveProject = function(req, res) {
               body:         proj.title,
               date:         new Date()
             });
-            activity.save(function(err, act) {
-              console.log(act);
+            activity.save(function(err_act_save, act) {
+              if(err_act_save) return res.status(200).json({ok: false});
               res.status(200).json({ok: true, numSaves:proj.numSaves});
             });
           }
@@ -172,7 +157,7 @@ exports.getActivity = function(req, res) {
           {referenceId:{$in:u.savedProj}},
           {referenceId:{$in:u.comments}}
         ]}},
-      {$sort:{data:1}}
+      {$sort:{date:1}}
     ]).exec(function(err_act, act) {
       if(err_act) return res.status(200).json({ok: false});
       res.status(200).json({ok: true, activity:act, msg:strings['activitat'], lang:req.lang});
@@ -189,7 +174,6 @@ exports.getUserPoints = function(req, res) {
       {$group: {_id: null, sumProjAdded: {$sum: "$numRates"},sumProjSaved: {$sum: "$numSaves"}}}
     ]).exec(function(err_proj, proj) {
       if(err_proj) return res.status(200).json({ok: false});
-      console.log(proj);
       if(Object.keys(proj).length!==0) {
         var total = proj[0]['sumProjAdded']+proj[0]['sumProjSaved'];
         res.status(200).json({ok: true, points:total, msg:strings['general']['punts'][req.lang]});
@@ -262,11 +246,6 @@ exports.updateProfile = function(req, res) {
 
   User.updateOne({username: user}, {$set:{name:"test", surname:"test", desc:desc}}, function(err, usr) {
     if(err) return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
-    console.log(user);
-    console.log(name);
-    console.log(surname);
-    console.log(desc);
-    console.log(usr);
     res.status(200).json({ok: true, msg:strings["general"]["dades_actualitzades"][req.lang]});
   });
 };
@@ -372,8 +351,6 @@ exports.getProfilePic = function(req,res) {
   User.findOne({username: user}, function(err_find, usr) {
     if(err_find) return res.status(200).json({ok: false});
     if(usr) res.status(200).json({ok: true, svg:usr.profile_pic});
-    //var svgImage = new Buffer.from(usr.profile_pic,'base64').toString("ascii");
-    //console.log(svgImage);
     else res.status(200).json({ok: false});
   });
 };
@@ -485,7 +462,6 @@ exports.verifyUpdateEmail = function(req, res) {
     if(err_find) return res.render(vPath + "pages/verifyChangeEmail", {user: user, active: "", ok:false,strings:strings,lang:req.lang});
     if(!chng) res.render(vPath + "pages/verifyChangeEmail", {user: user, active: "", ok:false,strings:strings,lang:req.lang});
     else {
-      console.log(chng);
       User.updateOne({username: chng.user}, {email:chng.newEmail}, function(err_update_usr, usr) {
         if(err_update_usr) {
           res.render(vPath + "pages/verifyChangeEmail", {user: user, active: "", ok:false,strings:strings,lang:req.lang});

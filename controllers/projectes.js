@@ -62,7 +62,6 @@ exports.findAllProjects = function(req, res) {
     pages['actual'] = (page>pages.total) ? 1: page;
     pages['next'] = (pages.actual+1>=pages.total) ? pages.total : pages.actual+1;
     pages['prev'] = (pages.actual-1<=0 || pages.actual>pages.total) ? 1:pages.actual-1;
-    console.log((0));
     Projectes.find({}).sort({ date: -1 }).skip(10*(pages.actual-1)).limit(10).exec(function(err_find, projects) {
       if(err_find) return res.status(200).render(vPath + "pages/error", {user: user, active: "explora",strings:strings,lang:req.lang});
       for (var i = 0; i < projects.length; i++) {
@@ -486,8 +485,6 @@ exports.previewContent = function(req, res) {
   if(!errorSanitize.isEmpty()) {
     return res.status(200).json({ok: false});
   }
-
-  console.log(content);
 
   var pre = md.render(content);
   res.status(200).json({ok: true, preview:pre, user:user, msg: strings["infoProj"]["compartit_per"][req.lang]});

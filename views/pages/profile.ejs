@@ -31,14 +31,19 @@
             <h5><%= strings['menu']['perfil'][lang] %></h5>
             <h6><%= strings['perfil']['activitat_recent'][lang] %></h6>
             <div class="card" id="activity-card">
-              <%if(savedProj.length != 0){%>
+              <!--<%if(savedProj.length != 0){%>
               <ul class="list-group" id="list-activity">
               </ul>
               <% } else {%>
                 <div id="emptyActivity" class="card-body text-center">
                   <%= strings['perfil']['no_activitat'][lang] %>
                 </div>
-              <% } %>
+              <% } %>-->
+              <ul class="list-group" id="list-activity">
+                <div id="emptyActivity" class="card-body text-center">
+                  <%= strings['perfil']['no_activitat'][lang] %>
+                </div>
+              </ul>
             </div>
           </div>
           <div class="tab-pane fade <%= activeTab == 'saved' ? 'active show' : '' %>" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">

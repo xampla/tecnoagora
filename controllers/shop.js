@@ -33,7 +33,6 @@ exports.changeProfilePicPost = function(req, res) {
       {$group: {_id: null, sumProjAdded: {$sum: "$numRates"},sumProjSaved: {$sum: "$numSaves"}}}
     ]).exec(function(err_proj, proj) {
       if(err_proj) return res.status(200).json({ok: false,msg:strings['errors']['error_general'][req.lang]});
-      console.log(proj);
       if(Object.keys(proj).length!==0) {
         var total = proj[0]['sumProjAdded']+proj[0]['sumProjSaved'];
         if((total-u.spentPoints-cost)>=0) {
@@ -61,30 +60,45 @@ exports.giveAward = function(req, res) {
   var award = req.body.award;
 
   var cost = {"silver": 200, "golden": 400, "diamond": 800};
-  console.log(cost);
-  console.log(award);
 
   var errorSanitize = validationResult(req);
   if(!errorSanitize.isEmpty()) {
     return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
   }
 
-  Profile.getUserPointsExt(user, function(points) {
-    if(points<0) return res.status(200).json({ok: false, msg:strings["botiga"]["punts_insuficients"][req.lang]});
-    if((points-cost[award])>=0) {
-      var newAward = new Award({
-        creator:  user,
-        project:  project,
-        award:    award,
-        date:     new Date()
-      });
-      newAward.save(function(err_saveAw, aw) {
-        if(err_saveAw) return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
-        User.updateOne({username: user}, {$inc:{spentPoints:cost[award]}}, function(err_update, usr_update) {
-          if(err_update) return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
-          return res.status(200).json({ok: true});
-        });
+  Projectes.findOne({_id:project,creator:{$ne:user}},function(err_proj,proj) {
+    if(err_proj) return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
+    if(proj != null) {
+      Profile.getUserPointsExt(user, function(points) {
+        if(points<0) return res.status(200).json({ok: false, msg:strings["botiga"]["punts_insuficients"][req.lang]});
+        if((points-cost[award])>=0) {
+          var newAward = new Award({
+            creator:  user,
+            project:  project,
+            award:    award,
+            date:     new Date()
+          });
+          newAward.save(function(err_saveAw, aw) {
+            if(err_saveAw) return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
+            User.updateOne({username: user}, {$inc:{spentPoints:cost[award]}}, function(err_update, usr_update) {
+              if(err_update) return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
+              var activity = new Activity({
+                creator:      user,
+                actType:      "projectAward",
+                referenceId:  project,
+                body:         proj.title,
+                date:         new Date()
+              });
+              activity.save(function(err_act_save, act) {
+                if(err_act_save) return res.status(200).json({ok: false});
+                return res.status(200).json({ok: true});
+              });
+            });
+          });
+        }
+        else return res.status(200).json({ok: false, msg:strings["botiga"]["punts_insuficients"][req.lang]});
       });
     }
+    else return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
   });
 }

@@ -55,7 +55,6 @@ exports.emailSignup = function(req, res) {
 
     User.findOne({email:email}, function(error_find_user, user_email) {
       if(error_find_user) return res.status(200).json({ok: false, msg:strings["errors"]["error_general"][req.lang]});
-      console.log(!user_email);
 
       if(!user_email) {
         bcrypt.hash(pass, 10, function(err_hash, hash) {
@@ -114,25 +113,6 @@ exports.emailSignup = function(req, res) {
     });
   });
 };
-
-/*
-User.findOne({email: email}, function(err_find_user, user) {
-  if(!user) return res.status(200).json({ok: false, msg:strings["errors"]["error_credencials_incorrectes"][req.lang]});
-  if(err_find_user) return res.status(200).json({ok: false, msg:strings["errors"]["error_credencials_incorrectes"][req.lang]});
-  hash = user.pass;
-  bcrypt.compare(pass, hash, function(err_comp_hash, result) {
-    if(err_comp_hash) return res.status(200).json({ok: false, msg:strings["errors"]["error_credencials_incorrectes"][req.lang]});
-    if(result) {
-      if(rem) res.cookie('Token', service.createToken(user), { maxAge:999999999, secure:true, httpOnly:true, domain:'tecnoagora.com', path:'/', sameSite: 'lax'});
-      else res.cookie('Token', service.createToken(user), { secure:true, httpOnly:true, domain:'tecnoagora.com', path:'/', sameSite: 'lax'});
-      return res.status(200).json({ok: true, msg:strings["general"]["login_correcte"][req.lang]});
-    }
-    else {
-      return res.status(200).json({ok: false, msg:strings["errors"]["error_credencials_incorrectes"][req.lang]});
-    }
-  });
-});
-*/
 
 function loginUser(email,pass,next) {
   User.findOne({email: email}, function(err_find_user, user) {

@@ -34,7 +34,6 @@ $(document).ready(function() {
 
   var points = $.get("/getUserPoints");
   points.done(function( data ) {
-    console.log(data);
     $('#points').text(data['points']);
   });
 
@@ -46,6 +45,7 @@ $(document).ready(function() {
   var activity = $.get("/activity");
   activity.done(function( data ) {
     if(data['ok'] && data['activity'].length != 0) {
+      $('#list-activity').html("");
       var lang = data['lang'];
       $.each(data['activity'], function(i, act){
         var date = new Date(act.date);
@@ -55,11 +55,12 @@ $(document).ready(function() {
           msg = data['msg']['proj_afegit'][lang];
         } else if(act.actType == "projectRated") {
           msg = data['msg']['proj_valorat'][lang];
-        }
-        else if(act.actType == "projectSaved") {
+        } else if(act.actType == "projectSaved") {
           msg = data['msg']['proj_guardat'][lang];
         } else if(act.actType == "projectDeleted") {
           msg = data['msg']['proj_eliminat'][lang];
+        } else if(act.actType == "projectAward"){
+          msg = data['msg']['proj_awarded'][lang];;
         } else {
           msg = data['msg']['proj_comentat'][lang];
         }
