@@ -116,7 +116,7 @@
     "operacio_finalitzada":["Operació finalitzada correctament","Operación finalizada correctamente","Operation successfully completed"],
     "dona_premi":["Dóna un premi a aquest projecte","Da un premio a este proyecto ","Give an award to this project"],
     "support":["Donar suport","Dar soporte","Support the project"],
-    "donation_desc":["Dóna suport a TecnoAgora a través d'una aportació.","Da soporte a TecnoAgora a través de una aportación,","Give support to TecnoAgora through a contribution."],
+    "donation_desc":["Dóna suport a TecnoAgora a través d'una aportació.","Da soporte a TecnoAgora a través de una aportación.","Give support to TecnoAgora through a contribution."],
     "any_amount":["Tu decideixes","Tú decides","It's up to you"]
   },
   "footer":{
