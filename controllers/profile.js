@@ -178,7 +178,7 @@ exports.getUserPoints = function(req, res) {
         var total = proj[0]['sumProjAdded']+proj[0]['sumProjSaved'];
         res.status(200).json({ok: true, points:total, msg:strings['general']['punts'][req.lang]});
       } else {
-        res.status(200).json({ok: true, points:0});
+        res.status(200).json({ok: true, points:0, msg:strings['general']['punts'][req.lang]});
       }
     });
   });
