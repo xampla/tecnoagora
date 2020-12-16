@@ -1,11 +1,8 @@
 {
-  "name": "buscador",
+  "name": "TecnoAgora",
   "version": "1.0.0",
   "description": "Buscador Open Source",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Xavier Marrugat",
   "license": "ISC",
   "dependencies": {
@@ -17,7 +14,7 @@
     "express": "^4.17.1",
     "express-mongo-sanitize": "^2.0.0",
     "express-validator": "^6.6.0",
-    "googleapis": "^39.2.0",
+    "googleapis": "^66.0.0",
     "helmet": "^3.23.3",
     "jwt-simple": "^0.5.6",
     "markdown-it": "^11.0.0",
