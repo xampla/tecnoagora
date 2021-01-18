@@ -78,6 +78,7 @@ projects.post('/giveAward',[
 ],Shop.giveAward);
 
 projects.get('/explora', ProjectCtrl.findAllProjects);
+projects.get('/getProjectIssues/:id',param('id').not().isEmpty().trim().isMongoId(), ProjectCtrl.getProjectIssues);
 projects.get('/projects', ProjectCtrl.findAllProjects);
 projects.post('/afegirEntrada',[
   middlAuth.ensureAuthenticated,
@@ -183,7 +184,7 @@ projects.post('/updateEmail',[
 projects.get('/verifyUpdateEmail/:token',[param('token').not().isEmpty().trim()], Profile.verifyUpdateEmail);
 projects.get('/saved', Profile.profileSaved);
 projects.get('/settings', Profile.profileSettings);
-//projects.get('/test', Menu.test);
+//projects.get('/test', ProjectCtrl.getProjectIssues);
 
 projects.get('*', Menu.notFound);
 

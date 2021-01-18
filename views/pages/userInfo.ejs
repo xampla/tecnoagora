@@ -27,7 +27,7 @@
           <div class="card-body">
             <h3 id="usernameInfo" class="card-title mb-0"><%= profileInfo.username %></h3>
             <p class="card-text mt-0"><small class="text-muted"><%= strings['perfil']['membre_desde'][lang] %>: <span id="memberDate"><%= profileInfo.date.getDate() %>/<%= profileInfo.date.getMonth()+1 %>/<%= profileInfo.date.getFullYear() %></span></small></p>
-            <p class="card-text"><%= profileInfo.desc %></p>
+            <p class="card-text"><%- profileInfo.desc %></p>
           </div>
         </div>
       </div>

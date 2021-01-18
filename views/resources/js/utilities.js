@@ -161,4 +161,29 @@ $(document).ready(function() {
     }
   });
 
+  var projID = $('#saveForm').attr( "action" ).split("/")[2];
+  var issuesGet = $.get("/getProjectIssues/"+projID);
+  issuesGet.done(function( data ) {
+    if(data['ok']){
+      var issues_html = $($.parseHTML(data['content']));
+      if($(issues_html).find('.js-issue-row').length == 0) {
+        $('#projectIssuesList').append(
+          '<button class="list-group-item list-group-item-action issue-btn" href="#">'+data["msg"]+'</button>');
+      }
+      else {
+        $('.js-issue-row', issues_html).each(function(item){
+          var issue_name = $(this, issues_html).find(".js-navigation-open").text();
+          var issue_opened_by = $(this, issues_html).find(".opened-by").text();
+          var issue_link = $(this, issues_html).find(".js-navigation-open").attr('href');
+          $('#projectIssuesList').append(
+            '<button class="list-group-item list-group-item-action issue-btn" href="#"><a class="text-decoration-none text-reset font-weight-bold" href="https://github.com'+issue_link+'">'+issue_name+'</a><br><small>'+issue_opened_by+'</small></button>');
+        });
+      }
+    }
+    else {
+      $('#projectIssuesList').append(
+        '<li class="list-group-item">'+data['msg']+'</li>');
+    }
+  });
+
 });

@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var he = require('he');
 var Projectes  = mongoose.model('Project');
 var User  = mongoose.model('User');
 var Comment  = mongoose.model('Comment');
@@ -7,6 +8,8 @@ var Award = mongoose.model('Award');
 var vPath = __dirname + '/../views/'
 var service = require('../services');
 var fs = require('fs');
+const https = require('https');
+const querystring = require('querystring');
 var strings = JSON.parse(fs.readFileSync(__dirname + '/../views/resources/lang/strings.json', 'utf8'));
 var md = require('markdown-it')({
   html: false,
@@ -530,6 +533,45 @@ exports.updateProject = function(req, res) {
     }
     else {
       return res.render(vPath + "pages/error", {user: user, active: "",strings:strings,lang:req.lang});
+    }
+  });
+}
+
+exports.getProjectIssues = function(req,res) {
+  var id = req.params.id;
+
+  var errorSanitize = validationResult(req);
+  if(!errorSanitize.isEmpty()) {
+    console.log(errorSanitize);
+    return res.json({ok:false,msg:strings["general"]["empty_issues"][req.lang]});
+  }
+
+  Projectes.findOne({_id:id}, function(err_proj, proj){
+    if(err_proj) return res.json({ok:false,msg:strings["general"]["empty_issues"][req.lang]});
+    if(!proj) {return res.json({ok:false,msg:strings["general"]["empty_issues"][req.lang]});}
+    else {
+      var host = new URL(he.decode(proj.link));
+      if(host.host!="github.com") return res.json({ok:false,msg:strings["general"]["empty_issues"][req.lang]});
+      var options = {
+        host: host.hostname,
+        path: host.pathname+"/issues",
+        port: 443,
+        headers: {'User-Agent': 'Mozilla/5.0 Gecko/20100101 Firefox/84.0'}
+      };
+      https.get(options, function(response) {
+        var str = '';
+
+        //another chunk of data has been received, so append it to `str`
+        response.on('data', function (chunk) {
+          str += chunk;
+        });
+
+        //the whole response has been received, so we just print it out here
+        response.on('end', function () {
+          var w = str.substring(str.lastIndexOf('<div class="Box mt-3 Box--responsive hx_Box--firstRowRounded0">'), str.lastIndexOf('</div>'));
+          res.status(200).json({ok:true, content:w, msg:strings["general"]["empty_issues"][req.lang]});
+        });
+      });
     }
   });
 }

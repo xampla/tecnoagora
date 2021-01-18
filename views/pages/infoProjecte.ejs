@@ -231,7 +231,21 @@
             </div>
           </div>
           <div class="card-body">
-            <%- proj.descBig %>
+            <nav>
+              <div class="nav nav-tabs mb-3 justify-content-end" id="project-nav-tab" role="tablist">
+                <a class="nav-link active" id="info_tab" data-toggle="tab" href="#project_info_tab" role="tab" aria-controls="project_info_tab" aria-selected="true"><%= strings['general']['informacio'][lang] %></a>
+                <a class="nav-link" id="todo_tab" data-toggle="tab" href="#project_todo_tab" role="tab" aria-controls="project_todo_tab" aria-selected="false">TO-DO</a>
+              </div>
+            </nav>
+            <div class="tab-content" id="project-nav-tabContent">
+              <div class="tab-pane fade show active" id="project_info_tab" role="tabpanel" aria-labelledby="nav-home-tab"><%- proj.descBig %></div>
+              <div class="tab-pane fade" id="project_todo_tab" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div id="projectIssuesList" class="list-group">
+                  <p><%= strings['general']['llistat_issues'][lang] %></p>
+
+                </div>
+              </div>
+            </div>
           </div>
           <div class="card-footer">
             <div class="row">

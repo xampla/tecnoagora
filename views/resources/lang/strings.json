@@ -78,6 +78,8 @@
     "unirse_tecno":["Unir-se a TecnoAgora","Unirse a TecnoAgora","Join TecnoAgora"],
     "dades_actualitzades":["Dades actualitzades correctament!","Datos actualizados correctamente!","Data successfully updated!"],
     "lang":["CAT","ES","EN"],
+    "projecte_OS":["projecte Open Source","proyecto Open Source","Open Source project"],
+    "registrar":["Registra't!","¡Registrate!","¡Sign up!"],
     "resum_punts":["Descripció de la operació","Descripción de la operación","Operation description"],
     "login_correcte":["Benvingut de nou!","Bienvenido de nuevo!","Welcome again!"],
     "join_correcte":[
@@ -89,6 +91,12 @@
     "eliminar":["Eliminar","Eliminar","Delete"],
     "visitar_web":["Visitar web","Visitar web","Visit web"],
     "donar_premi":["Premiar","Premiar","Give award"],
+    "empty_issues":["Sembla que no hi ha res marcat per fer. Fa falta algo? Afegeix-lo al seu repositori!","Parece que no hay nada marcado para hacer. ¿Crees que hace falta algo? ¡Añádelo en su repositorio!","There is nothing marked to do. Do you think it is missing something? Add it to its repository!"],
+    "informacio":["Informació","Información","Information"],
+    "llistat_issues":[
+      "En aquest llistat trobarás les tasques per fer en aquest projecte: noves funcionalitats, correcció d'errors, modificacions... Fes clic a alguna per saber-ne més!",
+      "En esta lista encontrarás tareas para hacer en este proyecto: nuevas funcionalidades, corrección de errores, modificaciones... ¡Haz clic en alguna para saber más!",
+      "In this list you will find tasks to do in this project: new functionalities, error corrections, modifications... Click on of them to learn more!"],
     "buscador_tecno_agora":["Buscador de projectes tecnològics de caràcter social","Buscador de proyectos tecnológicos de carácter social","Search engine for technological projects of a social nature"],
     "tecno_descripcio":[
       "Comparteix, troba, opina, avalua i participa en aquells projectes que puguin tenir un impacte positiu en la nostra societat.",

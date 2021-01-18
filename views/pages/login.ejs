@@ -27,10 +27,15 @@
             <div id="alertLogInfo2"></div>
             <input type="email" id="inputEmailLog2" class="form-control" placeholder="Email address" name="email" maxlength="100" required autofocus>
             <input type="password" id="inputPassLog2" class="form-control" placeholder="Password" name="pass" maxlength="128" required>
-            <div class="checkbox mb-3">
-              <label>
-                <input id="inputRemLog2" type="checkbox" value="remember-me" name="remember"> <%= strings['menu']['recordam'][lang] %>
-              </label>
+            <div class="row mb-3 ">
+              <div class="checkbox col">
+                <label>
+                  <input id="inputRemLog2" type="checkbox" value="remember-me" name="remember"> <%= strings['menu']['recordam'][lang] %>
+                </label>
+              </div>
+              <div class="col text-right">
+                <a href="/unirse"><%= strings['general']['registrar'][lang] %></a>
+              </div>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit"><%= strings['general']['entra'][lang] %></button>
           </form>
