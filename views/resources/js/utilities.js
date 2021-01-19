@@ -162,22 +162,54 @@ $(document).ready(function() {
   });
 
   var projID = $('#saveForm').attr( "action" ).split("/")[2];
+  var tecno_label = false;
   var issuesGet = $.get("/getProjectIssues/"+projID);
   issuesGet.done(function( data ) {
     if(data['ok']){
-      var issues_html = $($.parseHTML(data['content']));
-      if($(issues_html).find('.js-issue-row').length == 0) {
-        $('#projectIssuesList').append(
-          '<button class="list-group-item list-group-item-action issue-btn" href="#">'+data["msg"]+'</button>');
+      var issues_html = $($.parseHTML(data['general']));
+      var issues_tecnoagora_html = $($.parseHTML(data['tecno_label']));
+
+      if ($(issues_html).find('.js-issue-row').length == 0) {
+        $('#projectIssuesGeneralList').append(
+          '<button class="list-group-item list-group-item-action general-issue" href="#">'+data["msg"]+'</button>');
+        $('#projectIssuesTecnoList').append(
+          '<button class="list-group-item list-group-item-action general-issue" href="#">'+data["msg"]+'</button>');
+        $('#generalissue').addClass('active');
+        $('#projectIssuesTecnoList').addClass("hidden-issue");
       }
       else {
+        if($(issues_tecnoagora_html).find('.js-issue-row').length != 0) {
+          tecno_label = true;
+          $('#generalissue').removeClass('active');
+          $('#tecnoissue').addClass('active');
+          $('.js-issue-row', issues_tecnoagora_html).each(function(item){
+            var issue_name = $(this, issues_tecnoagora_html).find(".js-navigation-open").text();
+            var issue_opened_by = $(this, issues_tecnoagora_html).find(".opened-by").text();
+            var issue_link = $(this, issues_tecnoagora_html).find(".js-navigation-open").attr('href');
+            $('#projectIssuesTecnoList').append(
+              '<button class="list-group-item list-group-item-action" href="#"><a class="text-decoration-none text-reset font-weight-bold" href="https://github.com'+issue_link+'">'+issue_name+'</a><br><small>'+issue_opened_by+'</small></button>');
+          });
+        }
+        else {
+          $('#projectIssuesTecnoList').append(
+            '<button class="list-group-item list-group-item-action general-issue" href="#">'+data["msg"]+'</button>');
+        }
         $('.js-issue-row', issues_html).each(function(item){
           var issue_name = $(this, issues_html).find(".js-navigation-open").text();
           var issue_opened_by = $(this, issues_html).find(".opened-by").text();
           var issue_link = $(this, issues_html).find(".js-navigation-open").attr('href');
-          $('#projectIssuesList').append(
-            '<button class="list-group-item list-group-item-action issue-btn" href="#"><a class="text-decoration-none text-reset font-weight-bold" href="https://github.com'+issue_link+'">'+issue_name+'</a><br><small>'+issue_opened_by+'</small></button>');
+          $('#projectIssuesGeneralList').append(
+            '<button class="list-group-item list-group-item-action" href="#"><a class="text-decoration-none text-reset font-weight-bold" href="https://github.com'+issue_link+'">'+issue_name+'</a><br><small>'+issue_opened_by+'</small></button>');
         });
+        if(tecno_label) {
+          $('#issuedropbut')[0].innerText = "TecnoAgora";
+          $('#projectIssuesGeneralList').addClass("hidden-issue");
+        }
+        else {
+          $('#tecnoissue').removeClass('active');
+          $('#generalissue').addClass('active');
+          $('#projectIssuesTecnoList').addClass("hidden-issue");
+        }
       }
     }
     else {
@@ -185,5 +217,25 @@ $(document).ready(function() {
         '<li class="list-group-item">'+data['msg']+'</li>');
     }
   });
+  $('#issueDropdown').on('click','#tecnoissue',function(){
+    if($('#generalissue').hasClass('active')) {
+      $('#projectIssuesGeneralList').addClass('hidden-issue');
+      $('#projectIssuesTecnoList').removeClass('hidden-issue');
+      $('#generalissue').removeClass('active');
+      $('#tecnoissue').addClass('active');
+      $('#issuedropbut')[0].innerText = "TecnoAgora";
+    }
+  });
+
+  $('#issueDropdown').on('click','#generalissue',function(){
+    if($('#tecnoissue').hasClass('active')) {
+      $('#projectIssuesTecnoList').addClass('hidden-issue');
+      $('#projectIssuesGeneralList').removeClass('hidden-issue');
+      $('#tecnoissue').removeClass('active');
+      $('#generalissue').addClass('active');
+      $('#issuedropbut')[0].innerText = $('#generalissue')[0].innerText;
+    }
+  });
+
 
 });

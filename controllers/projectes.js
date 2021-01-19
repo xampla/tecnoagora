@@ -328,7 +328,8 @@ exports.deleteProject = function(req, res) {
 
 
 exports.trendingProjects = function(req, res) {
-  Projectes.find({numRates: {$gt: 0}}).limit(5).exec(function(err, projects) {
+  
+  Projectes.aggregate([{$match:{numRates:{$gt: 0}}},{$sample:{size:5}}]).limit(5).exec(function(err, projects) {
     if(err) res.status(200).json({ok: false});
     res.status(200).json({ok: true, trending:projects});
   });
@@ -551,6 +552,8 @@ exports.getProjectIssues = function(req,res) {
     if(!proj) {return res.json({ok:false,msg:strings["general"]["empty_issues"][req.lang]});}
     else {
       var host = new URL(he.decode(proj.link));
+      var general = "";
+      var tecno_label = "";
       if(host.host!="github.com") return res.json({ok:false,msg:strings["general"]["empty_issues"][req.lang]});
       var options = {
         host: host.hostname,
@@ -568,8 +571,30 @@ exports.getProjectIssues = function(req,res) {
 
         //the whole response has been received, so we just print it out here
         response.on('end', function () {
-          var w = str.substring(str.lastIndexOf('<div class="Box mt-3 Box--responsive hx_Box--firstRowRounded0">'), str.lastIndexOf('</div>'));
-          res.status(200).json({ok:true, content:w, msg:strings["general"]["empty_issues"][req.lang]});
+          general = str.substring(str.lastIndexOf('<div class="Box mt-3 Box--responsive hx_Box--firstRowRounded0">'), str.lastIndexOf('</div>'));
+
+          options = {
+            host: host.hostname,
+            path: host.pathname+"/labels/tecnoagora",
+            port: 443,
+            headers: {'User-Agent': 'Mozilla/5.0 Gecko/20100101 Firefox/84.0'}
+          };
+
+          https.get(options, function(response) {
+            var str_2 = '';
+
+            //another chunk of data has been received, so append it to `str`
+            response.on('data', function (chunk) {
+              str_2 += chunk;
+            });
+
+            //the whole response has been received, so we just print it out here
+            response.on('end', function () {
+              tecno_label = str_2.substring(str.lastIndexOf('<div class="Box mt-3 Box--responsive hx_Box--firstRowRounded0">'), str_2.lastIndexOf('</div>'));
+              general = str.substring(str.lastIndexOf('<div class="Box mt-3 Box--responsive hx_Box--firstRowRounded0">'), str.lastIndexOf('</div>'));
+              res.status(200).json({ok:true, general:general,tecno_label:tecno_label, msg:strings["general"]["empty_issues"][req.lang]});
+            });
+          });
         });
       });
     }

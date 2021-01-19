@@ -240,9 +240,21 @@
             <div class="tab-content" id="project-nav-tabContent">
               <div class="tab-pane fade show active" id="project_info_tab" role="tabpanel" aria-labelledby="nav-home-tab"><%- proj.descBig %></div>
               <div class="tab-pane fade" id="project_todo_tab" role="tabpanel" aria-labelledby="nav-profile-tab">
-                <div id="projectIssuesList" class="list-group">
-                  <p><%= strings['general']['llistat_issues'][lang] %></p>
+                <div class="list-group">
+                  <p><%- strings['general']['llistat_issues'][lang] %></p>
 
+                  <div id="projectIssuesList" class="dropdown text-right mb-2">
+                    <%- strings['general']['tasques'][lang] %>:
+                    <button id="issuedropbut" class="btn btn-primary dropdown-toggle btn-sm py-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <%- strings['general']['totes'][lang] %>
+                    </button>
+                    <div id="issueDropdown" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                      <a id="generalissue" class="dropdown-item" href="#"><%- strings['general']['totes'][lang] %></a>
+                      <a id="tecnoissue" class="dropdown-item" href="#">TecnoAgora</a>
+                    </div>
+                  </div>
+                  <div id="projectIssuesGeneralList"></div>
+                  <div id="projectIssuesTecnoList"></div>
                 </div>
               </div>
             </div>
