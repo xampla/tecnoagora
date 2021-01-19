@@ -213,8 +213,12 @@ $(document).ready(function() {
       }
     }
     else {
-      $('#projectIssuesList').append(
-        '<li class="list-group-item">'+data['msg']+'</li>');
+      $('#projectIssuesGeneralList').append(
+        '<button class="list-group-item list-group-item-action general-issue" href="#">'+data["msg"]+'</button>');
+      $('#projectIssuesTecnoList').append(
+        '<button class="list-group-item list-group-item-action general-issue" href="#">'+data["msg"]+'</button>');
+      $('#generalissue').addClass('active');
+      $('#projectIssuesTecnoList').addClass("hidden-issue");
     }
   });
   $('#issueDropdown').on('click','#tecnoissue',function(){
