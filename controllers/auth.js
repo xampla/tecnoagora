@@ -179,8 +179,8 @@ exports.emailLogin = async function(req, res) {
           await limiterConsecutiveFailsByUsernameAndIP.delete(usernameIPkey);
         }
 
-        if(rem) res.cookie('Token', service.createToken(user), { maxAge:999999999, secure:true, httpOnly:true, domain:'127.0.0.1', path:'/', sameSite: 'lax'});
-        else res.cookie('Token', service.createToken(user), { secure:true, httpOnly:true, domain:'127.0.0.1', path:'/', sameSite: 'lax'});
+        if(rem) res.cookie('Token', service.createToken(user), { maxAge:999999999, secure:true, httpOnly:true, domain:'tecnoagora.com', path:'/', sameSite: 'lax'});
+        else res.cookie('Token', service.createToken(user), { secure:true, httpOnly:true, domain:'tecnoagora.com', path:'/', sameSite: 'lax'});
         return res.status(200).json({ok: true, msg:strings["general"]["login_correcte"][req.lang]});
       }
     });
