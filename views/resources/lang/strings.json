@@ -32,7 +32,7 @@
     "descripcio_curta":["Descripció curta","Descripción corta","Brief description"],
     "descripcio_llarga":["Descripció gran","Descripción grande","Long drescription"],
     "enllaç_web":["Enllaç a la pàgina web (Opcional)","Enlace a la página web (Opcional)","Webpage's link (Optional)"],
-    "tags":["Introdueix etiquetes separades per coma (mínim 5 - màxim 12)","Introduce etiquetas separadas por coma (mínimo 5 - máximo 12)","Enter comma-separated tags (min 5 - max 12)"],
+    "tags":["Introdueix etiquetes separades per coma (mínim 1 - màxim 12)","Introduce etiquetas separadas por coma (mínimo 1 - máximo 12)","Enter comma-separated tags (min 1 - max 12)"],
     "afegir_proj":["Afegir!","Añadir!","Add!"],
     "previsualitza":["Pre-visuatitza!","Previsualiza!","Preview!"],
     "previsualitzacio":["Previsualització","Previsualización","Preview"],

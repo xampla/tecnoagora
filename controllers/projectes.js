@@ -105,7 +105,7 @@ exports.addProject = function(req, res) {
       return res.status(200).json({ok: false, msg:strings["errors"]["error_format_afegir_projecte"][req.lang]});
     }
 
-    if(tags.length<5) return res.status(200).json({ok: false, msg:strings["errors"]["error_tags_insuficients"][req.lang]});
+    if(tags.length<1) return res.status(200).json({ok: false, msg:strings["errors"]["error_tags_insuficients"][req.lang]});
     if(tags.length >12) return res.status(200).json({ok: false, msg:strings["errors"]["error_tags_excedits"][req.lang]});
 
     var projecte = new Projectes({
@@ -328,7 +328,7 @@ exports.deleteProject = function(req, res) {
 
 
 exports.trendingProjects = function(req, res) {
-  
+
   Projectes.aggregate([{$match:{numRates:{$gt: 0}}},{$sample:{size:5}}]).limit(5).exec(function(err, projects) {
     if(err) res.status(200).json({ok: false});
     res.status(200).json({ok: true, trending:projects});
