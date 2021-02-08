@@ -592,7 +592,8 @@ exports.getProjectIssues = function(req,res) {
             response.on('end', function () {
               tecno_label = str_2.substring(str.lastIndexOf('<div class="Box mt-3 Box--responsive hx_Box--firstRowRounded0">'), str_2.lastIndexOf('</div>'));
               general = str.substring(str.lastIndexOf('<div class="Box mt-3 Box--responsive hx_Box--firstRowRounded0">'), str.lastIndexOf('</div>'));
-              if(tecno_label.includes('.js-issue-row')) {
+              if(general.includes('js-issue-row')) {
+                console.log("holi")
                 if(proj.label) return res.status(200).json({ok:true, general:general,tecno_label:tecno_label, msg:strings["general"]["empty_issues"][req.lang]});
                 else {
                   Projectes.updateOne({_id:id},{$set:{label:true}}, function(err_update, proj_update) {
