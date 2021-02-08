@@ -595,7 +595,7 @@ exports.getProjectIssues = function(req,res) {
               if(tecno_label.includes('.js-issue-row')) {
                 if(proj.label) return res.status(200).json({ok:true, general:general,tecno_label:tecno_label, msg:strings["general"]["empty_issues"][req.lang]});
                 else {
-                  Projectes.updateOne({_id:id},{$set:{label:1}}, function(err_update, proj_update) {
+                  Projectes.updateOne({_id:id},{$set:{label:true}}, function(err_update, proj_update) {
                     res.status(200).json({ok:true, general:general,tecno_label:tecno_label, msg:strings["general"]["empty_issues"][req.lang]});
                   })
                 }
