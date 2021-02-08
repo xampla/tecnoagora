@@ -14,7 +14,8 @@ var projectSchema = new Schema({
   awards:     [String],
   tags:       [String],
   date:       { type: Date },
-  lastUpdate: { type: Date }
+  lastUpdate: { type: Date },
+  label:      { type: Boolean }
 });
 
 module.exports = mongoose.model('Project', projectSchema);

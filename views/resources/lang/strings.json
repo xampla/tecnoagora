@@ -107,7 +107,8 @@
       "accepting_termsandconds":[
         "<strong>Nota: </strong>al unir-te estàs acceptant els <a href=\"/termsAndConditions\">Termes i Condicions<a>.",
         "<strong>Nota: </strong>al unirse estás aceptando los <a href=\"/termsAndConditions\">Términos y Condiciones<a>.",
-        "<strong>Note: </strong>by joining you are accepting the <a href=\"/termsAndConditions\">Terms and Conditions<a>."]
+        "<strong>Note: </strong>by joining you are accepting the <a href=\"/termsAndConditions\">Terms and Conditions<a>."],
+    "project_tecno_label":["Utilitza l'etiqueta TecnoAgora al repositori","Utiliza la etiqueta TecnoAgora en su repositorio","It uses the TecnoAgora label in its repository"]
   },
   "explora":{
     "no_iniciat_sessio":["No has iniciat sessió!","¡No has iniciado sesión!","You are not logged in!"],
