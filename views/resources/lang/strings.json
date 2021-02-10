@@ -128,7 +128,9 @@
     "dona_premi":["Dóna un premi a aquest projecte","Da un premio a este proyecto ","Give an award to this project"],
     "support":["Donar suport","Dar soporte","Support the project"],
     "donation_desc":["Dóna suport a TecnoAgora a través d'una aportació.","Da soporte a TecnoAgora a través de una aportación.","Give support to TecnoAgora through a contribution."],
-    "any_amount":["Tu decideixes","Tú decides","It's up to you"]
+    "any_amount":["Tu decideixes","Tú decides","It's up to you"],
+    "sticker_title":["Adhesiu TecnoAgora","Pegatina TecnoAgora","TecnoAgora sticker"],
+    "sticker_desc":["Compra l'adhesiu d'alta qualitat del logo de TecnoAgora (76mm x 56mm).","Compra la pegatina de alta calidad del logo te TecnoAgora (76mm x 56mm).","Buy the high quality sticker of the TecnoAgora logo (76mm x 56mm)."]
   },
   "footer":{
     "footer_descripcio":[
