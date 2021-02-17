@@ -1,4 +1,5 @@
 # <img src="views/resources/imgs/tecnoAgora_flat.png" width="50%">
+![GitHub](https://img.shields.io/github/license/xampla/tecnoagora)  ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/xampla/tecnoagora/CodeQL)
 ## What is TecnoAgora and what is its purpose?
 Today the internet is flooded with a large number of projects of all kinds that are shared in the form of repositories on platforms like Github. Due to this large amount, many projects fall into oblivion. TecnoAgora aims to create a space where repositories can be shared in order to make them known and to encourage the collaboration of interested users.
 
