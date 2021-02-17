@@ -554,60 +554,118 @@ exports.getProjectIssues = function(req,res) {
       var host = new URL(he.decode(proj.link));
       var general = "";
       var tecno_label = "";
-      if(host.host!="github.com") return res.json({ok:false,msg:strings["general"]["empty_issues"][req.lang]});
-      var options = {
-        host: host.hostname,
-        path: host.pathname+"/issues",
-        port: 443,
-        headers: {'User-Agent': 'Mozilla/5.0 Gecko/20100101 Firefox/84.0'}
-      };
-      https.get(options, function(response) {
-        var str = '';
+      if(host.host=="github.com") {
+        var options = {
+          host: host.hostname,
+          path: host.pathname+"/issues",
+          port: 443,
+          headers: {'User-Agent': 'Mozilla/5.0 Gecko/20100101 Firefox/84.0'}
+        };
+        https.get(options, function(response) {
+          var str = '';
 
-        //another chunk of data has been received, so append it to `str`
-        response.on('data', function (chunk) {
-          str += chunk;
-        });
+          //another chunk of data has been received, so append it to `str`
+          response.on('data', function (chunk) {
+            str += chunk;
+          });
 
-        //the whole response has been received, so we just print it out here
-        response.on('end', function () {
-          general = str.substring(str.lastIndexOf('<div class="Box mt-3 Box--responsive hx_Box--firstRowRounded0">'), str.lastIndexOf('</div>'));
+          //the whole response has been received, so we just print it out here
+          response.on('end', function () {
+            general = str.substring(str.lastIndexOf('<div class="Box mt-3 Box--responsive hx_Box--firstRowRounded0">'), str.lastIndexOf('</div>'));
 
-          options = {
-            host: host.hostname,
-            path: host.pathname+"/labels/tecnoagora",
-            port: 443,
-            headers: {'User-Agent': 'Mozilla/5.0 Gecko/20100101 Firefox/84.0'}
-          };
+            options = {
+              host: host.hostname,
+              path: host.pathname+"/issues?q=+label:TecnoAgora+",
+              port: 443,
+              headers: {'User-Agent': 'Mozilla/5.0 Gecko/20100101 Firefox/84.0'}
+            };
 
-          https.get(options, function(response) {
-            var str_2 = '';
+            https.get(options, function(response) {
+              var str_2 = '';
 
-            //another chunk of data has been received, so append it to `str`
-            response.on('data', function (chunk) {
-              str_2 += chunk;
-            });
+              //another chunk of data has been received, so append it to `str`
+              response.on('data', function (chunk) {
+                str_2 += chunk;
+              });
 
-            //the whole response has been received, so we just print it out here
-            response.on('end', function () {
-              tecno_label = str_2.substring(str.lastIndexOf('<div class="Box mt-3 Box--responsive hx_Box--firstRowRounded0">'), str_2.lastIndexOf('</div>'));
-              general = str.substring(str.lastIndexOf('<div class="Box mt-3 Box--responsive hx_Box--firstRowRounded0">'), str.lastIndexOf('</div>'));
-              if(general.includes('js-issue-row')) {
-                console.log("holi")
-                if(proj.label) return res.status(200).json({ok:true, general:general,tecno_label:tecno_label, msg:strings["general"]["empty_issues"][req.lang]});
-                else {
-                  Projectes.updateOne({_id:id},{$set:{label:true}}, function(err_update, proj_update) {
-                    res.status(200).json({ok:true, general:general,tecno_label:tecno_label, msg:strings["general"]["empty_issues"][req.lang]});
-                  })
+              //the whole response has been received, so we just print it out here
+              response.on('end', function () {
+                tecno_label = str_2.substring(str_2.lastIndexOf('<div class="Box mt-3 Box--responsive hx_Box--firstRowRounded0">'), str_2.lastIndexOf('</div>'));
+                general = str.substring(str.lastIndexOf('<div class="Box mt-3 Box--responsive hx_Box--firstRowRounded0">'), str.lastIndexOf('</div>'));
+                if(tecno_label.includes('js-issue-row')) {
+                  if(proj.label) return res.status(200).json({ok:true, general:general,tecno_label:tecno_label, msg:strings["general"]["empty_issues"][req.lang],type:"github"});
+                  else {
+                    Projectes.updateOne({_id:id},{$set:{label:true}}, function(err_update, proj_update) {
+                      res.status(200).json({ok:true, general:general,tecno_label:tecno_label, msg:strings["general"]["empty_issues"][req.lang],type:"github"});
+                    })
+                  }
                 }
-              }
-              else {
-                res.status(200).json({ok:true, general:general,tecno_label:tecno_label, msg:strings["general"]["empty_issues"][req.lang]});
-              }
+                else {
+                  res.status(200).json({ok:true, general:general,tecno_label:tecno_label, msg:strings["general"]["empty_issues"][req.lang],type:"github"});
+                }
+              });
             });
           });
         });
-      });
+      }
+      else if(host.host=="gitlab.com") {
+        var options = {
+          host: host.hostname,
+          path: host.pathname+"/-/issues",
+          port: 443,
+          headers: {'User-Agent': 'Mozilla/5.0 Gecko/20100101 Firefox/84.0'}
+        };
+        https.get(options, function(response) {
+          var str = '';
+
+          //another chunk of data has been received, so append it to `str`
+          response.on('data', function (chunk) {
+            str += chunk;
+          });
+
+          //the whole response has been received, so we just print it out here
+          response.on('end', function () {
+            general = str.substring(str.lastIndexOf('<div class="Box mt-3 Box--responsive hx_Box--firstRowRounded0">'), str.lastIndexOf('</div>'));
+
+            options = {
+              host: host.hostname,
+              path: host.pathname+"/-/issues?scope=all&state=all&label_name[]=TecnoAgora",
+              port: 443,
+              headers: {'User-Agent': 'Mozilla/5.0 Gecko/20100101 Firefox/84.0'}
+            };
+
+            https.get(options, function(response) {
+              var str_2 = '';
+
+              //another chunk of data has been received, so append it to `str`
+              response.on('data', function (chunk) {
+                str_2 += chunk;
+              });
+
+              //the whole response has been received, so we just print it out here
+              response.on('end', function () {
+                tecno_label = str_2.substring(str_2.lastIndexOf('<ul class="content-list issues-list issuable-list">'), str_2.lastIndexOf('</ul>'));
+                general = str.substring(str.lastIndexOf('<ul class="content-list issues-list issuable-list">'), str.lastIndexOf('</ul>'));
+                console.log(tecno_label)
+                if(!tecno_label.includes('Sorry, your filter produced no results')) {
+                  if(proj.label) return res.status(200).json({ok:true, general:general,tecno_label:tecno_label, msg:strings["general"]["empty_issues"][req.lang],type:"gitlab"});
+                  else {
+                    Projectes.updateOne({_id:id},{$set:{label:true}}, function(err_update, proj_update) {
+                      res.status(200).json({ok:true, general:general,tecno_label:tecno_label, msg:strings["general"]["empty_issues"][req.lang],type:"gitlab"});
+                    })
+                  }
+                }
+                else {
+                  res.status(200).json({ok:true, general:general,tecno_label:tecno_label, msg:strings["general"]["empty_issues"][req.lang],type:"gitlab"});
+                }
+              });
+            });
+          });
+        });
+      }
+      else {
+        return res.json({ok:false,msg:strings["general"]["empty_issues"][req.lang]});
+      }
     }
   });
 }

@@ -166,49 +166,98 @@ $(document).ready(function() {
   var issuesGet = $.get("/getProjectIssues/"+projID);
   issuesGet.done(function( data ) {
     if(data['ok']){
+
       var issues_html = $($.parseHTML(data['general']));
       var issues_tecnoagora_html = $($.parseHTML(data['tecno_label']));
-
-      if ($(issues_html).find('.js-issue-row').length == 0) {
-        $('#projectIssuesGeneralList').append(
-          '<button class="list-group-item list-group-item-action general-issue" href="#">'+data["msg"]+'</button>');
-        $('#projectIssuesTecnoList').append(
-          '<button class="list-group-item list-group-item-action general-issue" href="#">'+data["msg"]+'</button>');
-        $('#generalissue').addClass('active');
-        $('#projectIssuesTecnoList').addClass("hidden-issue");
-      }
-      else {
-        if($(issues_tecnoagora_html).find('.js-issue-row').length != 0) {
-          tecno_label = true;
-          $('#generalissue').removeClass('active');
-          $('#tecnoissue').addClass('active');
-          $('.js-issue-row', issues_tecnoagora_html).each(function(item){
-            var issue_name = $(this, issues_tecnoagora_html).find(".js-navigation-open").text();
-            var issue_opened_by = $(this, issues_tecnoagora_html).find(".opened-by").text();
-            var issue_link = $(this, issues_tecnoagora_html).find(".js-navigation-open").attr('href');
-            $('#projectIssuesTecnoList').append(
-              '<button class="list-group-item list-group-item-action" href="#"><a class="text-decoration-none text-reset font-weight-bold" href="https://github.com'+issue_link+'">'+issue_name+'</a><br><small>'+issue_opened_by+'</small></button>');
-          });
-        }
-        else {
+      if(data['type']=="github") {
+        if ($(issues_html).find('.js-issue-row').length == 0) {
+          $('#projectIssuesGeneralList').append(
+            '<button class="list-group-item list-group-item-action general-issue" href="#">'+data["msg"]+'</button>');
           $('#projectIssuesTecnoList').append(
             '<button class="list-group-item list-group-item-action general-issue" href="#">'+data["msg"]+'</button>');
-        }
-        $('.js-issue-row', issues_html).each(function(item){
-          var issue_name = $(this, issues_html).find(".js-navigation-open").text();
-          var issue_opened_by = $(this, issues_html).find(".opened-by").text();
-          var issue_link = $(this, issues_html).find(".js-navigation-open").attr('href');
-          $('#projectIssuesGeneralList').append(
-            '<button class="list-group-item list-group-item-action" href="#"><a class="text-decoration-none text-reset font-weight-bold" href="https://github.com'+issue_link+'">'+issue_name+'</a><br><small>'+issue_opened_by+'</small></button>');
-        });
-        if(tecno_label) {
-          $('#issuedropbut')[0].innerText = "TecnoAgora";
-          $('#projectIssuesGeneralList').addClass("hidden-issue");
-        }
-        else {
-          $('#tecnoissue').removeClass('active');
           $('#generalissue').addClass('active');
           $('#projectIssuesTecnoList').addClass("hidden-issue");
+        }
+        else {
+          if($(issues_tecnoagora_html).find('.js-issue-row').length != 0) {
+            tecno_label = true;
+            $('#generalissue').removeClass('active');
+            $('#tecnoissue').addClass('active');
+            $('.js-issue-row', issues_tecnoagora_html).each(function(item){
+              var issue_name = $(this, issues_tecnoagora_html).find(".js-navigation-open").text();
+              var issue_opened_by = $(this, issues_tecnoagora_html).find(".opened-by").text();
+              var issue_link = $(this, issues_tecnoagora_html).find(".js-navigation-open").attr('href');
+              $('#projectIssuesTecnoList').append(
+                '<button class="list-group-item list-group-item-action" href="#"><a class="text-decoration-none text-reset font-weight-bold" href="https://github.com'+issue_link+'">'+issue_name+'</a><br><small>'+issue_opened_by+'</small></button>');
+            });
+          }
+          else {
+            $('#projectIssuesTecnoList').append(
+              '<button class="list-group-item list-group-item-action general-issue" href="#">'+data["msg"]+'</button>');
+          }
+          $('.js-issue-row', issues_html).each(function(item){
+            var issue_name = $(this, issues_html).find(".js-navigation-open").text();
+            var issue_opened_by = $(this, issues_html).find(".opened-by").text();
+            var issue_link = $(this, issues_html).find(".js-navigation-open").attr('href');
+            $('#projectIssuesGeneralList').append(
+              '<button class="list-group-item list-group-item-action" href="#"><a class="text-decoration-none text-reset font-weight-bold" href="https://github.com'+issue_link+'">'+issue_name+'</a><br><small>'+issue_opened_by+'</small></button>');
+          });
+          if(tecno_label) {
+            $('#issuedropbut')[0].innerText = "TecnoAgora";
+            $('#projectIssuesGeneralList').addClass("hidden-issue");
+          }
+          else {
+            $('#tecnoissue').removeClass('active');
+            $('#generalissue').addClass('active');
+            $('#projectIssuesTecnoList').addClass("hidden-issue");
+          }
+        }
+      }
+      else {
+        if ($(issues_html).find('.issue').length == 0) {
+          $('#projectIssuesGeneralList').append(
+            '<button class="list-group-item list-group-item-action general-issue" href="#">'+data["msg"]+'</button>');
+          $('#projectIssuesTecnoList').append(
+            '<button class="list-group-item list-group-item-action general-issue" href="#">'+data["msg"]+'</button>');
+          $('#generalissue').addClass('active');
+          $('#projectIssuesTecnoList').addClass("hidden-issue");
+        }
+        else {
+          if($(issues_tecnoagora_html).find('.issue').length != 0) {
+            tecno_label = true;
+            $('#generalissue').removeClass('active');
+            $('#tecnoissue').addClass('active');
+            $('.issue', issues_tecnoagora_html).each(function(item){
+
+              var issue_name = $(this, issues_tecnoagora_html).find(".issue-title-text").text();
+              var issue_num_ref = $(this, issues_tecnoagora_html).find(".issuable-reference").text();
+              var issue_info = $(this, issues_tecnoagora_html).find(".issuable-authored").text();
+              var issue_link = $(this, issues_tecnoagora_html).attr('url');
+              $('#projectIssuesTecnoList').append(
+                '<button class="list-group-item list-group-item-action" href="#"><a class="text-decoration-none text-reset font-weight-bold" href="https://gitlab.com'+issue_link+'">'+issue_name+'</a><br><small>'+issue_num_ref+issue_info+'</small></button>');
+            });
+          }
+          else {
+            $('#projectIssuesTecnoList').append(
+              '<button class="list-group-item list-group-item-action general-issue" href="#">'+data["msg"]+'</button>');
+          }
+          $('.issue', issues_html).each(function(item){
+            var issue_name = $(this, issues_html).find(".issue-title-text").text();
+            var issue_num_ref = $(this, issues_tecnoagora_html).find(".issuable-reference").text();
+            var issue_info = $(this, issues_tecnoagora_html).find(".issuable-authored").text();
+            var issue_link = $(this, issues_html).attr('url');
+            $('#projectIssuesGeneralList').append(
+              '<button class="list-group-item list-group-item-action" href="#"><a class="text-decoration-none text-reset font-weight-bold" href="https://gitlab.com'+issue_link+'">'+issue_name+'</a><br><small>'+issue_num_ref+issue_info+'</small></button>');
+          });
+          if(tecno_label) {
+            $('#issuedropbut')[0].innerText = "TecnoAgora";
+            $('#projectIssuesGeneralList').addClass("hidden-issue");
+          }
+          else {
+            $('#tecnoissue').removeClass('active');
+            $('#generalissue').addClass('active');
+            $('#projectIssuesTecnoList').addClass("hidden-issue");
+          }
         }
       }
     }
