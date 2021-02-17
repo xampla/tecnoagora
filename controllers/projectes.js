@@ -646,8 +646,8 @@ exports.getProjectIssues = function(req,res) {
               response.on('end', function () {
                 tecno_label = str_2.substring(str_2.lastIndexOf('<ul class="content-list issues-list issuable-list">'), str_2.lastIndexOf('</ul>'));
                 general = str.substring(str.lastIndexOf('<ul class="content-list issues-list issuable-list">'), str.lastIndexOf('</ul>'));
-                console.log(tecno_label)
-                if(!tecno_label.includes('Sorry, your filter produced no results')) {
+                if(!tecno_label.includes('Sorry, your filter produced no results')) res.status(200).json({ok:true, general:general,tecno_label:tecno_label, msg:strings["general"]["empty_issues"][req.lang],type:"gitlab"});
+                else if(tecno_label.includes('issues')) {
                   if(proj.label) return res.status(200).json({ok:true, general:general,tecno_label:tecno_label, msg:strings["general"]["empty_issues"][req.lang],type:"gitlab"});
                   else {
                     Projectes.updateOne({_id:id},{$set:{label:true}}, function(err_update, proj_update) {
